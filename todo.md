@@ -1,7 +1,7 @@
 # TODO
 - [] add call to action button on hero section. For now just Contact US 
 - [] add book me site to contact page
-- [] point fjeldmann.dk and www.fjeldmann.com to this site with auto language detection
+- [] point www.fjeldmann.com to english site
 - [] add images and names of ahmad and oliver
 - [] replace logo with new high res version
 
@@ -9,9 +9,8 @@
 
 
 # Done
-# TODO
+- [x] point fjeldmann.dk to page 
 - [x] remove non functional contact form 
-- [] point fjeldmann.dk and www.fjeldmann.com to this site with auto language detection
 - [] add images and names of ahmad and oliver
 - [] replace logo with new high res version 
 - [x] deduplicate danish about us content
