@@ -48,11 +48,10 @@ body {
     font-weight: 700;
 }
 
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+.logo-image {
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
 }
 
 .nav-menu {
@@ -258,6 +257,10 @@ body {
     .nav-container {
         padding: 1rem;
     }
+
+    .logo-image {
+        height: 35px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -267,6 +270,10 @@ body {
 
     .hero-content p {
         font-size: 1rem;
+    }
+
+    .logo-image {
+        height: 30px;
     }
 }
 
