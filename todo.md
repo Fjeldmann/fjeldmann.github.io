@@ -4,6 +4,7 @@
 - [] correct email to contact@fjeldmann.dk
 - [] add images and names of ahmad and oliver
 - [] point fjeldmann.dk and www.fjeldmann.com to this site with auto language detection
+- [] delete placeholder slide images
 
 # In progress
 
