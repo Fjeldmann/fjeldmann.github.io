@@ -36,7 +36,7 @@ body {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0.6rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,9 +58,9 @@ body {
 }
 
 .logo-image {
-    height: 40px;
+    height: 50px;
     width: auto;
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+    // filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
     transition: opacity 0.3s ease;
 }
 
@@ -303,7 +303,7 @@ body {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .nav-container {
-        padding: 1rem;
+        padding: 0.6rem 1rem;
     }
     
     .nav-menu {
@@ -355,11 +355,11 @@ body {
     }
 
     .nav-container {
-        padding: 1rem;
+        padding: 0.6rem 1rem;
     }
 
     .logo-image {
-        height: 35px;
+        height: 40px;
     }
 }
 
@@ -373,7 +373,7 @@ body {
     }
 
     .logo-image {
-        height: 30px;
+        height: 35px;
     }
 }
 
