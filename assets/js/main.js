@@ -99,38 +99,35 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Add scroll effect to navigation
-window.addEventListener('scroll', function() {
+// Add scroll effect to navigation and handle inner pages vs home page
+document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
+    const heroSection = document.querySelector('.hero-section');
+    const body = document.body;
+    
+    // Check if we're on an inner page (not homepage)
+    if (!heroSection) {
+        body.classList.add('inner-page');
         navbar.style.background = 'rgba(255, 255, 255, 0.95)';
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        
-        // Change text color for better contrast on light background
-        const navElements = navbar.querySelectorAll('.logo-text, .nav-link');
-        navElements.forEach(el => {
-            el.style.color = '#333';
-            el.style.textShadow = 'none';
-        });
-        
-        const bars = navbar.querySelectorAll('.bar');
-        bars.forEach(bar => {
-            bar.style.background = '#333';
-        });
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.1)';
-        navbar.style.boxShadow = 'none';
-        
-        // Reset to white text for transparent background
-        const navElements = navbar.querySelectorAll('.logo-text, .nav-link');
-        navElements.forEach(el => {
-            el.style.color = 'white';
-            el.style.textShadow = '0 1px 3px rgba(0, 0, 0, 0.3)';
-        });
-        
-        const bars = navbar.querySelectorAll('.bar');
-        bars.forEach(bar => {
-            bar.style.background = 'white';
-        });
     }
+    
+    // Handle scroll events
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            // Only remove scrolled class if not on inner page
+            if (heroSection) {
+                navbar.classList.remove('scrolled');
+                navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+                navbar.style.boxShadow = 'none';
+            }
+        }
+    });
+    
+    // Trigger scroll event once to set initial state
+    window.dispatchEvent(new Event('scroll'));
 });
