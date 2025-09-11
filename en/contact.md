@@ -22,7 +22,7 @@ lang: en
                 <div class="contact-details">
                     <div class="contact-item">
                         <h4>Email</h4>
-                        <p>info@fjeldmann.dk</p>
+                        <p>contact@fjeldmann.dk</p>
                     </div>
                     
                     <div class="contact-item">
