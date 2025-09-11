@@ -3,6 +3,9 @@ source "https://rubygems.org"
 # GitHub Pages gem for compatibility
 gem "github-pages", group: :jekyll_plugins
 
+# Add faraday-retry gem
+gem "faraday-retry"
+
 # Jekyll plugins are handled by github-pages gem
 # group :jekyll_plugins do
 #   gem "jekyll-feed", "~> 0.12"

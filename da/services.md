@@ -29,11 +29,6 @@ lang: da
                 <h3>Software Rådgivning</h3>
                 <p>Ekspert rådgivning om teknologi valg, arkitektur beslutninger og projekt planlægning.</p>
             </div>
-            
-            <div class="service">
-                <h3>Vedligeholdelse & Support</h3>
-                <p>Løbende support og vedligeholdelse for at holde din software kørende problemfrit.</p>
-            </div>
         </div>
     </div>
 </div>

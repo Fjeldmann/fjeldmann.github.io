@@ -29,11 +29,6 @@ lang: en
                 <h3>Software Consulting</h3>
                 <p>Expert advice on technology choices, architecture decisions, and project planning.</p>
             </div>
-            
-            <div class="service">
-                <h3>Maintenance & Support</h3>
-                <p>Ongoing support and maintenance to keep your software running smoothly.</p>
-            </div>
         </div>
     </div>
 </div>

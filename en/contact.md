@@ -32,31 +32,10 @@ lang: en
                 </div>
             </div>
             
-            <div class="contact-form">
-                <h3>Send us a message</h3>
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">Send Message</button>
-                </form>
+            <div class="contact-message">
+                <h3>Get started with our AI and data-driven solutions</h3>
+                <p>Book a meeting, call us, or write an email to learn more.</p>
+                <p>We'd be happy to give you a demonstration and tell you more about our products and services.</p>
             </div>
         </div>
     </div>
@@ -88,57 +67,20 @@ lang: en
     margin-bottom: 0.5rem;
 }
 
-.contact-form {
+.contact-message {
     background: #f8f9fa;
     padding: 2rem;
     border-radius: 10px;
 }
 
-.contact-form h3 {
+.contact-message h3 {
     color: #333;
     margin-bottom: 1.5rem;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-.btn-submit {
-    background: #667eea;
-    color: white;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn-submit:hover {
-    background: #5a6fd8;
+.contact-message p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 @media screen and (max-width: 768px) {

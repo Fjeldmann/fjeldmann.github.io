@@ -32,31 +32,10 @@ lang: da
                 </div>
             </div>
             
-            <div class="contact-form">
-                <h3>Send os en besked</h3>
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Navn</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Emne</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Besked</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">Send Besked</button>
-                </form>
+            <div class="contact-message">
+                <h3>Kom i gang med vores AI og datadrevet løsninger</h3>
+                <p>Book et møde, ring eller skriv en email for at høre mere.</p>
+                <p>Vi giver meget gerne en demonstration og fortæller mere om vores produkter og services.</p>
             </div>
         </div>
     </div>
@@ -88,57 +67,20 @@ lang: da
     margin-bottom: 0.5rem;
 }
 
-.contact-form {
+.contact-message {
     background: #f8f9fa;
     padding: 2rem;
     border-radius: 10px;
 }
 
-.contact-form h3 {
+.contact-message h3 {
     color: #333;
     margin-bottom: 1.5rem;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-.btn-submit {
-    background: #667eea;
-    color: white;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn-submit:hover {
-    background: #5a6fd8;
+.contact-message p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 @media screen and (max-width: 768px) {

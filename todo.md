@@ -1,14 +1,19 @@
 # TODO
-- [] deduplicate danish about us content
-- [] remove non functional contact form 
-- [] add images and names of ahmad and oliver
+- [] add book me site to contact page
 - [] point fjeldmann.dk and www.fjeldmann.com to this site with auto language detection
+- [] add images and names of ahmad and oliver
 - [] replace logo with new high res version
 
 # In progress
 
 
 # Done
+# TODO
+- [x] remove non functional contact form 
+- [] point fjeldmann.dk and www.fjeldmann.com to this site with auto language detection
+- [] add images and names of ahmad and oliver
+- [] replace logo with new high res version 
+- [x] deduplicate danish about us content
 - [x] delete placeholder slide images
 - [x] add about us article
 - [x] correct email to contact@fjeldmann.dk
