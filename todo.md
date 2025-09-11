@@ -1,11 +1,11 @@
 # TODO
-- [] add about article
 - [] add images and names of ahmad and oliver
 - [] point fjeldmann.dk and www.fjeldmann.com to this site with auto language detection
 - [] delete placeholder slide images
 - [] replace logo with new high res version
 
 # In progress
+- [] add about us article
 
 
 # Done

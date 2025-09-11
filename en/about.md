@@ -1,13 +1,13 @@
 ---
 layout: default
-title: About
+title: About Us
 description: Learn more about Fjeldmann - A people first software company
 lang: en
 ---
 
 <div class="page-header">
     <div class="container">
-        <h1>About Fjeldmann</h1>
+        <h1>About Us</h1>
         <p>A people first software company</p>
     </div>
 </div>
@@ -26,6 +26,13 @@ lang: en
                 <li>Providing ongoing support and maintenance</li>
                 <li>Continuously improving based on user feedback</li>
             </ul>
+            
+            <h2>Why Fjeldmann Was Created</h2>
+            <p>Fjeldmann was born when Oliver and I met during parental leave. Countless conversations during strolls with our children revealed a shared passion and a common dream.</p>
+            
+            <p>We believe that in complex situations, what you need most are simple solutions. We believe that the greatest impact, often comes from small, focused products. We believe that in an era where every company is striving to be AI-first, what we truly need is a people-first company.</p>
+            
+            <p>Fjeldmann exists to put people at the center of everything we do.</p>
             
             <h2>Why Choose Us</h2>
             <p>With years of experience in software development, we have the expertise to tackle complex problems and deliver simple, elegant solutions. We're committed to making today easier and better for our clients.</p>

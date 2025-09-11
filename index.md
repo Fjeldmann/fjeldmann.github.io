@@ -1,14 +1,14 @@
 ---
 layout: home
 title: Hjem
-description: "Lad os gøre i dag nemmere, bedre. En menneske-først software virksomhed"
+description: "Lad os gøre i dag nemmere, bedre. En mennskecentreret software virksomhed"
 lang: da
 ---
 
 <section class="intro-section fade-in-up">
     <div class="container">
         <h2>Velkommen til Fjeldmann</h2>
-        <p>Vi er en menneske-først software virksomhed dedikeret til at gøre teknologi arbejde bedre for alle. Vores tilgang fokuserer på at forstå dine behov og skabe løsninger, der virkelig gør en forskel.</p>
+        <p>Vi er en mennskecentreret software virksomhed dedikeret til at gøre teknologi arbejde bedre for alle. Vores tilgang fokuserer på at forstå dine behov og skabe løsninger, der virkelig gør en forskel.</p>
         
         <div class="features-grid">
             <div class="feature">

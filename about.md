@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Om
+title: Om os
 description: Lær mere om Fjeldmann - En menneske først software virksomhed
 lang: da
 ---
 
 <div class="page-header">
     <div class="container">
-        <h1>Om Fjeldmann</h1>
-        <p>En menneske-først software virksomhed</p>
+        <h1>Om os</h1>
+        <p>En mennskecentreret software virksomhed</p>
     </div>
 </div>
 
@@ -19,7 +19,7 @@ lang: da
             <p>Hos Fjeldmann tror vi på, at teknologi skal tjene mennesker, ikke omvendt. Vores mission er at skabe software løsninger, der gør daglige opgaver nemmere, mere effektive og mere fornøjelige.</p>
             
             <h2>Vores Tilgang</h2>
-            <p>Vi tager en menneske-først tilgang til software udvikling. Det betyder:</p>
+            <p>Vi tager en mennskecentreret tilgang til software udvikling. Det betyder:</p>
             <ul>
                 <li>Forstå dine unikke behov og udfordringer</li>
                 <li>Designe løsninger, der er intuitive og brugervenlige</li>
@@ -27,8 +27,13 @@ lang: da
                 <li>Kontinuerligt forbedre baseret på bruger feedback</li>
             </ul>
             
-            <h2>Hvorfor Vælge Os</h2>
-            <p>Med års erfaring inden for software udvikling har vi ekspertisen til at tackle komplekse problemer og levere enkle, elegante løsninger. Vi er forpligtet til at gøre i dag nemmere og bedre for vores kunder.</p>
+            <h2>Hvorfor Fjeldmann Blev Skabt</h2>
+            <p>Fjeldmann blev til, da Oliver og jeg mødtes under vores barsel. Utallige samtaler under gåture med vores børn afslørede en fælles passion og en fælles drøm.</p>
+            
+            <p>Vi tror på, at i komplekse situationer har man mest brug for enkle løsninger. Vi tror på, at den største effekt ofte kommer fra små, fokuserede produkter. Vi tror på, at i en tid hvor alle virksomheder stræber efter at være AI-først, har vi virkelig brug for en mennskecentreret virksomhed.</p>
+            
+            <p>Fjeldmann eksisterer for at sætte mennesker i centrum af alt, hvad vi gør.</p>
+        
         </div>
     </div>
 </div>
