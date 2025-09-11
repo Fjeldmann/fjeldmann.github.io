@@ -1,16 +1,31 @@
 <nav class="navbar">
     <div class="nav-container">
         <div class="nav-logo">
-            <a href="{{ '/' | relative_url }}">
+            <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">
                 <img src="{{ '/assets/images/Transparent_logo_and_text_white.png' | relative_url }}" alt="Fjeldmann" class="logo-image">
             </a>
         </div>
         
         <div class="nav-menu" id="nav-menu">
-            <a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
-            <a href="{{ '/about' | relative_url }}" class="nav-link">About</a>
-            <a href="{{ '/services' | relative_url }}" class="nav-link">Services</a>
-            <a href="{{ '/contact' | relative_url }}" class="nav-link">Contact</a>
+            {% if page.lang == 'en' %}
+                <a href="{{ '/en/' | relative_url }}" class="nav-link">Home</a>
+                <a href="{{ '/en/about' | relative_url }}" class="nav-link">About</a>
+                <a href="{{ '/en/services' | relative_url }}" class="nav-link">Services</a>
+                <a href="{{ '/en/contact' | relative_url }}" class="nav-link">Contact</a>
+            {% else %}
+                <a href="{{ '/' | relative_url }}" class="nav-link">Hjem</a>
+                <a href="{{ '/about' | relative_url }}" class="nav-link">Om</a>
+                <a href="{{ '/services' | relative_url }}" class="nav-link">Tjenester</a>
+                <a href="{{ '/contact' | relative_url }}" class="nav-link">Kontakt</a>
+            {% endif %}
+        </div>
+        
+        <div class="nav-lang">
+            {% if page.lang == 'en' %}
+                <a href="{{ '/da' | relative_url }}" class="lang-link">da</a>
+            {% else %}
+                <a href="{{ '/en' | relative_url }}" class="lang-link">en</a>
+            {% endif %}
         </div>
         
         <div class="nav-toggle" id="nav-toggle">

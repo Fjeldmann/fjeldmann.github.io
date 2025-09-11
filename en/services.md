@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Tjenester
-description: Vores software udviklings tjenester
-lang: da
+title: Services
+description: Our software development services
+lang: en
 ---
 
 <div class="page-header">
     <div class="container">
-        <h1>Vores Tjenester</h1>
-        <p>Gøre teknologi arbejde bedre for dig</p>
+        <h1>Our Services</h1>
+        <p>Making technology work better for you</p>
     </div>
 </div>
 
@@ -16,23 +16,23 @@ lang: da
     <div class="container">
         <div class="services-grid">
             <div class="service">
-                <h3>Specialsyet Software Udvikling</h3>
-                <p>Skræddersyede løsninger designet specifikt til dine forretningsbehov og krav.</p>
+                <h3>Custom Software Development</h3>
+                <p>Tailored solutions designed specifically for your business needs and requirements.</p>
             </div>
             
             <div class="service">
-                <h3>Web Applikation Udvikling</h3>
-                <p>Moderne, responsive web applikationer der fungerer problemfrit på tværs af alle enheder.</p>
+                <h3>Web Application Development</h3>
+                <p>Modern, responsive web applications that work seamlessly across all devices.</p>
             </div>
             
             <div class="service">
-                <h3>Software Rådgivning</h3>
-                <p>Ekspert rådgivning om teknologi valg, arkitektur beslutninger og projekt planlægning.</p>
+                <h3>Software Consulting</h3>
+                <p>Expert advice on technology choices, architecture decisions, and project planning.</p>
             </div>
             
             <div class="service">
-                <h3>Vedligeholdelse & Support</h3>
-                <p>Løbende support og vedligeholdelse for at holde din software kørende problemfrit.</p>
+                <h3>Maintenance & Support</h3>
+                <p>Ongoing support and maintenance to keep your software running smoothly.</p>
             </div>
         </div>
     </div>

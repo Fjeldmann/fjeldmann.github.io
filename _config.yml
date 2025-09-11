@@ -4,6 +4,10 @@ description: "A people first software company"
 url: "https://fjeldmann.dk"
 baseurl: ""
 
+# Internationalization
+languages: ["da", "en"]
+default_lang: "da"
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
