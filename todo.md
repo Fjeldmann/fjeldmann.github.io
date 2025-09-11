@@ -1,4 +1,5 @@
 # TODO
+- [] add call to action button on hero section. For now just Contact US 
 - [] add book me site to contact page
 - [] point fjeldmann.dk and www.fjeldmann.com to this site with auto language detection
 - [] add images and names of ahmad and oliver
