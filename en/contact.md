@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Kontakt
-description: Kom i kontakt med Fjeldmann
-lang: da
+title: Contact
+description: Get in touch with Fjeldmann
+lang: en
 ---
 
 <div class="page-header">
     <div class="container">
-        <h1>Kontakt Os</h1>
-        <p>Lad os diskutere hvordan vi kan hjælpe dig</p>
+        <h1>Contact Us</h1>
+        <p>Let's discuss how we can help you</p>
     </div>
 </div>
 
@@ -16,46 +16,46 @@ lang: da
     <div class="container">
         <div class="contact-content">
             <div class="contact-info">
-                <h2>Kom I Kontakt</h2>
-                <p>Klar til at gøre i dag nemmere og bedre? Vi vil gerne høre fra dig.</p>
+                <h2>Get In Touch</h2>
+                <p>Ready to make today easier and better? We'd love to hear from you.</p>
                 
                 <div class="contact-details">
                     <div class="contact-item">
-                        <h4>E-mail</h4>
+                        <h4>Email</h4>
                         <p>info@fjeldmann.dk</p>
                     </div>
                     
                     <div class="contact-item">
-                        <h4>Hjemmeside</h4>
+                        <h4>Website</h4>
                         <p>fjeldmann.dk</p>
                     </div>
                 </div>
             </div>
             
             <div class="contact-form">
-                <h3>Send os en besked</h3>
+                <h3>Send us a message</h3>
                 <form action="#" method="POST">
                     <div class="form-group">
-                        <label for="name">Navn</label>
+                        <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">E-mail</label>
+                        <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="subject">Emne</label>
+                        <label for="subject">Subject</label>
                         <input type="text" id="subject" name="subject" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Besked</label>
+                        <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     
-                    <button type="submit" class="btn-submit">Send Besked</button>
+                    <button type="submit" class="btn-submit">Send Message</button>
                 </form>
             </div>
         </div>
