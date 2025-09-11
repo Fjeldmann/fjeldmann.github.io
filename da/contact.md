@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Kontakt
-description: Kom i kontakt med Fjeldmann
+description: Kontakt os med Fjeldmann
 lang: da
 ---
 
@@ -16,7 +16,7 @@ lang: da
     <div class="container">
         <div class="contact-content">
             <div class="contact-info">
-                <h2>Kom I Kontakt</h2>
+                <h2>Kontakt os</h2>
                 <p>Klar til at gøre i dag nemmere og bedre? Vi vil gerne høre fra dig.</p>
                 
                 <div class="contact-details">

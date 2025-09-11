@@ -8,7 +8,7 @@ lang: da
 <div class="page-header">
     <div class="container">
         <h1>Om os</h1>
-        <p>En mennskecentreret software virksomhed</p>
+        <p>En menneskecentreret software virksomhed</p>
     </div>
 </div>
 
@@ -19,7 +19,7 @@ lang: da
             <p>Hos Fjeldmann tror vi på, at teknologi skal tjene mennesker, ikke omvendt. Vores mission er at skabe software løsninger, der gør daglige opgaver nemmere, mere effektive og mere fornøjelige.</p>
             
             <h2>Vores Tilgang</h2>
-            <p>Vi tager en mennskecentreret tilgang til software udvikling. Det betyder:</p>
+            <p>Vi tager en menneskecentreret tilgang til software udvikling. Det betyder:</p>
             <ul>
                 <li>Forstå dine unikke behov og udfordringer</li>
                 <li>Designe løsninger, der er intuitive og brugervenlige</li>
@@ -30,7 +30,7 @@ lang: da
             <h2>Hvorfor Fjeldmann Blev Skabt</h2>
             <p>Fjeldmann blev til, da Oliver og jeg mødtes under vores barsel. Utallige samtaler under gåture med vores børn afslørede en fælles passion og en fælles drøm.</p>
             
-            <p>Vi tror på, at i komplekse situationer har man mest brug for enkle løsninger. Vi tror på, at den største effekt ofte kommer fra små, fokuserede produkter. Vi tror på, at i en tid hvor alle virksomheder stræber efter at være AI-først, har vi virkelig brug for en mennskecentreret virksomhed.</p>
+            <p>Vi tror på, at i komplekse situationer har man mest brug for enkle løsninger. Vi tror på, at den største effekt ofte kommer fra små, fokuserede produkter. Vi tror på, at i en tid hvor alle virksomheder stræber efter at være AI-først, har vi virkelig brug for en menneskecentreret virksomhed.</p>
             
             <p>Fjeldmann eksisterer for at sætte mennesker i centrum af alt, hvad vi gør.</p>
         

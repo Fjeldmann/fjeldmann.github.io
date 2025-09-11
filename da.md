@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Hjem  
-description: "Lad os gøre i dag nemmere, bedre. En mennskecentreret software virksomhed"
+description: "Lad os gøre i dag nemmere, bedre. En menneskecentreret software virksomhed"
 lang: da
 permalink: /da/
 ---
