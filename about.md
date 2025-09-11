@@ -35,7 +35,10 @@ lang: da
 
 <style>
 .page-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%), url('{{ "/assets/images/slide1.jpg" | relative_url }}');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: white;
     padding: 8rem 2rem 4rem;
     text-align: center;
