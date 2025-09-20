@@ -7,12 +7,9 @@
 - [] replace logo with new high res version
 
 # In progress
-- [] cleanup file structure:
-    - [] ./da.md should be deleted?
-    - [] ./index.md containers same content as ./da/index.md
 
 # Done
-
+- [x] cleanup file structure:
 - [x] point fjeldmann.dk to page 
 - [x] remove non functional contact form  
 - [x] deduplicate danish about us content

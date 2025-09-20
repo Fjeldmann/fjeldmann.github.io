@@ -15,17 +15,17 @@
                 <a href="{{ '/en/contact' | relative_url }}" class="nav-link">Contact</a>
             {% else %}
                 <a href="{{ '/' | relative_url }}" class="nav-link">Hjem</a>
-                <a href="{{ '/da/about' | relative_url }}" class="nav-link">Om os</a>
-                <a href="{{ '/da/services' | relative_url }}" class="nav-link">Tjenester</a>
-                <a href="{{ '/da/contact' | relative_url }}" class="nav-link">Kontakt</a>
+                <a href="{{ '/about' | relative_url }}" class="nav-link">Om os</a>
+                <a href="{{ '/services' | relative_url }}" class="nav-link">Tjenester</a>
+                <a href="{{ '/contact' | relative_url }}" class="nav-link">Kontakt</a>
             {% endif %}
         </div>
         
         <div class="nav-lang">
             {% if page.lang == 'en' %}
-                <a href="{{ '/da' | relative_url }}" class="lang-link">da</a>
+                <a href="{{ '/' | relative_url }}" class="lang-link">da</a>
             {% else %}
-                <a href="{{ '/en' | relative_url }}" class="lang-link">en</a>
+                <a href="{{ '/en/' | relative_url }}" class="lang-link">en</a>
             {% endif %}
         </div>
         

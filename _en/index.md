@@ -1,29 +1,30 @@
 ---
 layout: home
-title: Hjem
-description: "Lad os gøre i dag nemmere, bedre. En menneskecentreret software virksomhed"
-lang: da
+title: Home
+description: "Let's make today easier, better. A people first software company"
+lang: en
+permalink: /en/
 ---
 
 <section class="intro-section fade-in-up">
     <div class="container">
-        <h2>Velkommen til Fjeldmann</h2>
-        <p>Vi er en menneskecentreret software virksomhed dedikeret til at gøre teknologi arbejde bedre for alle. Vores tilgang fokuserer på at forstå dine behov og skabe løsninger, der virkelig gør en forskel.</p>
+        <h2>Welcome to Fjeldmann</h2>
+        <p>We are a people-first software company dedicated to making technology work better for everyone. Our approach focuses on understanding your needs and creating solutions that truly make a difference.</p>
         
         <div class="features-grid">
             <div class="feature">
-                <h3>Mennesker Først</h3>
-                <p>Vi tror på, at stor teknologi starter med at forstå mennesker. Hver løsning vi skaber er designet med slutbrugeren i tankerne.</p>
+                <h3>People First</h3>
+                <p>We believe that great technology starts with understanding people. Every solution we create is designed with the end user in mind.</p>
             </div>
             
             <div class="feature">
-                <h3>Nemmere Løsninger</h3>
-                <p>Komplekse problemer kræver ikke komplekse løsninger. Vi specialiserer os i at gøre det svære enkelt og det komplicerede klart.</p>
+                <h3>Easier Solutions</h3>
+                <p>Complex problems don't always require complex solutions. We specialize in making the difficult simple and the complicated clear.</p>
             </div>
             
             <div class="feature">
-                <h3>Bedre I Morgen</h3>
-                <p>Hver dag er en mulighed for at forbedre. Vi er forpligtet til at skabe software, der gør i morgen bedre end i dag.</p>
+                <h3>Better Tomorrow</h3>
+                <p>Every day is an opportunity to improve. We're committed to creating software that makes tomorrow better than today.</p>
             </div>
         </div>
     </div>

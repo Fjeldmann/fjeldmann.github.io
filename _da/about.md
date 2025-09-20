@@ -1,14 +1,14 @@
 ---
 layout: default
 title: Om os
-description: Lær mere om Fjeldmann - En menneske først software virksomhed
+description: Lær mere om Fjeldmann - Software med mennesker i centrum
 lang: da
 ---
 
 <div class="page-header">
     <div class="container">
         <h1>Om os</h1>
-        <p>En menneskecentreret software virksomhed</p>
+        <p>Software med mennesker i centrum</p>
     </div>
 </div>
 
@@ -18,7 +18,7 @@ lang: da
             <h2>Vores Mission</h2>
             <p>Hos Fjeldmann tror vi på, at teknologi skal tjene mennesker, ikke omvendt. Vores mission er at skabe software løsninger, der gør daglige opgaver nemmere, mere effektive og mere fornøjelige.</p>
             
-            <h2>Vores Tilgang</h2>
+            <h2>Vores tilgang</h2>
             <p>Vi tager en menneskecentreret tilgang til software udvikling. Det betyder:</p>
             <ul>
                 <li>Forstå dine unikke behov og udfordringer</li>
@@ -27,7 +27,7 @@ lang: da
                 <li>Kontinuerligt forbedre baseret på bruger feedback</li>
             </ul>
             
-            <h2>Hvorfor Fjeldmann Blev Skabt</h2>
+            <h2>Hvorfor Fjeldmann blev skabt</h2>
             <p>Fjeldmann blev til, da Oliver og jeg mødtes under vores barsel. Utallige samtaler under gåture med vores børn afslørede en fælles passion og en fælles drøm.</p>
             
             <p>Vi tror på, at i komplekse situationer har man mest brug for enkle løsninger. Vi tror på, at den største effekt ofte kommer fra små, fokuserede produkter. Vi tror på, at i en tid hvor alle virksomheder stræber efter at være AI-først, har vi virkelig brug for en menneskecentreret virksomhed.</p>

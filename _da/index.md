@@ -1,29 +1,30 @@
 ---
 layout: home
-title: Home
-description: "Let's make today easier, better. A people first software company"
-lang: en
+title: Hjem
+description: "Lad os gøre hverdagen nemmere, bedre. Software med mennesker i centrum"
+lang: da
+permalink: /
 ---
 
 <section class="intro-section fade-in-up">
     <div class="container">
-        <h2>Welcome to Fjeldmann</h2>
-        <p>We are a people-first software company dedicated to making technology work better for everyone. Our approach focuses on understanding your needs and creating solutions that truly make a difference.</p>
+        <h2>Velkommen til Fjeldmann</h2>
+        <p>Vi er et softwarefirma, der sætter mennesker først. Vores mål er at gøre teknologi mere brugbar for alle. Vi starter med at forstå dine behov og udvikler løsninger, der virkelig gør en forskel.</p>
         
         <div class="features-grid">
             <div class="feature">
-                <h3>People First</h3>
-                <p>We believe that great technology starts with understanding people. Every solution we create is designed with the end user in mind.</p>
+                <h3>Mennesker Først</h3>
+                <p>Vi tror på, at god teknologi starter med mennesker. Derfor designer vi alle vores løsninger med brugeren i centrum.</p>
             </div>
             
             <div class="feature">
-                <h3>Easier Solutions</h3>
-                <p>Complex problems don't require complex solutions. We specialize in making the difficult simple and the complicated clear.</p>
+                <h3>Enklere løsninger</h3>
+                <p>Komplekse problemer behøver ikke komplekse løsninger. Vi gør det svære enkelt og det komplicerede overskueligt.</p>
             </div>
             
             <div class="feature">
-                <h3>Better Tomorrow</h3>
-                <p>Every day is an opportunity to improve. We're committed to creating software that makes tomorrow better than today.</p>
+                <h3>Et bedre i morgen</h3>
+                <p>Hver dag er en chance for at blive bedre. Vi skaber software, der gør morgendagen bedre end i dag.</p>
             </div>
         </div>
     </div>

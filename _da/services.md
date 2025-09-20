@@ -16,7 +16,7 @@ lang: da
     <div class="container">
         <div class="services-grid">
             <div class="service">
-                <h3>Skræddersyet Software Udvikling</h3>
+                <h3>Skræddersyet software udvikling</h3>
                 <p>Skræddersyede løsninger designet specifikt til dine forretningsbehov og krav.</p>
             </div>
             

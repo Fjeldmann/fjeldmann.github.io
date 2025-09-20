@@ -17,7 +17,7 @@ lang: da
         <div class="contact-content">
             <div class="contact-info">
                 <h2>Kontakt os</h2>
-                <p>Klar til at gøre i dag nemmere og bedre? Vi vil gerne høre fra dig.</p>
+                <p>Klar til at gøre hverdagen nemmere og bedre? Vi vil gerne høre fra dig.</p>
                 
                 <div class="contact-details">
                     <div class="contact-item">

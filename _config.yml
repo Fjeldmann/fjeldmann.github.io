@@ -15,9 +15,12 @@ permalink: /:title/
 
 # Collections
 collections:
-  pages:
+  da:
     output: true
     permalink: /:name/
+  en:
+    output: true
+    permalink: /en/:name/
 
 # Plugins
 plugins:
@@ -39,5 +42,13 @@ exclude:
 defaults:
   - scope:
       path: ""
+      type: "da"
     values:
       layout: "default"
+      lang: "da"
+  - scope:
+      path: ""
+      type: "en"
+    values:
+      layout: "default"
+      lang: "en"
