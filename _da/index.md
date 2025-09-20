@@ -9,12 +9,12 @@ permalink: /
 <section class="intro-section fade-in-up">
     <div class="container">
         <h2>Velkommen til Fjeldmann</h2>
-        <p>Vi er et softwarefirma, der sætter mennesker først. Vores mål er at gøre teknologi mere brugbar for alle. Vi starter med at forstå dine behov og udvikler løsninger, der virkelig gør en forskel.</p>
+        <p>Vi er et softwarefirma, der sætter mennesker først. Vores mål er at gøre teknologi enkel og brugbar for alle. Vi starter med at forstå dine behov og udvikler løsninger, der virkelig gør en forskel.</p>
         
         <div class="features-grid">
             <div class="feature">
-                <h3>Mennesker Først</h3>
-                <p>Vi tror på, at god teknologi starter med mennesker. Derfor designer vi alle vores løsninger med brugeren i centrum.</p>
+                <h3>Mennesker først</h3>
+                <p>God teknologi starter med mennesker. Derfor designer vi alle vores løsninger med brugeren i centrum.</p>
             </div>
             
             <div class="feature">
@@ -23,8 +23,8 @@ permalink: /
             </div>
             
             <div class="feature">
-                <h3>Et bedre i morgen</h3>
-                <p>Hver dag er en chance for at blive bedre. Vi skaber software, der gør morgendagen bedre end i dag.</p>
+                <h3>Bedre hverdag</h3>
+                <p>Hver dag giver nye muligheder. Vi skaber software, der gør hverdagen nemmere og smartere.</p>
             </div>
         </div>
     </div>
