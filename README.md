@@ -31,12 +31,6 @@ This site is automatically deployed to GitHub Pages when changes are pushed to t
 
 ## Customization
 
-### Background Images
-Replace the SVG files in `assets/images/` with your own nature photos:
-- `nature1.svg`
-- `nature2.svg` 
-- `nature3.svg`
-
 ### Content
 Edit the markdown files to customize content:
 - `index.md` - Home page
