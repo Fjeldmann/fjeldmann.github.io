@@ -15,22 +15,22 @@ lang: da
 <div class="content-section">
     <div class="container">
         <div class="about-content">
-            <h2>Vores Mission</h2>
-            <p>Hos Fjeldmann tror vi på, at teknologi skal tjene mennesker, ikke omvendt. Vores mission er at skabe software løsninger, der gør daglige opgaver nemmere, mere effektive og mere fornøjelige.</p>
+            <h2>Vores mission</h2>
+            <p>Hos Fjeldmann tror vi på, at teknologi skal gøre livet lettere – ikke mere kompliceret. Vi skaber software, der gør hverdagen nemmere, smartere og mere fornøjelig.</p>
             
             <h2>Vores tilgang</h2>
-            <p>Vi tager en menneskecentreret tilgang til software udvikling. Det betyder:</p>
+            <p>Vi tager altid udgangspunkt i mennesker, når vi udvikler software. Det betyder, at vi:</p>
             <ul>
-                <li>Forstå dine unikke behov og udfordringer</li>
-                <li>Designe løsninger, der er intuitive og brugervenlige</li>
-                <li>Levere løbende support og vedligeholdelse</li>
-                <li>Kontinuerligt forbedre baseret på bruger feedback</li>
+                <li>Forstår dine unikke behov og udfordringer</li>
+                <li>Skaber løsninger, der er intuitive og nemme at bruge</li>
+                <li>Leverer løbende support og vedligeholdelse</li>
+                <li>Forbedrer løbende baseret på feedback fra brugere</li>
             </ul>
             
             <h2>Hvorfor Fjeldmann blev skabt</h2>
-            <p>Fjeldmann blev til, da Oliver og jeg mødtes under vores barsel. Utallige samtaler under gåture med vores børn afslørede en fælles passion og en fælles drøm.</p>
+            <p>Fjeldmann blev grundlagt, da Oliver og jeg mødtes under vores barsel. Utallige samtaler på gåture med vores børn afslørede en fælles passion og en fælles drøm.</p>
             
-            <p>Vi tror på, at i komplekse situationer har man mest brug for enkle løsninger. Vi tror på, at den største effekt ofte kommer fra små, fokuserede produkter. Vi tror på, at i en tid hvor alle virksomheder stræber efter at være AI-først, har vi virkelig brug for en menneskecentreret virksomhed.</p>
+            <p>Vi tror på, at enkle løsninger ofte giver størst effekt i komplekse situationer. Små, fokuserede produkter kan skabe stor værdi. I en tid, hvor mange virksomheder stræber efter at være “AI-først”, ønsker vi at være en virksomhed, der sætter mennesker først.</p>
             
             <p>Fjeldmann eksisterer for at sætte mennesker i centrum af alt, hvad vi gør.</p>
         </div>
