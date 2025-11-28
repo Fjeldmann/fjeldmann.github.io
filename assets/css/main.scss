@@ -350,6 +350,18 @@ body {
     margin-bottom: 2rem;
 }
 
+/* Footer email link color override */
+.footer-section a[href^="mailto:"] {
+    color: var(--surface-default);
+    text-decoration: underline;
+    opacity: 0.8;
+    transition: color 0.2s;
+}
+
+.footer-section a[href^="mailto:"]:hover {
+    opacity: 1;
+}
+
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;

@@ -1,6 +1,4 @@
 # TODO
-- [ ] footer - add linkedin icon link
-- [ ] footer - make the email a mailto link
 
 - [ ] navbar - add popdown for language selection on hover and on click
 - [ ] add book me site to contact page
@@ -10,6 +8,8 @@
 # In progress
 
 # Done
+- [x] footer - make the email a mailto link
+- [x] footer - add linkedin icon link
 - [x] footer - make version number more discrete, faint smaller and spaced out
 - [x] footer -  fjern overflødige website url
 - [-] add call to action button on hero section. For now just Contact US 
