@@ -1,14 +1,19 @@
 # TODO
+- [ ] footer - add linkedin icon link
+- [ ] footer - make the email a mailto link
 
-- [] add call to action button on hero section. For now just Contact US 
-- [] add book me site to contact page
-- [] point www.fjeldmann.com to english site
-- [] add images and names of ahmad and oliver
-- [] replace logo with new high res version
+- [ ] navbar - add popdown for language selection on hover and on click
+- [ ] add book me site to contact page
+- [ ] point www.fjeldmann.com to english site
+- [ ] add images and names of ahmad and oliver
 
 # In progress
 
 # Done
+- [x] footer - make version number more discrete, faint smaller and spaced out
+- [x] footer -  fjern overflødige website url
+- [-] add call to action button on hero section. For now just Contact US 
+- [x] replace logo with new high res version
 - [x] cleanup file structure:
 - [x] point fjeldmann.dk to page 
 - [x] remove non functional contact form  
