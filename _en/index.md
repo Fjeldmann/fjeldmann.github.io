@@ -14,7 +14,7 @@ permalink: /en/
 <div style="display: flex; flex-direction: column; align-items: center;">
     <hr style="margin-top: 2rem; margin-bottom: 2rem; width: 50%; border-top: 2px solid var(--accent-secondary);">
 
-We are specialise in<br>
+We specialise in<br>
 <span class="highlight-text-cold" style="text-align: center; font-weight: bold; margin-top: 2rem; font-size: 1.2rem;">
 DATA • AI • SOFTWARE • AUTOMATION
 </span>
