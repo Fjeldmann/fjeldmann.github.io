@@ -377,6 +377,12 @@ body {
         padding: 2rem 0;
     }
 
+    .nav-link {
+        color: var(--light-gray)!important; /* Blue-fir for scrolled/inner pages */
+        text-shadow: none;
+    }
+
+
     .nav-menu.active {
         left: 0;
     }
@@ -415,9 +421,6 @@ body {
         padding: 0.6rem 1rem;
     }
 
-    .logo-image {
-        height: 40px;
-    }
 }
 
 @media screen and (max-width: 480px) {
@@ -429,9 +432,6 @@ body {
         font-size: 1rem;
     }
 
-    .logo-image {
-        height: 35px;
-    }
 }
 
 /* Page Header Styles */
