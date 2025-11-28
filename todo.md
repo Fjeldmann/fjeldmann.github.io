@@ -8,6 +8,7 @@
 # In progress
 
 # Done
+- [x] chore - delete redundant unused photos in various sizes
 - [x] footer - make the email a mailto link
 - [x] footer - add linkedin icon link
 - [x] footer - make version number more discrete, faint smaller and spaced out
