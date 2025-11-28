@@ -47,6 +47,8 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     position: relative;
+    display: flex; /* ensure vertical alignment */
+    align-items: center;
 }
 
 .nav-logo a {
@@ -54,7 +56,8 @@ body {
     color: white;
     font-weight: 700;
     position: relative;
-    display: block;
+    display: flex; /* center logo images inside anchor */
+    align-items: center;
 }
 
 .logo-image {
@@ -68,10 +71,11 @@ body {
     opacity: 1;
 }
 
-.blue-logo {
+.green-logo {
     position: absolute;
-    top: 0;
     left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* center the overlay vertically */
     opacity: 0;
 }
 
@@ -80,14 +84,16 @@ body {
     opacity: 0;
 }
 
-.navbar.scrolled .blue-logo,
-.inner-page .navbar .blue-logo {
+.navbar.scrolled .green-logo,
+.inner-page .navbar .green-logo {
     opacity: 1;
 }
 
 .nav-menu {
     display: flex;
     gap: 2rem;
+    flex: 1; /* allow the menu to take available space and enable centering */
+    justify-content: center; /* keep nav links centered */
 }
 
 .nav-link {
@@ -101,7 +107,7 @@ body {
 
 .navbar.scrolled .nav-link,
 .inner-page .navbar .nav-link {
-    color: #0056b3; /* Blue color for better visibility on light backgrounds */
+    color: #025951; /* Green color for better visibility on light backgrounds */
     text-shadow: none;
 }
 
@@ -112,7 +118,7 @@ body {
 
 .navbar.scrolled .nav-link:hover,
 .inner-page .navbar .nav-link:hover {
-    color: #003d7a; /* Darker blue on hover */
+    color: #025951 /* Darker green on hover */
 }
 
 .nav-link::after {
@@ -128,7 +134,7 @@ body {
 
 .navbar.scrolled .nav-link::after,
 .inner-page .navbar .nav-link::after {
-    background: #0056b3; /* Blue underline for scrolled/inner pages */
+    background: #025951; /* gree underline for scrolled/inner pages */
 }
 
 .nav-link:hover::after {
@@ -136,11 +142,17 @@ body {
 }
 
 /* Language Switcher */
-.nav-lang {
-    margin-left: 1rem;
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* tighten spacing of language toggle + contact button + toggle */
 }
 
-.lang-link {
+.nav-lang, .nav-contact{
+    margin-left: 0.5rem;
+}
+
+.lang-link, .contact-btn {
     color: white;
     text-decoration: none;
     font-weight: 500;
@@ -155,16 +167,26 @@ body {
 
 .navbar.scrolled .lang-link,
 .inner-page .navbar .lang-link {
-    color: #0056b3;
+    color: #025951;
     text-shadow: none;
     border: 1px solid rgba(0, 86, 179, 0.3);
-    background: rgba(0, 86, 179, 0.05);
+    background: #019c8d09
 }
 
 .lang-link:hover {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
+}
+
+
+.contact-btn {
+    background: #025951; /* solid primary color */
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    background: #024d4d; /* slightly darker on hover */
 }
 
 .navbar.scrolled .lang-link:hover,
@@ -190,7 +212,7 @@ body {
 
 .navbar.scrolled .bar,
 .inner-page .navbar .bar {
-    background: #0056b3;
+    background: #025951;
 }
 
 /* Hero Section */
@@ -327,11 +349,11 @@ body {
     .nav-lang {
         order: -1;
         margin-left: 0;
-        margin-right: 1rem;
     }
 
     .nav-toggle {
         display: flex;
+        margin-left: 1rem;
     }
 
     .nav-toggle.active .bar:nth-child(2) {
