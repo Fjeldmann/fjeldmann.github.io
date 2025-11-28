@@ -1,8 +1,8 @@
 # Site settings
 title: Fjeldmann
 description: "A people first software company"
-url: "https://fjeldmann.dk/test-fjeldmann.github.io/"
-baseurl: ""
+url: "https://fjeldmann.dk"
+baseurl: "/test-fjeldmann.github.io"
 
 # Internationalization
 languages: ["da", "en"]
