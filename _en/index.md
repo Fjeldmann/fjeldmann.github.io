@@ -6,29 +6,9 @@ lang: en
 permalink: /en/
 ---
 
-<section class="intro-section fade-in-up">
-    <div class="container">
-        <h2>Welcome to Fjeldmann</h2>
-        <p>We are a people-first software company dedicated to making technology work better for everyone. Our approach focuses on understanding your needs and creating solutions that truly make a difference.</p>
-        
-        <div class="features-grid">
-            <div class="feature">
-                <h3>People First</h3>
-                <p>We believe that great technology starts with understanding people. Every solution we create is designed with the end user in mind.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>Easier Solutions</h3>
-                <p>Complex problems don't always require complex solutions. We specialize in making the difficult simple and the complicated clear.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>Better Tomorrow</h3>
-                <p>Every day is an opportunity to improve. We're committed to creating software that makes tomorrow better than today.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="container">
+    <p>At <span class="highlight-text-cold">Fjeldmann</span> we always start with <span class="highlight-text-warm">people</span> when developing software. And we believe that complex problems call for <span class="highlight-text-cold">simple solutions</span>.</p>
+</div>
 
 <style>
 .intro-section {

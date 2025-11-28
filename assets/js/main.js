@@ -62,7 +62,7 @@ class Slideshow {
     startSlideshow() {
         this.slideInterval = setInterval(() => {
             this.nextSlide();
-        }, 6000); // Change slide every 5 seconds
+        }, 6500); // Change slide every 6.5 seconds
     }
     
     pauseSlideshow() {

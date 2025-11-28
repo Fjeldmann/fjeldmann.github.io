@@ -313,6 +313,17 @@ body {
     opacity: 0.95;
 }
 
+
+.highlight-text-warm {
+    color: var(--accent-primary);
+    font-weight: bold;
+}
+
+.highlight-text-cold {
+    color: var(--accent-secondary);
+    font-weight: bold;
+}
+
 /* Content Section */
 .content-section {
     padding: 4rem 2rem;

@@ -6,29 +6,9 @@ lang: da
 permalink: /
 ---
 
-<section class="intro-section fade-in-up">
-    <div class="container">
-        <h2>Velkommen til Fjeldmann</h2>
-        <p>Vi er et softwarefirma, der sætter mennesker først. Vores mål er at gøre teknologi enkel og brugbar for alle. Vi starter med at forstå dine behov og udvikler løsninger, der virkelig gør en forskel.</p>
-        
-        <div class="features-grid">
-            <div class="feature">
-                <h3>Mennesker først</h3>
-                <p>God teknologi starter med mennesker. Derfor designer vi alle vores løsninger med brugeren i centrum.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>Enklere løsninger</h3>
-                <p>Komplekse problemer behøver ikke komplekse løsninger. Vi gør det svære enkelt og det komplicerede overskueligt.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>Bedre hverdag</h3>
-                <p>Hver dag giver nye muligheder. Vi skaber software, der gør hverdagen nemmere og smartere.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="container">
+    <p>Hos <span class="highlight-text-cold">Fjeldmann</span> tager vi altid udgangspunkt i <span class="highlight-text-warm">mennesker</span>, når vi udvikler software. Og så tror vi på, at  komplekse problemer kræver <span class="highlight-text-cold">enkle løsninger</span>.</p>
+</div>
 
 <style>
 .intro-section {
@@ -57,6 +37,8 @@ permalink: /
     margin-left: auto;
     margin-right: auto;
 }
+
+
 
 .features-grid {
     display: grid;
