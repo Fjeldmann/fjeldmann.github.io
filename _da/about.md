@@ -6,7 +6,7 @@ lang: da
 ---
 
 <div class="page-header">
-    <div class="container">
+    <div class="page-header-inner">
         <h1>Om os</h1>
         <p>Software med mennesker i centrum</p>
     </div>
@@ -28,7 +28,9 @@ lang: da
             </ul>
             
             <h2>Hvorfor Fjeldmann blev skabt</h2>
-            <p>Fjeldmann blev grundlagt, da Oliver og jeg mødtes under vores barsel. Utallige samtaler på gåture med vores børn afslørede en fælles passion og en fælles drøm.</p>
+            <p>Fjeldmann blev grundlagt af os, Ahmad og Oliver, da vi mødtes under vores barsel. Utallige samtaler på gåture med vores børn afslørede en fælles passion og en fælles drøm. I en tid hvor mange virksomheder stræber efter at være "AI-først", ønsker vi at være en virksomhed der sætter mennesker først. Vi gør en dyd ud af at forstå dit unikke behov, for at bygge holdbare løsninger, der gør en
+mærkbar forskel i hverdagen.
+Fjeldmann eksisterer for at sætte mennesker i centrum af alt, hvad vi gør.</p>
             
             <p>Vi tror på, at enkle løsninger ofte giver størst effekt i komplekse situationer. Små, fokuserede produkter kan skabe stor værdi. I en tid, hvor mange virksomheder stræber efter at være “AI-først”, ønsker vi at være en virksomhed, der sætter mennesker først.</p>
             

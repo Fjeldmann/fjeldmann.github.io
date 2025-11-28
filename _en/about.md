@@ -6,7 +6,7 @@ lang: en
 ---
 
 <div class="page-header">
-    <div class="container">
+    <div class="page-header-inner">
         <h1>About Us</h1>
         <p>A people first software company</p>
     </div>

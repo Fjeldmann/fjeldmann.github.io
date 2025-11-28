@@ -7,7 +7,7 @@ lang: da
 
 <div class="inner-page">
     <div class="page-header">
-        <div class="container">
+        <div class="page-header-inner">
             <h1 class="fade-in-up">Vores services</h1>
             <p class="fade-in-up">Vi gør teknologien enkel og brugbar</p>
         </div>

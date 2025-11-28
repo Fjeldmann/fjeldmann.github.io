@@ -2,10 +2,11 @@
 layout: default
 ---
 
+
 <div class="hero-section">
+  <div class="hero-inner">
     <div class="slideshow-container">
         <div class="slide active">
-            
             <img src="{{ '/assets/hero/Welcoming a Client in a Glass-Walled Meeting Room.jpeg' | relative_url }}" alt="Slide 1">
         </div>
         <div class="slide">
@@ -15,17 +16,17 @@ layout: default
             <img src="{{ '/assets/hero/Dashboard Strategy Session.jpeg' | relative_url }}" alt="Slide 3">
         </div>
     </div>
-    
     <div class="hero-content">
-        <h1>Fjeldmann Solutions</h1>
+        <h2>Fjeldmann Solutions</h2>
         {% if page.lang == 'da' %}
-        <p>Skarp software med bløde værdier.</p>
+        <h1>Skarp software med bløde værdier.</h1>
         {% elsif page.lang == 'en' %}
-        <p>A people first software company</p>
+        <h1>A people first software company</h1>
         {% else %}
-        <p>A people first software company</p>
+        <h1>A people first software company</h1>
         {% endif %}
     </div>
+  </div>
 </div>
 
 <div class="content-section">
