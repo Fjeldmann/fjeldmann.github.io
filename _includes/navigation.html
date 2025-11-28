@@ -9,12 +9,10 @@
         
         <div class="nav-menu" id="nav-menu">
             {% if page.lang == 'en' %}
-                <a href="{{ '/en/' | relative_url }}" class="nav-link">Home</a>
                 <a href="{{ '/en/about' | relative_url }}" class="nav-link">About Us</a>
                 <a href="{{ '/en/services' | relative_url }}" class="nav-link">Services</a>
                 <a href="{{ '/en/contact' | relative_url }}" class="nav-link">Contact</a>
             {% else %}
-                <a href="{{ '/' | relative_url }}" class="nav-link">Hjem</a>
                 <a href="{{ '/about' | relative_url }}" class="nav-link">Om os</a>
                 <a href="{{ '/services' | relative_url }}" class="nav-link">Services</a>
                 <a href="{{ '/contact' | relative_url }}" class="nav-link">Kontakt</a>
