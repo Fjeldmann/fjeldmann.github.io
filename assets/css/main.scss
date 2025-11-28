@@ -1,6 +1,41 @@
 ---
 ---
 
+:root {
+    /* Neutral palette */
+    --black-ink: #222222; /* Sort blæk */
+    --dark-gray: #6D6D6D; /* Mørkegrå */
+    --mid-gray: #D5D5D5; /* Mellemgrå */
+    --light-gray: #F8F8F8; /* Lysegrå */
+    --white-snow: #FFFFFF; /* Hvid sne */
+
+    /* Accent palette */
+    --amber: #DC851F; /* Gyldent rav (primary accent) */
+    --warm-sand: #E0BB89; /* Varmt sand (soft backgrounds) */
+    --blue-fir: #025951; /* Blågran (secondary accent) */
+
+    /* Derived / semantic tokens */
+    --text-primary: var(--black-ink);
+    --text-secondary: var(--dark-gray);
+    --surface-default: var(--white-snow);
+    --surface-alt: var(--light-gray);
+    --border-default: var(--mid-gray);
+    --accent-primary: var(--amber);
+    --accent-secondary: var(--blue-fir);
+
+    /* Handy derived shades for hover/active states */
+    --accent-primary-700: #b86a18; /* darker amber for hover */
+    --accent-secondary-700: #024d4d; /* slightly darker blue-fir */
+    --accent-secondary-700-10: rgba(2, 77, 77, 0.1); /* translucent darker blue-fir */ 
+    /* helper surface step for subtle gradients */
+    --accent-secondary-700-50: rgba(2, 77, 77, 0.5); /* translucent darker blue-fir */ 
+
+    --surface-alt-2: #e9ecef;
+
+    /* Footer tokens */
+    --footer-bg: var(--accent-secondary-700);
+    --footer-text: var(--surface-default);
+}
 /* Reset and base styles */
 * {
     margin: 0;
@@ -11,7 +46,7 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-primary);
     overflow-x: hidden;
 }
 
@@ -53,7 +88,7 @@ body {
 
 .nav-logo a {
     text-decoration: none;
-    color: white;
+    color: var(--surface-default);
     font-weight: 700;
     position: relative;
     display: flex; /* center logo images inside anchor */
@@ -97,7 +132,7 @@ body {
 }
 
 .nav-link {
-    color: white;
+    color: var(--surface-default);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -107,7 +142,7 @@ body {
 
 .navbar.scrolled .nav-link,
 .inner-page .navbar .nav-link {
-    color: #025951; /* Green color for better visibility on light backgrounds */
+    color: var(--accent-secondary); /* Blue-fir for scrolled/inner pages */
     text-shadow: none;
 }
 
@@ -118,7 +153,7 @@ body {
 
 .navbar.scrolled .nav-link:hover,
 .inner-page .navbar .nav-link:hover {
-    color: #025951 /* Darker green on hover */
+    color: var(--accent-secondary-700); /* darker blue-fir on hover */
 }
 
 .nav-link::after {
@@ -128,13 +163,13 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: white;
+    background: var(--surface-default);
     transition: width 0.3s ease;
 }
 
 .navbar.scrolled .nav-link::after,
 .inner-page .navbar .nav-link::after {
-    background: #025951; /* gree underline for scrolled/inner pages */
+    background: var(--accent-secondary); /* blue-fir underline for scrolled/inner pages */
 }
 
 .nav-link:hover::after {
@@ -153,7 +188,7 @@ body {
 }
 
 .lang-link, .contact-btn {
-    color: white;
+    color: var(--surface-default);
     text-decoration: none;
     font-weight: 500;
     text-transform: uppercase;
@@ -167,10 +202,10 @@ body {
 
 .navbar.scrolled .lang-link,
 .inner-page .navbar .lang-link {
-    color: #025951;
+    color: var(--accent-secondary);
     text-shadow: none;
-    border: 1px solid rgba(0, 86, 179, 0.3);
-    background: #019c8d09
+    border: 1px solid rgba(2, 89, 81, 0.16);
+    background: rgba(2, 89, 81, 0.035);
 }
 
 .lang-link:hover {
@@ -181,18 +216,18 @@ body {
 
 
 .contact-btn {
-    background: #025951; /* solid primary color */
+    background: var(--accent-secondary); /* use blue-fir for contact button */
 }
 
 .contact-btn:hover {
     transform: translateY(-2px);
-    background: #024d4d; /* slightly darker on hover */
+    background: var(--accent-secondary-700); /* darker blue-fir on hover */
 }
 
 .navbar.scrolled .lang-link:hover,
 .inner-page .navbar .lang-link:hover {
-    background: rgba(0, 86, 179, 0.1);
-    border-color: rgba(0, 86, 179, 0.5);
+    background: var(--accent-secondary-700-10);
+    border-color: var(--accent-secondary-700-50);
 }
 
 /* Mobile Navigation */
@@ -205,14 +240,14 @@ body {
 .bar {
     width: 25px;
     height: 3px;
-    background: white;
+    background: var(--surface-default);
     margin: 3px 0;
     transition: 0.3s;
 }
 
 .navbar.scrolled .bar,
 .inner-page .navbar .bar {
-    background: #025951;
+    background: var(--accent-secondary);
 }
 
 /* Hero Section */
@@ -257,7 +292,7 @@ body {
 
 .hero-content {
     text-align: center;
-    color: white;
+    color: var(--surface-default);
     z-index: 1;
     max-width: 800px;
     padding: 0 2rem;
@@ -287,8 +322,8 @@ body {
 
 /* Footer */
 .footer {
-    background: #333;
-    color: white;
+    background: var(--footer-bg);
+    color: var(--footer-text);
     padding: 3rem 2rem 1rem;
 }
 
@@ -307,7 +342,7 @@ body {
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: white;
+    color: var(--surface-default);
 }
 
 .footer-section p {
@@ -316,7 +351,7 @@ body {
 }
 
 .footer-bottom {
-    border-top: 1px solid #555;
+    border-top: 1px solid var(--dark-gray);
     padding-top: 1rem;
     text-align: center;
     opacity: 0.8;
@@ -401,8 +436,9 @@ body {
 
 /* Page Header Styles */
 .page-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    /* replaced purple/indigo gradient with brand gradient (amber -> warm sand) */
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--warm-sand) 100%);
+    color: var(--surface-default);
     padding: 6rem 0 4rem;
     text-align: center;
     position: relative;
@@ -448,11 +484,11 @@ body {
 }
 
 .service {
-    background: white;
+    background: var(--surface-default);
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--accent-primary);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -465,7 +501,7 @@ body {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -480,14 +516,14 @@ body {
 }
 
 .service h3 {
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
 .service p {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.7;
     font-size: 1rem;
 }
@@ -495,13 +531,13 @@ body {
 .service-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    color: white;
+    color: var(--surface-default);
     font-size: 1.5rem;
 }
 
@@ -518,14 +554,14 @@ body {
 }
 
 .contact-info h2 {
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     font-size: 2rem;
     font-weight: 600;
 }
 
 .contact-info > p {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
@@ -538,37 +574,37 @@ body {
 .contact-item {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: #f8f9fa;
+    background: var(--surface-alt);
     border-radius: 10px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--accent-primary);
 }
 
 .contact-item h4 {
-    color: #667eea;
+    color: var(--accent-primary);
     margin-bottom: 0.5rem;
     font-weight: 600;
     font-size: 1.1rem;
 }
 
 .contact-item p {
-    color: #333;
+    color: var(--text-primary);
     font-weight: 500;
     font-size: 1rem;
 }
 
 .contact-item a {
-    color: #667eea;
+    color: var(--accent-primary);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
-    color: #764ba2;
+    color: var(--accent-secondary);
 }
 
 .contact-message {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, var(--surface-alt) 0%, var(--surface-alt-2) 100%);
     padding: 3rem;
     border-radius: 15px;
     position: relative;
@@ -592,7 +628,7 @@ body {
 }
 
 .contact-message h3 {
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     font-weight: 600;
@@ -601,7 +637,7 @@ body {
 .contact-message p {
     margin-bottom: 1rem;
     line-height: 1.7;
-    color: #555;
+    color: var(--dark-gray);
 }
 
 .contact-cta {
@@ -612,8 +648,8 @@ body {
 
 .btn-primary {
     display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: var(--surface-default);
     padding: 1rem 2rem;
     border-radius: 10px;
     text-decoration: none;

@@ -39,8 +39,8 @@ lang: da
 
 <style>
 .page-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--warm-sand) 100%);
+    color: var(--surface-default);
     padding: 8rem 2rem 4rem;
     text-align: center;
     margin-top: 70px;
@@ -57,7 +57,7 @@ lang: da
 }
 
 .about-content h2 {
-    color: #333;
+    color: var(--text-primary);
     margin-top: 2rem;
     margin-bottom: 1rem;
 }

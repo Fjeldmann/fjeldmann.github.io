@@ -33,7 +33,7 @@ permalink: /
 <style>
 .intro-section {
     padding: 4rem 2rem;
-    background: #f8f9fa;
+    background: var(--surface-alt);
 }
 
 .container {
@@ -45,14 +45,14 @@ permalink: /
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .intro-section > .container > p {
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #666;
+    color: var(--text-secondary);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -66,7 +66,7 @@ permalink: /
 }
 
 .feature {
-    background: white;
+    background: var(--surface-default);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -81,11 +81,11 @@ permalink: /
 .feature h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .feature p {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 </style>
