@@ -32,7 +32,7 @@
     /* helper surface step for subtle gradients */
     --accent-secondary-700-50: rgba(2, 77, 77, 0.5); /* translucent darker blue-fir */ 
     --accent-secondary-900: #013f3f; /* even darker blue-fir */
-    --accent-secondary-900-10: rgba(1, 63, 63, 0.1); /* translucent even darker blue-fir */ 
+    --accent-secondary-900-10: rgba(1, 63, 63, 0.2); /* translucent even darker blue-fir (increased alpha for darker overlay) */ 
     --accent-secondary-900-50: rgba(1, 63, 63, 0.5); /* translucent even darker blue-fir */ 
     
     --surface-alt-2: #e9ecef;
@@ -40,6 +40,10 @@
     /* Footer tokens */
     --footer-bg: var(--accent-secondary-700);
     --footer-text: var(--surface-default);
+    /* navbar mirrored hero helper */
+    --navbar-height: 80px; /* tweak if your navbar height changes */
+    --hero-strip: none; /* set by JS when a hero slide is active */
+    --hero-image: none; /* fallback full image if strip can't be generated */
 }
 /* Reset and base styles */
 * {
@@ -55,6 +59,34 @@ body {
     overflow-x: hidden;
     background: var(--surface-alt);
 }
+
+/* Mirrored hero behind the transparent navbar
+    This uses a CSS variable (--hero-strip) set by JS to show a 1px-high repeating strip
+    of the hero's top row under the navbar so the photo visually continues up into the bar.
+    The rule sits above page content but below the navbar itself so it doesn't block clicks.
+*/
+body::before {
+    content: '';
+    position: fixed;
+    /* pin exactly to the top of the page so it lives behind the navbar */
+    top: 0;
+     left: 0;
+     right: 0;
+     height: var(--navbar-height);
+     z-index: 999; /* below navbar (1000) but above page content */
+     /* overlay + two-layer background: translucent overlay for contrast, then
+         1px strip (repeats vertically), then full image fallback */
+     background-image: linear-gradient(var(--accent-secondary-900-10), var(--accent-secondary-900-10)), var(--hero-strip), var(--hero-image);
+    background-repeat: repeat-y, no-repeat;
+     background-size: 100% 1px, 100% 1px, cover; /* top overlay, strip then full image */
+     background-position: top center, top center, top center;
+     pointer-events: none;
+     transition: background-image 400ms ease, opacity 200ms ease;
+     opacity: 1;
+}
+
+/* Hide the CSS fallback when JS-managed nav-strip is active */
+.use-nav-strip body::before { opacity: 0; }
 
 /* Add padding to inner pages to account for fixed navbar */
 .inner-page {
@@ -111,6 +143,32 @@ body {
 .white-logo {
     opacity: 1;
 }
+
+/* element-based nav-strip (used for crossfading) */
+.nav-strip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--navbar-height);
+    z-index: 999; /* below navbar but above content */
+    pointer-events: none;
+}
+
+.nav-strip__layer {
+    position: absolute;
+    inset: 0;
+    background-repeat: repeat-y;
+    background-size: 100% 1px;
+    background-position: top center;
+    opacity: 0;
+    transition: opacity 3000ms ease-in-out; /* match slideshow fade */
+}
+
+.nav-strip__layer--a { opacity: 1; }
+
+/* Hide the mirrored strip on inner pages */
+.inner-page .nav-strip { opacity: 0; }
 
 .green-logo {
     position: absolute;
@@ -256,7 +314,8 @@ body {
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: 60vh;
+    /* increase hero to make room so slides sit fully below the nav */
+    height: calc(60vh + var(--navbar-height));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -276,10 +335,11 @@ body {
 }
 .slideshow-container {
     position: absolute;
-    top: 0;
+    /* slide area starts below the navbar so the full photo appears under the bar */
+    top: var(--navbar-height);
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - var(--navbar-height));
     z-index: 0; /* base for slides and overlay */
 }
 
@@ -906,3 +966,5 @@ body {
 .fade-in-up {
     animation: fadeInUp 0.8s ease-out;
 }
+
+.inner-page body::before { opacity: 0; }
