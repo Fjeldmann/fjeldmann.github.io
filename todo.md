@@ -1,4 +1,8 @@
 # TODO
+- [x] feat - update hero text: Og så tror vi på -> Vi tror på
+- [x] feat - opdater 'Kontakt Os' -> 'Kontakt os'
+- [x] feat - opdater kontakt tekst - >' der kan hjælpe med at frigøre potentiale skjult i dine data. ' -> 'der kan skabe værdi for jer.'
+- [ ] feat - footer - add danish version
 - [ ] add a contact us form at the bottom of all pages right above the footer
     - should be language aware (english / danish)
     - text:
