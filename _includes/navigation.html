@@ -22,9 +22,10 @@
             <!-- Contact button moved to the right of the language toggle -->
             <div class="nav-contact">
             {% if page.lang == 'en' %}
-                <a href="{{ '/en/contact' | relative_url }}" class="contact-btn">Contact</a>
+                <!-- Navigate to the in-page contact anchor instead of separate contact pages -->
+                <a href="#contact" class="contact-btn">Contact</a>
             {% else %}
-                <a href="{{ '/contact' | relative_url }}" class="contact-btn">Kontakt</a>
+                <a href="#contact" class="contact-btn">Kontakt</a>
             {% endif %}
             </div>
 
