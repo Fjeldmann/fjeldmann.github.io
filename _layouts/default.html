@@ -30,6 +30,10 @@
         {{ content }}
     </main>
     
+    {%- unless page.url contains 'contact' -%}
+        {% include contact-form-simple.html %}
+    {%- endunless -%}
+
     {% include footer.html %}
     
     <!-- JavaScript -->

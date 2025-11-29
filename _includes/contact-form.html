@@ -1,0 +1,63 @@
+<!-- Contact form include - added per redesign request -->
+<section id="contact" class="site-contact" aria-labelledby="contact-heading">
+  <!-- background image constrained in a centered "bg-inner" element so it never stretches past 1200px -->
+    <div class="site-contact__bg" aria-hidden="true">
+    <div class="bg-inner" style="background-image: url('{{ '/assets/hero/pexels-karola-g-6642889.jpg' | relative_url }}');">
+      <div class="bg-overlay" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="container contact-inner">
+    <div class="contact-copy">
+      {% if page.lang == 'en' %}
+        <h1 id="contact-heading">Contact Us</h1>
+        <h2 class="subheader">Shall we develop a solution for you?</h2>
+        <p class="lead">We are always interested to hear about your challenges, and we have a wide range of tools that can help unlock potential hidden in your data. Contact us for a no-obligation chat.</p>
+      {% else %}
+        <h1 id="contact-heading">Kontakt Os</h1>
+        <h2 class="subheader">Skal vi udvikle en løsning for jer?</h2>
+        <p class="lead">Vi er altid interesseret i at høre om jeres udfordringer, og vi har en lang række værktøjer der kan hjælpe med at udnytte potentialet gemt i din data. Kontakt os for en uforpligtende snak.</p>
+      {% endif %}
+    </div>
+
+    <form class="contact-form" method="POST" action="/contact/submit" novalidate>
+      <div class="form-row">
+        {% if page.lang == 'en' %}
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" required />
+        {% else %}
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" required />
+        {% endif %}
+      </div>
+
+      <div class="form-row">
+        {% if page.lang == 'en' %}
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="name" type="text" required />
+        {% else %}
+          <label for="contact-name">Navn</label>
+          <input id="contact-name" name="name" type="text" required />
+        {% endif %}
+      </div>
+
+      <div class="form-row">
+        {% if page.lang == 'en' %}
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="5" required></textarea>
+        {% else %}
+          <label for="contact-message">Besked</label>
+          <textarea id="contact-message" name="message" rows="5" required></textarea>
+        {% endif %}
+      </div>
+
+      <div class="form-actions">
+        {% if page.lang == 'en' %}
+          <button type="submit" class="btn-primary">Send Message</button>
+        {% else %}
+          <button type="submit" class="btn-primary">Send Besked</button>
+        {% endif %}
+      </div>
+    </form>
+  </div>
+</section>

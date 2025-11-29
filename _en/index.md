@@ -5,35 +5,27 @@ description: "Let's make today easier, better. A people first software company"
 lang: en
 permalink: /en/
 ---
+<div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <p>At <span class="highlight-text-cold">Fjeldmann</span> we always start with <span class="highlight-text-warm">people</span> when developing software.<br> 
+    And we believe that complex problems call for <span class="highlight-text-cold">simple solutions</span>.</p>
+</div>
 
-<section class="intro-section fade-in-up">
-    <div class="container">
-        <h2>Welcome to Fjeldmann</h2>
-        <p>We are a people-first software company dedicated to making technology work better for everyone. Our approach focuses on understanding your needs and creating solutions that truly make a difference.</p>
-        
-        <div class="features-grid">
-            <div class="feature">
-                <h3>People First</h3>
-                <p>We believe that great technology starts with understanding people. Every solution we create is designed with the end user in mind.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>Easier Solutions</h3>
-                <p>Complex problems don't always require complex solutions. We specialize in making the difficult simple and the complicated clear.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>Better Tomorrow</h3>
-                <p>Every day is an opportunity to improve. We're committed to creating software that makes tomorrow better than today.</p>
-            </div>
-        </div>
-    </div>
-</section>
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <hr style="margin-top: 2rem; margin-bottom: 2rem; width: 50%; border-top: 2px solid var(--accent-secondary);">
+
+We specialise in<br>
+<span class="highlight-text-cold" style="text-align: center; font-weight: bold; margin-top: 2rem; font-size: 1.2rem;">
+DATA • AI • SOFTWARE • AUTOMATION
+</span>
+<hr>
+</div>
+
 
 <style>
 .intro-section {
     padding: 4rem 2rem;
-    background: #f8f9fa;
+    background: var(--surface-alt);
 }
 
 .container {
@@ -45,47 +37,17 @@ permalink: /en/
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .intro-section > .container > p {
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #666;
+    color: var(--text-secondary);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.feature {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.feature:hover {
-    transform: translateY(-5px);
-}
-
-.feature h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.feature p {
-    color: #666;
-    line-height: 1.6;
-}
 </style>

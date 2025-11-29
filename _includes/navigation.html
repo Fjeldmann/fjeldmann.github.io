@@ -2,37 +2,34 @@
     <div class="nav-container">
         <div class="nav-logo">
             <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">
-                <img src="{{ '/assets/images/Transparent_logo_and_text_white.png' | relative_url }}" alt="Fjeldmann" class="logo-image white-logo">
-                <img src="{{ '/assets/images/Transparent_logo_and_text.png' | relative_url }}" alt="Fjeldmann" class="logo-image blue-logo">
+                <img src="{{ '/assets/logo/colorwhitenametruestackedfalse.png' | relative_url }}" alt="Fjeldmann" class="logo-image white-logo">
+                <img src="{{ '/assets/logo/colorpinenametruestackedfalse.png' | relative_url }}" alt="Fjeldmann" class="logo-image green-logo">
             </a>
         </div>
         
         <div class="nav-menu" id="nav-menu">
-            {% if page.lang == 'en' %}
-                <a href="{{ '/en/' | relative_url }}" class="nav-link">Home</a>
-                <a href="{{ '/en/about' | relative_url }}" class="nav-link">About Us</a>
-                <a href="{{ '/en/services' | relative_url }}" class="nav-link">Services</a>
-                <a href="{{ '/en/contact' | relative_url }}" class="nav-link">Contact</a>
-            {% else %}
-                <a href="{{ '/' | relative_url }}" class="nav-link">Hjem</a>
-                <a href="{{ '/about' | relative_url }}" class="nav-link">Om os</a>
-                <a href="{{ '/services' | relative_url }}" class="nav-link">Services</a>
-                <a href="{{ '/contact' | relative_url }}" class="nav-link">Kontakt</a>
-            {% endif %}
         </div>
         
-        <div class="nav-lang">
+        <div class="nav-controls">
+            <div class="nav-lang">
             {% if page.lang == 'en' %}
                 <a href="{{ '/' | relative_url }}" class="lang-link">da</a>
             {% else %}
                 <a href="{{ '/en/' | relative_url }}" class="lang-link">en</a>
             {% endif %}
-        </div>
-        
-        <div class="nav-toggle" id="nav-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            </div>
+
+            <!-- Contact button moved to the right of the language toggle -->
+            <div class="nav-contact">
+            {% if page.lang == 'en' %}
+                <!-- Navigate to the in-page contact anchor instead of separate contact pages -->
+                <a href="#contact" class="contact-btn">Contact</a>
+            {% else %}
+                <a href="#contact" class="contact-btn">Kontakt</a>
+            {% endif %}
+            </div>
+
+            </div>
         </div>
     </div>
 </nav>

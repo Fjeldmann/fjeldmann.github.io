@@ -1,6 +1,50 @@
 ---
 ---
 
+:root {
+    /* Neutral palette */
+    --black-ink: #222222; /* Sort blæk */
+    --dark-gray: #6D6D6D; /* Mørkegrå */
+    --mid-gray: #D5D5D5; /* Mellemgrå */
+    --light-gray: #F8F8F8; /* Lysegrå */
+    --white-snow: #FFFFFF; /* Hvid sne */
+
+    /* Accent palette */
+    --amber: #DC851F; /* Gyldent rav (primary accent) */
+    --warm-sand: #E0BB89; /* Varmt sand (soft backgrounds) */
+    --blue-fir: #025951; /* Blågran (secondary accent) */
+    
+    /* Derived / semantic tokens */
+    --text-primary: var(--black-ink);
+    --text-secondary: var(--dark-gray);
+    --surface-default: var(--white-snow);
+    --surface-alt: var(--light-gray);
+    --border-default: var(--mid-gray);
+    --accent-primary: var(--amber);
+    --accent-secondary: var(--blue-fir);
+
+    /* Handy derived shades for hover/active states */
+    --accent-primary-700: #b86a18; /* darker amber for hover */
+    --accent-secondary-100: #038f8a; /* slightly lighter blue-fir */
+    --accent-secondary-200: #027373; /* lighter blue-fir for hover */
+    --accent-secondary-700: #024d4d; /* slightly darker blue-fir */
+    --accent-secondary-700-10: rgba(2, 77, 77, 0.1); /* translucent darker blue-fir */ 
+    /* helper surface step for subtle gradients */
+    --accent-secondary-700-50: rgba(2, 77, 77, 0.5); /* translucent darker blue-fir */ 
+    --accent-secondary-900: #013f3f; /* even darker blue-fir */
+    --accent-secondary-900-10: rgba(1, 63, 63, 0.2); /* translucent even darker blue-fir (increased alpha for darker overlay) */ 
+    --accent-secondary-900-50: rgba(1, 63, 63, 0.5); /* translucent even darker blue-fir */ 
+    
+    --surface-alt-2: #e9ecef;
+    
+    /* Footer tokens */
+    --footer-bg: var(--accent-secondary-700);
+    --footer-text: var(--surface-default);
+    /* navbar mirrored hero helper */
+    --navbar-height: 80px; /* tweak if your navbar height changes */
+    --hero-strip: none; /* set by JS when a hero slide is active */
+    --hero-image: none; /* fallback full image if strip can't be generated */
+}
 /* Reset and base styles */
 * {
     margin: 0;
@@ -11,9 +55,38 @@
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-primary);
     overflow-x: hidden;
+    background: var(--surface-alt);
 }
+
+/* Mirrored hero behind the transparent navbar
+    This uses a CSS variable (--hero-strip) set by JS to show a 1px-high repeating strip
+    of the hero's top row under the navbar so the photo visually continues up into the bar.
+    The rule sits above page content but below the navbar itself so it doesn't block clicks.
+*/
+body::before {
+    content: '';
+    position: fixed;
+    /* pin exactly to the top of the page so it lives behind the navbar */
+    top: 0;
+     left: 0;
+     right: 0;
+     height: var(--navbar-height);
+     z-index: 999; /* below navbar (1000) but above page content */
+     /* overlay + two-layer background: translucent overlay for contrast, then
+         1px strip (repeats vertically), then full image fallback */
+     background-image: linear-gradient(var(--accent-secondary-900-10), var(--accent-secondary-900-10)), var(--hero-strip), var(--hero-image);
+    background-repeat: repeat-y, no-repeat;
+     background-size: 100% 1px, 100% 1px, cover; /* top overlay, strip then full image */
+     background-position: top center, top center, top center;
+     pointer-events: none;
+     transition: background-image 400ms ease, opacity 200ms ease;
+     opacity: 1;
+}
+
+/* Hide the CSS fallback when JS-managed nav-strip is active */
+.use-nav-strip body::before { opacity: 0; }
 
 /* Add padding to inner pages to account for fixed navbar */
 .inner-page {
@@ -47,14 +120,17 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     position: relative;
+    display: flex; /* ensure vertical alignment */
+    align-items: center;
 }
 
 .nav-logo a {
     text-decoration: none;
-    color: white;
+    color: var(--surface-default);
     font-weight: 700;
     position: relative;
-    display: block;
+    display: flex; /* center logo images inside anchor */
+    align-items: center;
 }
 
 .logo-image {
@@ -68,10 +144,37 @@ body {
     opacity: 1;
 }
 
-.blue-logo {
-    position: absolute;
+/* element-based nav-strip (used for crossfading) */
+.nav-strip {
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    height: var(--navbar-height);
+    z-index: 999; /* below navbar but above content */
+    pointer-events: none;
+}
+
+.nav-strip__layer {
+    position: absolute;
+    inset: 0;
+    background-repeat: repeat-y;
+    background-size: 100% 1px;
+    background-position: top center;
+    opacity: 0;
+    transition: opacity 3000ms ease-in-out; /* match slideshow fade */
+}
+
+.nav-strip__layer--a { opacity: 1; }
+
+/* Hide the mirrored strip on inner pages */
+.inner-page .nav-strip { opacity: 0; }
+
+.green-logo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* center the overlay vertically */
     opacity: 0;
 }
 
@@ -80,18 +183,20 @@ body {
     opacity: 0;
 }
 
-.navbar.scrolled .blue-logo,
-.inner-page .navbar .blue-logo {
+.navbar.scrolled .green-logo,
+.inner-page .navbar .green-logo {
     opacity: 1;
 }
 
 .nav-menu {
     display: flex;
     gap: 2rem;
+    flex: 1; /* allow the menu to take available space and enable centering */
+    justify-content: center; /* keep nav links centered */
 }
 
 .nav-link {
-    color: white;
+    color: var(--surface-default);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -101,7 +206,7 @@ body {
 
 .navbar.scrolled .nav-link,
 .inner-page .navbar .nav-link {
-    color: #0056b3; /* Blue color for better visibility on light backgrounds */
+    color: var(--accent-secondary); /* Blue-fir for scrolled/inner pages */
     text-shadow: none;
 }
 
@@ -112,7 +217,7 @@ body {
 
 .navbar.scrolled .nav-link:hover,
 .inner-page .navbar .nav-link:hover {
-    color: #003d7a; /* Darker blue on hover */
+    color: var(--accent-secondary-700); /* darker blue-fir on hover */
 }
 
 .nav-link::after {
@@ -122,13 +227,13 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: white;
+    background: var(--surface-default);
     transition: width 0.3s ease;
 }
 
 .navbar.scrolled .nav-link::after,
 .inner-page .navbar .nav-link::after {
-    background: #0056b3; /* Blue underline for scrolled/inner pages */
+    background: var(--accent-secondary); /* blue-fir underline for scrolled/inner pages */
 }
 
 .nav-link:hover::after {
@@ -136,12 +241,20 @@ body {
 }
 
 /* Language Switcher */
-.nav-lang {
-    margin-left: 1rem;
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* tighten spacing of language toggle + contact button + toggle */
+    margin-right: 1rem;
+
 }
 
-.lang-link {
-    color: white;
+.nav-lang, .nav-contact{
+    margin-left: 0.5rem;
+}
+
+.lang-link, .contact-btn {
+    color: var(--surface-default);
     text-decoration: none;
     font-weight: 500;
     text-transform: uppercase;
@@ -155,10 +268,10 @@ body {
 
 .navbar.scrolled .lang-link,
 .inner-page .navbar .lang-link {
-    color: #0056b3;
+    color: var(--accent-secondary);
     text-shadow: none;
-    border: 1px solid rgba(0, 86, 179, 0.3);
-    background: rgba(0, 86, 179, 0.05);
+    border: 1px solid rgba(2, 89, 81, 0.16);
+    background: rgba(2, 89, 81, 0.035);
 }
 
 .lang-link:hover {
@@ -167,49 +280,77 @@ body {
     transform: translateY(-2px);
 }
 
+
+.contact-btn {
+    background: var(--accent-secondary); /* use blue-fir for contact button */
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    background: var(--accent-secondary-700); /* darker blue-fir on hover */
+}
+
 .navbar.scrolled .lang-link:hover,
 .inner-page .navbar .lang-link:hover {
-    background: rgba(0, 86, 179, 0.1);
-    border-color: rgba(0, 86, 179, 0.5);
+    background: var(--accent-secondary-700-10);
+    border-color: var(--accent-secondary-700-50);
 }
 
-/* Mobile Navigation */
-.nav-toggle {
-    display: none;
+.page-header, .page-header::before {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
     flex-direction: column;
-    cursor: pointer;
+    align-items: center;
 }
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background: white;
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
+/* Mobile Navigation */
 .navbar.scrolled .bar,
 .inner-page .navbar .bar {
-    background: #0056b3;
+    background: var(--accent-secondary);
 }
 
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: 100vh;
+    /* increase hero to make room so slides sit fully below the nav */
+    height: calc(60vh + var(--navbar-height));
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
 
-.slideshow-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center children horizontally */
+    justify-content: center;
+}
+.slideshow-container {
+    position: absolute;
+    /* slide area starts below the navbar so the full photo appears under the bar */
+    top: var(--navbar-height);
+    left: 0;
+    width: 100%;
+    height: calc(100% - var(--navbar-height));
+    z-index: 0; /* base for slides and overlay */
+}
+
+/* translucent overlay on top of hero images to improve readability */
+.slideshow-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent-secondary-900-10);
+    z-index: 1; /* sits above slides but below hero content */
+    pointer-events: none;
 }
 
 .slide {
@@ -219,7 +360,8 @@ body {
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 3s ease-in-out;
+    z-index: 0; /* ensure slides sit behind the overlay pseudo element */
 }
 
 .slide.active {
@@ -230,14 +372,16 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
     filter: brightness(0.7);
 }
 
 .hero-content {
     text-align: center;
-    color: white;
-    z-index: 1;
+    color: var(--surface-default);
+        z-index: 2;
     max-width: 800px;
+    margin: 0 auto; /* keep block centered inside .hero-inner */
     padding: 0 2rem;
 }
 
@@ -256,6 +400,17 @@ body {
     opacity: 0.95;
 }
 
+
+.highlight-text-warm {
+    color: var(--accent-primary);
+    font-weight: bold;
+}
+
+.highlight-text-cold {
+    color: var(--accent-secondary);
+    font-weight: bold;
+}
+
 /* Content Section */
 .content-section {
     padding: 4rem 2rem;
@@ -265,8 +420,8 @@ body {
 
 /* Footer */
 .footer {
-    background: #333;
-    color: white;
+    background: var(--footer-bg);
+    color: var(--footer-text);
     padding: 3rem 2rem 1rem;
 }
 
@@ -282,10 +437,22 @@ body {
     margin-bottom: 2rem;
 }
 
+/* Footer email link color override */
+.footer-section a[href^="mailto:"] {
+    color: var(--surface-default);
+    text-decoration: underline;
+    opacity: 0.8;
+    transition: color 0.2s;
+}
+
+.footer-section a[href^="mailto:"]:hover {
+    opacity: 1;
+}
+
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: white;
+    color: var(--surface-default);
 }
 
 .footer-section p {
@@ -294,7 +461,7 @@ body {
 }
 
 .footer-bottom {
-    border-top: 1px solid #555;
+    border-top: 1px solid var(--dark-gray);
     padding-top: 1rem;
     text-align: center;
     opacity: 0.8;
@@ -320,6 +487,12 @@ body {
         padding: 2rem 0;
     }
 
+    .nav-link {
+        color: var(--light-gray)!important; /* Blue-fir for scrolled/inner pages */
+        text-shadow: none;
+    }
+
+
     .nav-menu.active {
         left: 0;
     }
@@ -327,23 +500,6 @@ body {
     .nav-lang {
         order: -1;
         margin-left: 0;
-        margin-right: 1rem;
-    }
-
-    .nav-toggle {
-        display: flex;
-    }
-
-    .nav-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .nav-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
     }
 
     .hero-content h1 {
@@ -358,9 +514,6 @@ body {
         padding: 0.6rem 1rem;
     }
 
-    .logo-image {
-        height: 40px;
-    }
 }
 
 @media screen and (max-width: 480px) {
@@ -372,15 +525,13 @@ body {
         font-size: 1rem;
     }
 
-    .logo-image {
-        height: 35px;
-    }
 }
 
 /* Page Header Styles */
 .page-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    /* replaced purple/indigo gradient with brand gradient (amber -> warm sand) */
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--warm-sand) 100%);
+    color: var(--surface-default);
     padding: 6rem 0 4rem;
     text-align: center;
     position: relative;
@@ -426,11 +577,11 @@ body {
 }
 
 .service {
-    background: white;
+    background: var(--surface-default);
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--accent-primary);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -443,7 +594,7 @@ body {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -458,14 +609,14 @@ body {
 }
 
 .service h3 {
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
 .service p {
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.7;
     font-size: 1rem;
 }
@@ -473,13 +624,13 @@ body {
 .service-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    color: white;
+    color: var(--surface-default);
     font-size: 1.5rem;
 }
 
@@ -496,14 +647,14 @@ body {
 }
 
 .contact-info h2 {
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     font-size: 2rem;
     font-weight: 600;
 }
 
 .contact-info > p {
-    color: #666;
+    color: var(--text-secondary);
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
@@ -516,37 +667,37 @@ body {
 .contact-item {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: #f8f9fa;
+    background: var(--surface-alt);
     border-radius: 10px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--accent-primary);
 }
 
 .contact-item h4 {
-    color: #667eea;
+    color: var(--accent-primary);
     margin-bottom: 0.5rem;
     font-weight: 600;
     font-size: 1.1rem;
 }
 
 .contact-item p {
-    color: #333;
+    color: var(--text-primary);
     font-weight: 500;
     font-size: 1rem;
 }
 
 .contact-item a {
-    color: #667eea;
+    color: var(--accent-primary);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
-    color: #764ba2;
+    color: var(--accent-secondary);
 }
 
 .contact-message {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, var(--surface-alt) 0%, var(--surface-alt-2) 100%);
     padding: 3rem;
     border-radius: 15px;
     position: relative;
@@ -570,7 +721,7 @@ body {
 }
 
 .contact-message h3 {
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     font-weight: 600;
@@ -579,7 +730,7 @@ body {
 .contact-message p {
     margin-bottom: 1rem;
     line-height: 1.7;
-    color: #555;
+    color: var(--dark-gray);
 }
 
 .contact-cta {
@@ -588,10 +739,152 @@ body {
     border-top: 1px solid rgba(102, 126, 234, 0.2);
 }
 
+/* Contact us section (site-wide) */
+.site-contact {
+    position: relative;
+    color: var(--surface-default);
+}
+
+.site-contact__bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.site-contact__bg .bg-inner {
+    width: 100%;
+    max-width: 1200px; /* image constrained */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.site-contact__bg .bg-inner {
+    position: relative;
+}
+
+.site-contact__bg .bg-inner .bg-overlay {
+    /* overlay constrained to 1200px image container */
+    position: absolute;
+    inset: 0;
+    z-index: 1; /* sits above background image but below content */
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(1,63,63,0.45) 0%, rgba(1,63,63,0.65) 100%);
+}
+
+.site-contact .contact-inner {
+    position: relative;
+    z-index: 2; /* content above overlay */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 5rem;
+}
+
+.site-contact .contact-copy h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.site-contact .subheader {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+
+.site-contact .lead {
+    color: rgba(255,255,255,0.95);
+    max-width: 48ch;
+    line-height: 1.6;
+}
+
+.contact-form {
+    /* don't draw the form container background — only the individual fields should be visible */
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.contact-form .form-row {
+    margin-bottom: 1rem;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    /* small caps for labels */
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.02em;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.95); /* white & opaque */
+    color: var(--text-primary);
+    font-size: 1rem; /* consistent input font-size */
+    line-height: 1.4;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: rgba(2,89,81,0.2);
+    box-shadow: 0 6px 18px rgba(2,89,81,0.12);
+}
+
+.contact-form .form-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* make the send button use the brand "accent-secondary" */
+.contact-form .btn-primary {
+    /* use brand accent and small-caps for the send button */
+    background: var(--accent-secondary-200);
+    padding: 0.75rem 1.25rem;
+    color: var(--surface-default);
+    border-radius: 8px;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.02em;
+    font-size: 0.95rem;
+}
+
+.contact-form .btn-primary:hover {
+    background: var(--accent-secondary-100);
+}
+
+@media screen and (max-width: 900px) {
+    .site-contact .contact-inner {
+        grid-template-columns: 1fr;
+        padding: 3.5rem;
+    }
+
+    .site-contact .contact-copy h1 {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+}
+
 .btn-primary {
     display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    color: var(--surface-default);
     padding: 1rem 2rem;
     border-radius: 10px;
     text-decoration: none;
@@ -604,7 +897,6 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
 /* Container utility */
@@ -674,3 +966,5 @@ body {
 .fade-in-up {
     animation: fadeInUp 0.8s ease-out;
 }
+
+.inner-page body::before { opacity: 0; }
