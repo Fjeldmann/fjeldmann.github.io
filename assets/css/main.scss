@@ -822,7 +822,7 @@ body {
 /* make the send button use the brand "accent-secondary" */
 .contact-form .btn-primary {
     /* use brand accent and small-caps for the send button */
-    background: var(--accent-secondary);
+    background: var(--accent-secondary-200);
     padding: 0.75rem 1.25rem;
     color: var(--surface-default);
     border-radius: 8px;
@@ -832,7 +832,7 @@ body {
 }
 
 .contact-form .btn-primary:hover {
-    background: var(--accent-secondary-200);
+    background: var(--accent-secondary-100);
 }
 
 @media screen and (max-width: 900px) {
@@ -866,7 +866,6 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
 /* Container utility */
