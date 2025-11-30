@@ -385,12 +385,20 @@ body::before {
     padding: 0 2rem;
 }
 
+.hero-content h1,.hero-content h2 {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);    
+}
+
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1.2;
+}
+
+.hero-content h2 {
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 .hero-content p {
@@ -652,6 +660,7 @@ body::before {
     font-size: 2rem;
     font-weight: 600;
 }
+
 
 .contact-info > p {
     color: var(--text-secondary);
