@@ -1,4 +1,5 @@
 # TODO
+- [] remove 'Vi tror på at komplekse...' and add Vi leverer rådgivning og software udvikling
 - [ ] feat - footer - add danish version
 - [ ] add a contact us form at the bottom of all pages right above the footer
     - should be language aware (english / danish)
