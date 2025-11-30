@@ -7,22 +7,30 @@ permalink: /en/
 ---
 <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
     <p>At <span class="highlight-text-warm">Fjeldmann</span> we always start with <span class="highlight-text-warm">people</span> when developing software.<br> 
-    We believe that complex problems call for <span class="highlight-text-warm">simple solutions</span>.</p>
+    </p>
 </div>
 
-
-<div style="display: flex; flex-direction: column; align-items: center;">
-    <hr style="margin-top: 2rem; margin-bottom: 2rem; width: 50%; border-top: 2px solid var(--accent-secondary);">
-
-We specialise in<br>
-<span class="highlight-text-cold" style="text-align: center; font-weight: bold; margin-top: 2rem; font-size: 1.2rem;">
-DATA • AI • SOFTWARE • AUTOMATION
-</span>
-<hr>
+<div style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+    <hr class="divider-green" />
+    <p style="margin:0 0 0.5rem;">
+        We deliver<br/>
+    <span class="highlight-text-cold" style="display:inline-block; font-weight:700; margin:2rem 0 2rem 0; font-size:1.2rem;">
+    CONSULTING • SOFTWARE DEVELOPMENT • WORKSHOPS 
+    </span>
+        <br/>We specialise in<br/>
+    </p>
+    <span class="highlight-text-cold" style="display:inline-block; font-weight:700; margin:2rem 0 2rem 0; font-size:1.2rem;">
+        DATA • AI • AUTOMATION
+    </span>
 </div>
-
 
 <style>
+.divider-green {
+    width: 50%;
+    border-top: 2px solid var(--accent-secondary);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
 .intro-section {
     padding: 4rem 2rem;
     background: var(--surface-alt);
