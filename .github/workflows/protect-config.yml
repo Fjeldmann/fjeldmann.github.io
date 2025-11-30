@@ -1,0 +1,19 @@
+name: Revert _config.yml changes
+on:
+  pull_request:
+    types: [synchronize]
+
+jobs:
+  restore-config:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git checkout origin/${{ github.base_ref }} -- _config.yml
+      - run: |
+          git diff --quiet || {
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git commit -am "Restore protected _config.yml"
+            git push
+          }
