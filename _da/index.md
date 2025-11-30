@@ -7,8 +7,8 @@ permalink: /
 ---
 <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
     <p style="max-width: 800px;">
-        Hos <span class="highlight-text-cold">Fjeldmann</span> tager vi altid udgangspunkt i <span class="highlight-text-warm">mennesker</span>, når vi udvikler software.<br>
-        Vi tror på, at komplekse problemer kræver <span class="highlight-text-cold">enkle løsninger</span>.
+        Hos <span class="highlight-text-warm">Fjeldmann</span> tager vi altid udgangspunkt i <span class="highlight-text-warm">mennesker</span>, når vi udvikler software.<br>
+        Vi tror på, at komplekse problemer kræver <span class="highlight-text-warm">enkle løsninger</span>.
     </p>
 </div>
 

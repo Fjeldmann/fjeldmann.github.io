@@ -6,8 +6,8 @@ lang: en
 permalink: /en/
 ---
 <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-    <p>At <span class="highlight-text-cold">Fjeldmann</span> we always start with <span class="highlight-text-warm">people</span> when developing software.<br> 
-    We believe that complex problems call for <span class="highlight-text-cold">simple solutions</span>.</p>
+    <p>At <span class="highlight-text-warm">Fjeldmann</span> we always start with <span class="highlight-text-warm">people</span> when developing software.<br> 
+    We believe that complex problems call for <span class="highlight-text-warm">simple solutions</span>.</p>
 </div>
 
 
