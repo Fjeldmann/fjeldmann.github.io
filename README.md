@@ -33,7 +33,7 @@ This repository includes a containerized Jekyll workflow with Docker Compose Wat
 2. Clone this repository
 3. Run `bundle install` to install dependencies
 4. Run `bundle exec jekyll serve` to start the development server
-5. Open `http://localhost:4000` in your browser
+5. Open `http://localhost:4000` in your browser. For test repo http://localhost:4000/test-fjeldmann.github.io/
 
 ## GitHub Pages Deployment
 
