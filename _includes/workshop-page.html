@@ -1,0 +1,280 @@
+<div class="workshop-shell">
+    {% assign workshop_subject = page.workshop_mail_subject | default: page.title %}
+    {% assign workshop_body = page.workshop_mail_body | default: '' %}
+    {% assign workshop_mailto = 'mailto:' | append: page.workshop_mail_recipient | append: '?subject=' | append: (workshop_subject | uri_escape) | append: '&body=' | append: (workshop_body | uri_escape) %}
+
+    <header class="page-header workshop-header">
+        <div class="container">
+            {% if page.workshop_image %}
+            <div class="workshop-image-wrap">
+                <img class="workshop-image" src="{{ page.workshop_image | relative_url }}" alt="{{ page.title }}">
+            </div>
+            {% endif %}
+            <h1><span style="color: rgb(105, 105, 105); font-weight: 300;"> {{ page.type | default: 'Workshop' }} |</span> {{ page.title }}</h1>
+            <p>{{ page.description }}</p>
+
+        </div>
+    </header>
+
+    <div class="workshop-quicknav-wrap">
+        <div class="container">
+            <nav class="workshop-quicknav" aria-label="{% if page.lang == 'da' %}Workshop menu{% else %}Workshop menu{% endif %}">
+                <a href="#workshop-intro" data-workshop-quicknav-link>{% if page.lang == 'da' %}Intro{% else %}Intro{% endif %}</a>
+                <a href="#workshop-audience" data-workshop-quicknav-link>{% if page.lang == 'da' %}Målgruppe{% else %}Audience{% endif %}</a>
+                <a href="#workshop-requirements" data-workshop-quicknav-link>{% if page.lang == 'da' %}Krav{% else %}Requirements{% endif %}</a>
+                <a href="#workshop-takeaways" data-workshop-quicknav-link>{% if page.lang == 'da' %}Key Takeaways{% else %}Key Takeaways{% endif %}</a>
+                {% if page.workshop_agenda %}
+                <a href="#workshop-agenda" data-workshop-quicknav-link>{% if page.lang == 'da' %}Agenda{% else %}Agenda{% endif %}</a>
+                {% endif %}
+                <a class="btn-primary workshop-quicknav-booking" href="{{ workshop_mailto }}">
+                    {% if page.lang == 'da' %}Book her{% else %}Book here{% endif %}
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <section class="content-section workshop-page">
+        <div class="container workshop-intro" id="workshop-intro">
+            {% if page.workshop_intro %}
+                <p>{{ page.workshop_intro }}</p>
+            {% endif %}
+        </div>
+
+        <div class="container" id="workshop-audience">
+            <div class="workshop-row">
+                {% if page.workshop_audience_image %}
+                <div class="workshop-media">
+                    <img src="{{ page.workshop_audience_image | relative_url }}" alt="{% if page.lang == 'da' %}Billede for målgruppe{% else %}Audience image{% endif %}">
+                </div>
+                {% endif %}
+
+                <div class="workshop-section">
+                    <h2>{% if page.lang == 'da' %}Hvem er workshoppen for?{% else %}Who is this for?{% endif %}</h2>
+                    <ul>
+                        {% for item in page.workshop_audience %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="workshop-requirements">
+            <div class="workshop-row">
+                <div class="workshop-section">
+                    <h2>{% if page.lang == 'da' %}Tekniske krav{% else %}Technical requirements{% endif %}</h2>
+                    <ul>
+                        {% for item in page.workshop_requirements %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                {% if page.workshop_requirements_image %}
+                <div class="workshop-media">
+                    <img src="{{ page.workshop_requirements_image | relative_url }}" alt="{% if page.lang == 'da' %}Billede for krav{% else %}Requirements image{% endif %}">
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="container" id="workshop-takeaways">
+            <div class="workshop-row">
+                {% if page.workshop_takeaways_image %}
+                <div class="workshop-media">
+                    <img src="{{ page.workshop_takeaways_image | relative_url }}" alt="{% if page.lang == 'da' %}Billede for key takeaways{% else %}Takeaways image{% endif %}">
+                </div>
+                {% endif %}
+
+                <div class="workshop-section">
+                    <h2>{% if page.lang == 'da' %}Key Takeaways{% else %}Key Takeaways{% endif %}</h2>
+                    <p class="workshop-subheading">
+                        {% if page.lang == 'da' %}
+                            Du forlader workshoppen med disse kompetencer i bagagen.
+                        {% else %}
+                            You'll leave this workshop with these skills under your belt.
+                        {% endif %}
+                    </p>
+                    <ul>
+                        {% for item in page.workshop_takeaways %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {% if page.workshop_agenda %}
+        <div class="container workshop-section" id="workshop-agenda">
+            <h2>{% if page.lang == 'da' %}Workshop agenda{% else %}Workshop Agenda{% endif %}</h2>
+            <ol class="workshop-agenda">
+                {% for item in page.workshop_agenda %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+        {% endif %}
+
+        {% comment %} Minimal contact card for main contact person {% endcomment %}
+            {% if page.workshop_contact_name or page.workshop_contact_2_name %}
+            <div class="container workshop-section workshop-contact-section" id="workshop-contact" style="background: var(--surface-default);">
+                <h2 class="workshop-contact-title">
+                    {% if page.lang == 'da' %}Undervisere &amp; Foredragsholdere{% else %}Contact person{% endif %}
+                </h2>
+
+                {% if page.workshop_contact_name %}
+                <div class="workshop-contact-card">
+                    {% if page.workshop_contact_avatar %}
+                    <img class="workshop-contact-avatar" src="{{ page.workshop_contact_avatar | relative_url }}" alt="{{ page.workshop_contact_name }}">
+                    {% else %}
+                    <div class="workshop-contact-avatar workshop-contact-avatar--placeholder" aria-hidden="true"></div>
+                    {% endif %}
+
+                    <div class="workshop-contact-info">
+                        {% if page.workshop_contact_name %}
+                        <div class="workshop-contact-name">{{ page.workshop_contact_name }}</div>
+                        {% endif %}
+
+                        {% if page.workshop_contact_bio %}
+                        <div class="workshop-contact-bio">{{ page.workshop_contact_bio }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if page.workshop_contact_2_name %}
+                <div class="workshop-contact-card">
+                    {% if page.workshop_contact_2_avatar %}
+                    <img class="workshop-contact-avatar" src="{{ page.workshop_contact_2_avatar | relative_url }}" alt="{{ page.workshop_contact_2_name }}">
+                    {% else %}
+                    <div class="workshop-contact-avatar workshop-contact-avatar--placeholder" aria-hidden="true"></div>
+                    {% endif %}
+
+                    <div class="workshop-contact-info">
+                        {% if page.workshop_contact_2_name %}
+                        <div class="workshop-contact-name">{{ page.workshop_contact_2_name }}</div>
+                        {% endif %}
+
+                        {% if page.workshop_contact_2_bio %}
+                        <div class="workshop-contact-bio">{{ page.workshop_contact_2_bio }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+    </section>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const desktopQuery = window.matchMedia('(min-width: 768px)');
+    const quickNav = document.querySelector('.workshop-quicknav');
+    const quickNavWrap = document.querySelector('.workshop-quicknav-wrap');
+    const sectionLinks = quickNav ? quickNav.querySelectorAll('[data-workshop-quicknav-link]') : [];
+
+    if (!quickNav || !quickNavWrap || sectionLinks.length === 0) return;
+
+    // Build sections array once
+    const sectionIds = Array.from(sectionLinks)
+        .map(function (link) {
+            return link.getAttribute('href').replace('#', '');
+        })
+        .filter(Boolean);
+    const sections = sectionIds
+        .map(function (id) {
+            return document.getElementById(id);
+        })
+        .filter(Boolean);
+
+    function updateQuickNavHeightVar() {
+        const navHeight = quickNavWrap.offsetHeight || 0;
+        document.documentElement.style.setProperty('--workshop-quicknav-height', navHeight + 'px');
+    }
+
+    function updateStickyState() {
+        if (!desktopQuery.matches) {
+            quickNavWrap.classList.remove('is-stuck');
+            return;
+        }
+
+        const navbarHeightRaw = getComputedStyle(document.documentElement)
+            .getPropertyValue('--navbar-height')
+            .replace('px', '')
+            .trim();
+        const navbarHeight = Number(navbarHeightRaw) || 0;
+        const shouldStick = quickNavWrap.getBoundingClientRect().top <= navbarHeight + 1;
+        quickNavWrap.classList.toggle('is-stuck', shouldStick);
+    }
+
+    function setActiveLinkForSection(sectionId) {
+        sectionLinks.forEach(function (link) {
+            const isActive = link.getAttribute('href') === '#' + sectionId;
+            link.classList.toggle('is-active', isActive);
+            if (isActive) {
+                link.setAttribute('aria-current', 'true');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    // Simple scroll-based section tracking
+    function updateActiveSection() {
+        if (!desktopQuery.matches || sections.length === 0) {
+            // On mobile, highlight first
+            if (sections.length > 0) setActiveLinkForSection(sections[0].id);
+            return;
+        }
+
+        // Calculate offset: navbar + quicknav + small buffer
+        const navbarHeightRaw = getComputedStyle(document.documentElement)
+            .getPropertyValue('--navbar-height')
+            .replace('px', '')
+            .trim();
+        const navbarHeight = Number(navbarHeightRaw) || 0;
+        const quickNavHeight = quickNavWrap.offsetHeight || 0;
+        const offset = navbarHeight + quickNavHeight + 20; // 20px buffer
+
+        // Find the last section whose top has scrolled past the offset line
+        let activeSection = sections[0];
+        for (let i = 0; i < sections.length; i++) {
+            const rect = sections[i].getBoundingClientRect();
+            if (rect.top <= offset) {
+                activeSection = sections[i];
+            }
+        }
+
+        setActiveLinkForSection(activeSection.id);
+    }
+
+    // Throttle scroll handler for performance
+    let ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(function () {
+                updateStickyState();
+                updateActiveSection();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    updateQuickNavHeightVar();
+    updateStickyState();
+    updateActiveSection();
+
+    window.addEventListener('resize', function () {
+        updateQuickNavHeightVar();
+        updateStickyState();
+        updateActiveSection();
+    });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    desktopQuery.addEventListener('change', function () {
+        updateQuickNavHeightVar();
+        updateStickyState();
+        updateActiveSection();
+    });
+});
+</script>
