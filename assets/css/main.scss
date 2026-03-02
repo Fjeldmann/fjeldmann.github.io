@@ -1294,6 +1294,33 @@ body::before {
     }
 }
 
+/* Hide the three workshop section images on narrow screens (<770px) */
+@media screen and (max-width: 769px) {
+    .workshop-media {
+        display: none !important;
+    }
+}
+
+/* Make each workshop section take full horizontal space on narrow screens */
+@media screen and (max-width: 769px) {
+    .workshop-row .workshop-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+    }
+
+    /* Ensure container padding doesn't reduce the visible width too much */
+    .workshop-page .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Slightly reduce outer shell margins so cards feel edge-to-edge on small screens */
+    .workshop-shell {
+        margin: 0.5rem !important;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .workshop-shell {
         margin: 1rem;
