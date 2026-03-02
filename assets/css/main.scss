@@ -44,6 +44,29 @@
     --navbar-height: 80px; /* tweak if your navbar height changes */
     --hero-strip: none; /* set by JS when a hero slide is active */
     --hero-image: none; /* fallback full image if strip can't be generated */
+
+    /* Button radius */
+    --radius-btn: 5px;
+}
+
+/* Smooth scrolling and offset for fixed navbar when navigating to hash targets */
+html {
+    scroll-behavior: smooth;
+}
+
+.workshop-page .workshop-intro,
+.workshop-page .workshop-section,
+.workshop-page .workshop-section h2 {
+    /* ensure anchored sections clear the fixed navbar */
+    scroll-margin-top: calc(var(--navbar-height) + 1rem);
+}
+
+@media screen and (min-width: 768px) {
+    .workshop-page .workshop-intro,
+    .workshop-page .workshop-section,
+    .workshop-page .workshop-section h2 {
+        scroll-margin-top: calc(var(--navbar-height) + var(--workshop-quicknav-height, 0px) + 1rem);
+    }
 }
 /* Reset and base styles */
 * {
@@ -90,7 +113,8 @@ body::before {
 
 /* Add padding to inner pages to account for fixed navbar */
 .inner-page {
-    padding-top: 80px; /* Adjust based on your navbar height */
+    /* slightly tuck the page up so content starts closer under the navbar */
+    padding-top: calc(var(--navbar-height) - 24px);
 }
 
 /* Navigation Styles */
@@ -259,7 +283,7 @@ body::before {
     font-weight: 500;
     text-transform: uppercase;
     padding: 0.5rem 1rem;
-    border-radius: 5px;
+    border-radius: var(--radius-btn);
     transition: all 0.3s ease;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     background: rgba(255, 255, 255, 0.1);
@@ -538,7 +562,8 @@ body::before {
     /* replaced purple/indigo gradient with brand gradient (amber -> warm sand) */
     background: linear-gradient(135deg, var(--accent-primary) 0%, var(--warm-sand) 100%);
     color: var(--surface-default);
-    padding: 6rem 0 4rem;
+    /* tightened vertical spacing */
+    padding: 2.5rem 0 1.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -863,7 +888,7 @@ body::before {
     background: var(--accent-secondary-200);
     padding: 0.75rem 1.25rem;
     color: var(--surface-default);
-    border-radius: 8px;
+    border-radius: var(--radius-btn);
     font-variant-caps: all-small-caps;
     letter-spacing: 0.02em;
     font-size: 0.95rem;
@@ -890,10 +915,10 @@ body::before {
 
 .btn-primary {
     display: inline-block;
-    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    background: var(--accent-secondary);
     color: var(--surface-default);
     padding: 1rem 2rem;
-    border-radius: 10px;
+    border-radius: var(--radius-btn);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -913,6 +938,27 @@ body::before {
     padding: 0 2rem;
 }
 
+/* Remove left/right padding from containers in workshop pages to align with quicknav */
+.workshop-page .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Also remove horizontal padding when a container is used as a workshop section
+   (covers elements with both `container` and `workshop-section` classes) */
+.workshop-section.container,
+.workshop-contact-section.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Stronger override for workshop sections inside workshop pages.
+   This uses a more specific selector to override the generic
+   `.workshop-page .workshop-section { padding: 2rem; }` rule. */
+.workshop-page .workshop-section.container,
+.workshop-page .workshop-contact-section.container {
+    padding: 2rem 0; /* keep vertical padding, remove horizontal */
+}
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .page-header {
@@ -975,3 +1021,336 @@ body::before {
 }
 
 .inner-page body::before { opacity: 0; }
+
+/* Workshop page */
+.workshop-shell {
+    max-width: 1200px;
+    margin: 2rem auto 0; /* remove bottom gap so shell touches site contact */
+    background: var(--surface-default);
+    overflow: visible;
+}
+
+.workshop-page {
+    padding-top: 3rem;
+}
+
+.workshop-header {
+    background: var(--surface-default);
+    color: var(--text-primary);
+    padding: 2.5rem 0 1.5rem;
+    text-align: left;
+}
+
+.workshop-header::before {
+    content: none;
+}
+
+.workshop-header h1 {
+    color: var(--text-primary);
+    text-shadow: none;
+}
+
+.workshop-header p {
+    color: var(--text-secondary);
+    opacity: 1;
+    margin: 0;
+    max-width: 900px;
+}
+
+.workshop-quicknav-wrap {
+    background: var(--surface-default);
+    border-top: 1px solid var(--surface-default);
+    border-bottom: 1px solid var(--mid-gray);
+}
+
+.workshop-quicknav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.9rem 0;
+    transition: padding 0.2s ease, gap 0.2s ease;
+}
+
+.workshop-quicknav a {
+    text-decoration: none;
+}
+
+.workshop-quicknav > a:not(.workshop-quicknav-booking) {
+    color: var(--accent-secondary);
+    background: var(--surface-default);
+    padding: 0.55rem 0.9rem;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.workshop-quicknav > a:not(.workshop-quicknav-booking):hover {
+    border-color: var(--mid-gray);
+}
+
+.workshop-quicknav > a:not(.workshop-quicknav-booking).is-active,
+.workshop-quicknav > a:not(.workshop-quicknav-booking)[aria-current='true'] {
+    border-color: var(--accent-secondary);
+}
+
+.workshop-quicknav-booking {
+    margin-left: auto;
+    padding: 0.55rem 3rem; /* Double the horizontal padding for wider button */
+}
+
+.workshop-header .workshop-image-wrap {
+    margin-bottom: 1rem;
+}
+
+.workshop-header .workshop-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    background: var(--surface-default);
+}
+
+.workshop-page .workshop-intro {
+    text-align: left;
+    max-width: 860px;
+    margin: 0 0 2rem 0;
+    padding-left: 0;
+}
+
+@media screen and (min-width: 768px) {
+    /* Remove extra padding so intro aligns with quicknav and sections */
+    .workshop-page .workshop-intro {
+        padding-left: 0;
+    }
+}
+
+.workshop-page .workshop-intro p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.workshop-page .workshop-section {
+    background: var(--surface-alt-2);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    
+    /* Align all sections to left edge to match quicknav */
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .workshop-page .workshop-section {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.workshop-page .workshop-section h2 {
+    margin-bottom: 0.6rem;
+}
+
+.workshop-page .workshop-subheading {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.workshop-page ul,
+.workshop-page ol {
+    margin-left: 1.2rem;
+}
+
+.workshop-page li + li {
+    margin-top: 0.5rem;
+}
+
+.workshop-page .workshop-booking {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+/* Contact card */
+.workshop-contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface-alt-2);
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+}
+
+.workshop-contact-card:last-child {
+    margin-bottom: 0;
+}
+
+.workshop-contact-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 64px;
+}
+
+.workshop-contact-avatar--placeholder {
+    background: var(--mid-gray);
+}
+
+.workshop-contact-info {
+    min-width: 0;
+}
+
+.workshop-contact-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.workshop-contact-bio {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+.workshop-contact-email {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--accent-secondary-700);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 520px) {
+    .workshop-contact-card {
+        gap: 0.75rem;
+    }
+    .workshop-contact-avatar {
+        width: 56px;
+        height: 56px;
+        flex: 0 0 56px;
+    }
+}
+
+/* Section media layout */
+
+.workshop-row {
+    display: flex;
+    align-items: stretch; /* make children match height */
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.workshop-media {
+    flex: 0 0 30%;
+    max-width: 30%;
+    display: flex;
+    align-items: center; /* vertically center image when card is taller */
+}
+
+.workshop-media img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Ensure the card keeps its reduced width (70%) while media sits outside */
+.workshop-row .workshop-section {
+    flex: 1 1 70%;
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Alternate media placement so image sits in the outer white-space */
+.workshop-row:nth-of-type(odd) {
+    flex-direction: row-reverse;
+}
+.workshop-row:nth-of-type(even) {
+    flex-direction: row;
+}
+
+/* On small screens stack media above the card */
+@media screen and (max-width: 768px) {
+    .workshop-row {
+        display: block;
+    }
+    .workshop-media {
+        margin-bottom: 1rem;
+        width: 100%;
+        flex: none;
+    }
+    .workshop-row .workshop-section {
+        width: 100%;
+    }
+}
+
+/* Hide the three workshop section images on narrow screens (<770px) */
+@media screen and (max-width: 769px) {
+    .workshop-media {
+        display: none !important;
+    }
+}
+
+/* Make each workshop section take full horizontal space on narrow screens */
+@media screen and (max-width: 769px) {
+    .workshop-row .workshop-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+    }
+
+    /* Ensure container padding doesn't reduce the visible width too much */
+    .workshop-page .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Slightly reduce outer shell margins so cards feel edge-to-edge on small screens */
+    .workshop-shell {
+        margin: 0.5rem !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .workshop-shell {
+        margin: 1rem;
+        border-radius: 12px;
+    }
+
+    .workshop-quicknav-booking {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .workshop-quicknav-wrap {
+        position: sticky;
+        top: var(--navbar-height);
+        z-index: 998;
+    }
+
+    .workshop-quicknav-wrap.is-stuck .workshop-quicknav {
+        padding: 0.5rem 0;
+        gap: 0.5rem;
+    }
+
+    .workshop-quicknav-wrap.is-stuck .workshop-quicknav > a:not(.workshop-quicknav-booking) {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    .workshop-quicknav-wrap.is-stuck .workshop-quicknav-booking {
+        padding: 0.4rem 3rem; /* Keep full width button even when pinned */
+        font-size: 0.95rem;
+    }
+}

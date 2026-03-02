@@ -17,13 +17,23 @@ Visit the live site at: [https://fjeldmann.github.io](https://fjeldmann.github.i
 
 ## Local Development
 
-To run this site locally:
+### Docker Compose (recommended)
+
+This repository includes a containerized Jekyll workflow with Docker Compose Watch sync.
+
+1. Start development with watch mode:
+   `docker compose up --watch`
+2. Open `http://localhost:4000` in your browser
+3. Edit files locally; Compose Watch syncs changes into the container automatically
+4. If `Gemfile` or `Gemfile.lock` changes, Compose Watch rebuilds the service image
+
+### Without Docker
 
 1. Install Ruby and Jekyll
 2. Clone this repository
 3. Run `bundle install` to install dependencies
 4. Run `bundle exec jekyll serve` to start the development server
-5. Open `http://localhost:4000` in your browser
+5. Open `http://localhost:4000` in your browser. For test repo http://localhost:4000/test-fjeldmann.github.io/
 
 ## GitHub Pages Deployment
 

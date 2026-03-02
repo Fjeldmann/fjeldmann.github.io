@@ -1,0 +1,24 @@
+services:
+  jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    command: bundle exec jekyll serve --host 0.0.0.0 --port 4000 --livereload --force_polling
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /srv/jekyll
+          ignore:
+            - .git/
+            - .devcontainer/
+            - _site/
+            - .sass-cache/
+            - vendor/
+        - action: rebuild
+          path: Gemfile
+        - action: rebuild
+          path: Gemfile.lock
