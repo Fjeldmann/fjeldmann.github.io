@@ -1178,7 +1178,7 @@ body::before {
 /* Contact card */
 .workshop-contact-card {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     padding: 1rem 1.25rem;
     background: var(--surface-alt-2);
