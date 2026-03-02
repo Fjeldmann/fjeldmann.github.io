@@ -56,16 +56,18 @@ html {
 
 .workshop-page .workshop-intro,
 .workshop-page .workshop-section,
-.workshop-page .workshop-section h2 {
+.workshop-page .workshop-section h2,
+.workshop-page .container[id] {
     /* ensure anchored sections clear the fixed navbar */
-    scroll-margin-top: calc(var(--navbar-height) + 1rem);
+    scroll-margin-top: calc(var(--navbar-height));
 }
 
 @media screen and (min-width: 768px) {
     .workshop-page .workshop-intro,
     .workshop-page .workshop-section,
-    .workshop-page .workshop-section h2 {
-        scroll-margin-top: calc(var(--navbar-height) + var(--workshop-quicknav-height, 0px) + 1rem);
+    .workshop-page .workshop-section h2,
+    .workshop-page .container[id] {
+        scroll-margin-top: calc(var(--navbar-height) + var(--workshop-quicknav-height, 0px) );
     }
 }
 /* Reset and base styles */
