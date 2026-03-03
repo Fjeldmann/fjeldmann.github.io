@@ -8,11 +8,14 @@ workshop_audience_image: /assets/images/workshop.audience.png
 workshop_requirements_image: /assets/images/workshop.requirements.png
 workshop_takeaways_image: /assets/images/workshop.outcomes.png
 workshop_intro: >
-  This hands-on workshop shows how to use AI to turn a CSV/Excel file into clear, decision-ready visualizations and concise messaging. We focus on visualization and communication. You’ll leave with a repeatable workflow that reduces time spent on design tweaks while improving clarity and impact. We provide sample data, but you can also bring your own.
+  This hands-on workshop shows how to use AI to turn data into clear, decision-supporting visualizations and concise messages. We work with visualization best practices and communication techniques. You’ll leave with a repeatable workflow that reduces time spent on design tweaks while increasing the impact of your insights. We provide sample data, but you can also bring your own.
 workshop_audience:
   - Employees who work with data and want to communicate it effectively
   - Teams that want consistent visual standards and more decision-ready output
   - Finance, sales, operations, HR, project and staff functions, public administration etc.
+workshop_duration: "3-5 hours"
+workshop_capacity: "Up to 15 participants"
+workshop_price: "16.000-19.000 DKK excl. VAT"
 workshop_requirements:
   - No coding required
   - Bring a laptop
@@ -41,19 +44,16 @@ workshop_mail_body: |
   Preferred date:
   Contact person:
 
-
-
 workshop_contact_name: "Ahmad Kuhlmann Balkiss"
 workshop_contact_bio: "I've been working with data, AI and automation for 7 years, helping teams turn data into insights and action. As a data scientist and software developer I have a passion for making complex things simple and useful."
 workshop_contact_avatar: /assets/images/ahmad.png
 
 workshop_contact_2_name: "Aleksander Samuel"
-workshop_contact_2_bio: | 
-  I work with graphics, communication, project management, web, and branding. 
-  Throughout the last ten years I have successfully created visual identities, branding campaigns, games, magazine concepts and content, online stores, social events, and packaging. 
-  If that sounds like a lot, that’s because it is. I’m not scared of learning new things or doing something different to get the job done.
+workshop_contact_2_bio: |
+  I work with graphic design, communication, project management, web and branding. Over the past ten years I have created visual identities, branding campaigns, games, magazine concepts and content, online stores, events and packaging. If that sounds like a lot, that’s because it is.
 
-  A lot of brands have a great product - the hard part is making people care. I always look for ways I can enhance the user experience, often using humor, aesthetics and shock tactics to grab the attention of my audience."
+  Many brands have a great product – the hard part is getting people to care. I always look for ways to improve the user experience, often using humor, aesthetics and surprise to capture attention.
+
 workshop_contact_2_avatar: /assets/images/aleksam.png
 ---
 {% include workshop-page.html %}
