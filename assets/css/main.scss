@@ -789,20 +789,20 @@ body::before {
 }
 
 .site-contact__bg .bg-inner {
-    width: 100%;
-    max-width: 1200px; /* image constrained */
+    /* make the visual background full-bleed across the viewport while
+       keeping the content (the `.container.contact-inner`) centered */
+    position: relative;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
     height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.site-contact__bg .bg-inner {
-    position: relative;
-}
-
 .site-contact__bg .bg-inner .bg-overlay {
-    /* overlay constrained to 1200px image container */
+    /* overlay covers the full-bleed background area */
     position: absolute;
     inset: 0;
     z-index: 1; /* sits above background image but below content */
