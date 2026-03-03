@@ -10,6 +10,9 @@ workshop_takeaways_image: /assets/images/workshop.outcomes.png
 workshop_intro: >
   Denne hands-on workshop viser, hvordan du bruger AI til at omsætte data til klare, beslutningsunderstøttende visualiseringer og korte, præcise budskaber. 
   Vi arbejder med best practices for datavisualisering og formidling. Du får et workflow, der reducerer tiden brugt på grafisk finpudsning og øger gennemslagskraften af dine indsigter. Vi stiller data til rådighed, men du kan også medbringe egne data.
+workshop_duration: "3-5 timer"
+workshop_capacity: "Op til 15 deltagere"
+workshop_price: "16.000-19.000 DKK ekskl. moms"
 workshop_audience:
   - Medarbejdere, der arbejder med data og ønsker at formidle det effektivt
   - Teams, der vil standardisere deres visualiseringer og levere mere beslutningsklart output
@@ -53,5 +56,8 @@ workshop_contact_2_bio: |
 
 workshop_contact_2_avatar: /assets/images/aleksam.png
 
+
+
 ---
 {% include workshop-page.html %}
+

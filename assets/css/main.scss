@@ -1133,6 +1133,10 @@ body::before {
     font-size: 1.1rem;
 }
 
+.workshop-page .workshop-info {
+    margin-top: 1rem; /* small space between intro and info list */
+}
+
 .workshop-page .workshop-section {
     background: var(--surface-alt-2);
     border-radius: 12px;

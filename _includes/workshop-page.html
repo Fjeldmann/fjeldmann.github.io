@@ -38,6 +38,33 @@
             {% if page.workshop_intro %}
                 <p>{{ page.workshop_intro }}</p>
             {% endif %}
+
+            {% if page.workshop_duration or page.workshop_price %}
+            <div class="workshop-info" aria-label="Workshop info">
+                <ul>
+                    {% if page.workshop_duration %}
+                    <li>
+                        <strong>{% if page.lang == 'da' %}Varighed{% else %}Duration{% endif %}:</strong>
+                        {{ page.workshop_duration }}
+                    </li>
+                    {% endif %}
+
+                    {% if page.workshop_capacity %}
+                    <li>
+                        <strong>{% if page.lang == 'da' %}Kapacitet{% else %}Capacity{% endif %}:</strong>
+                        {{ page.workshop_capacity }}
+                    </li>
+                    {% endif %}
+
+                    {% if page.workshop_price %}
+                    <li>
+                        <strong>{% if page.lang == 'da' %}Pris{% else %}Price{% endif %}:</strong>
+                        {{ page.workshop_price }}
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
         </div>
 
         <div class="container" id="workshop-audience">
