@@ -3,13 +3,13 @@ title: "Fra data til indsigt"
 type: "AI Workshop"
 description: "En praktisk, hands-on workshop for medarbejdere, der ønsker at kommunikere datadrevne indsigter effektivt."
 permalink: /workshop/ai-data-visualization/
-workshop_image: /assets/images/workshop.ai-data-visualization.png
-workshop_audience_image: /assets/images/workshop.audience.png
-workshop_requirements_image: /assets/images/workshop.requirements.png
-workshop_takeaways_image: /assets/images/workshop.outcomes.png
+workshop_image: /assets/images/workshop.ai-data-visualization_green.png
+workshop_audience_image: /assets/images/workshop.audience_green.png
+workshop_requirements_image: /assets/images/workshop.requirements_green.png
+workshop_takeaways_image: /assets/images/workshop.outcomes_green.png
 workshop_intro: >
   Denne hands-on workshop viser, hvordan du bruger AI til at omsætte data til klare, beslutningsunderstøttende visualiseringer og korte, præcise budskaber. 
-  Vi arbejder med best practices for datavisualisering og formidling. Du får et workflow, der reducerer tiden brugt på grafisk finpudsning og øger gennemslagskraften af dine indsigter. Vi stiller data til rådighed, men du kan også medbringe egne data.
+  Vi arbejder med best practices for datavisualisering og formidling. Du får et workflow, der reducerer tiden brugt på grafisk finpudsning og øger gennemslagskraften af dine indsigter. Medbring gerne dit eget data til workshoppen. Vi tilbyder også et datasæt til at øve med, hvis du foretrækker det.
 workshop_duration: "3-5 timer"
 workshop_capacity: "Op til 15 deltagere"
 workshop_price: "16.000-19.000 DKK ekskl. moms"
@@ -20,7 +20,7 @@ workshop_audience:
 workshop_requirements:
   - Ingen programmering – workshoppen kan følges af almindelige medarbejdere
   - Bærbar computer
-  - "Data - Vi stiller et datasæt til rådighed; du kan også medbringe egne data"
+  - "Data - Medbring gerne dit eget data til workshoppen. Vi tilbyder også et datasæt til at øve med, hvis du foretrækker det."
 workshop_takeaways:
   - Best practices for læsbare og beslutningsunderstøttende visualiseringer (diagramvalg, skala, akser, farver og annotationer)
   - En genbrugelig prompt- og arbejdsstruktur, der giver hurtigere og mere konsistente visualiseringer
@@ -51,8 +51,7 @@ workshop_contact_avatar: /assets/images/ahmad.png
 
 workshop_contact_2_name: "Aleksander Samuel"
 workshop_contact_2_bio: |
-  Jeg arbejder med grafisk design, kommunikation, projektledelse, web og branding. Gennem de seneste ti år har jeg skabt visuelle identiteter, brandingkampagner, spil, magasinidéer og -indhold, webshops, events og emballage. Hvis det lyder som meget, så er det fordi det er det. 
-  Mange brands har et godt produkt – det svære er at få folk til at interessere sig for det. Jeg søger altid måder at forbedre brugeroplevelsen på, ofte ved at bruge humor, æstetik og overraskelseseffekter til at fange publikums opmærksomhed.
+  Jeg er en alsidig grafisk designer med fokus på kultur, æstetik og disruption. Der er så meget støj derude. Som formidler skaber jeg opmærksomhed og iscenesætter det essentielle budskab, så det står knivskarpt hos dit publikum.
 
 workshop_contact_2_avatar: /assets/images/aleksam.png
 
