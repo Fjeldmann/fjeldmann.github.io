@@ -3,10 +3,10 @@ title: "Fra data til indsigt"
 type: "AI Workshop"
 description: "En praktisk, hands-on workshop for medarbejdere, der ønsker at kommunikere datadrevne indsigter effektivt."
 permalink: /workshop/ai-data-visualization/
-workshop_image: /assets/images/workshop.ai-data-visualization.png
-workshop_audience_image: /assets/images/workshop.audience.png
-workshop_requirements_image: /assets/images/workshop.requirements.png
-workshop_takeaways_image: /assets/images/workshop.outcomes.png
+workshop_image: /assets/images/workshop.ai-data-visualization_green.png
+workshop_audience_image: /assets/images/workshop.audience_green.png
+workshop_requirements_image: /assets/images/workshop.requirements_green.png
+workshop_takeaways_image: /assets/images/workshop.outcomes_2_green.png
 workshop_intro: >
   Denne hands-on workshop viser, hvordan du bruger AI til at omsætte data til klare, beslutningsunderstøttende visualiseringer og korte, præcise budskaber. 
   Vi arbejder med best practices for datavisualisering og formidling. Du får et workflow, der reducerer tiden brugt på grafisk finpudsning og øger gennemslagskraften af dine indsigter. Medbring gerne dit eget data til workshoppen. Vi tilbyder også et datasæt til at øve med, hvis du foretrækker det.

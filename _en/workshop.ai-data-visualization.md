@@ -3,10 +3,10 @@ title: "From Data to Insight"
 type: "AI Workshop"
 description: "A practical, hands-on workshop for employees who want clear charts and decision-ready messages—without spending hours on design tweaks."
 permalink: /en/workshop/ai-data-visualization/
-workshop_image: /assets/images/workshop.ai-data-visualization.png
-workshop_audience_image: /assets/images/workshop.audience.png
-workshop_requirements_image: /assets/images/workshop.requirements.png
-workshop_takeaways_image: /assets/images/workshop.outcomes.png
+workshop_image: /assets/images/workshop.ai-data-visualization_green.png
+workshop_audience_image: /assets/images/workshop.audience_green.png
+workshop_requirements_image: /assets/images/workshop.requirements_green.png
+workshop_takeaways_image: /assets/images/workshop.outcomes_green.png
 workshop_intro: >
   This hands-on workshop shows how to use AI to turn data into clear, decision-supporting visualizations and concise messages. We work with visualization best practices and communication techniques. You’ll leave with a repeatable workflow that reduces time spent on design tweaks while increasing the impact of your insights. We provide sample data, but you can also bring your own.
 workshop_audience:
