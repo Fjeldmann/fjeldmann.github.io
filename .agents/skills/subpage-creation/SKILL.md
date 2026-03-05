@@ -5,9 +5,12 @@ description: Create or update a non-homepage subpage for this Fjeldmann Jekyll s
 
 # Subpage Creation
 
-Create bilingual pages using the existing Jekyll collections setup.
+Create pages using the existing Jekyll collections setup.
 
-## Follow This Workflow
+## Bilingual Structure
+If the user explicitly requests a bilingual page, create two files: one in `_da` for Danish and one in `_en` for English. Both files should have the same slug (filename without extension) to maintain URL consistency. Other if the user only requests a single language, create just that file in the appropriate collection.
+
+## Follow This Workflow for bilingual pages:
 
 1. Define one slug (for example `services`) and create both language files with the same slug.
 2. Create `_da/<slug>.md` and `_en/<slug>.md`.
