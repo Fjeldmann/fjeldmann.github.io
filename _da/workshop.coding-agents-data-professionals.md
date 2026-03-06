@@ -10,9 +10,9 @@ workshop_takeaways_image: /assets/images/workshop.outcomes_2_green.png
 
 workshop_intro: >
   Denne workshop giver en praktisk introduktion til, hvordan man kan arbejde med coding agents i moderne data- og analyseprojekter.
-  Den er til dig, der allerede forstår dataflows, rapporteringsbehov og forretningslogik, men gerne vil bruge AI mere effektivt i teknisk arbejde.
-  Du lærer at sætte et agentprojekt op med den rette kontekst, styre arbejdet gennem planlægning, review og test, så resultaterne kan evalueres før de implementeres.
-# I løbet af workshoppen bygger vi en lille ETL-pipeline og en rapport med SQL og Python via naturligt sprog, projektinstruktioner og CLI-baserede workflows — uden at du selv behøver skrive koden manuelt.
+  Workshoppen er til medarbejderen, der allerede forstår dataflows, rapporteringsbehov og forretningslogik, men gerne vil bruge AI mere effektivt i teknisk arbejde.
+  Deltageren lærer at sætte et agentprojekt op med den rette kontekst, styre arbejdet gennem planlægning, review og test, så resultaterne kan evalueres før de implementeres.
+# I løbet af workshoppen bygger deltageren en lille ETL-pipeline og en rapport med SQL og Python via naturligt sprog, projektinstruktioner og CLI-baserede workflows — uden at deltageren selv behøver skrive koden manuelt.
 # Vi kommer også omkring den professionelle side af arbejdet med agents: rettigheder, review, håndtering af secrets, human-in-the-loop og hvordan man forholder sig til kode, før den kommer tæt på produktion.
 
 workshop_duration: "5 timer (inkl. pauser)"
@@ -25,17 +25,16 @@ workshop_audience:
   - Fagpersoner, der kender forretningen og datalogikken godt, men gerne vil arbejde mere effektivt
 
 workshop_requirements:
-  - Du har arbejder med data, rapportering eller analyse i en eller anden form og forstår de grundlæggende processer og behov
-  - Medbring din egen laptop
+  - Deltageren har arbejdet med data, rapportering eller analyse i en eller anden form og forstår de grundlæggende processer og behov
+  - Laptop med internetforbindelse
   - "Valgfrit: Medbring et eksempel på egne data, eller brug det datasæt vi stiller til rådighed."
-  - Du behøver ikke kunne SQL eller Python på forhånd
+  - Deltageren behøver ikke kunne SQL eller Python på forhånd
 
 workshop_takeaways:
   - En praktisk forståelse af, hvad coding agents kan og ikke kan i professionelt dataarbejde
   - Erfaring med at sætte en agent op og styre den gennem et mindre ETL- og rapporteringsflow
   - En klar forståelse af agentic-modes som planlægning, redigering og code-review
   - Hands-on erfaring med projektstruktur, projektinstruktioner, AGENTS.md, skills og brug af agent-tools
-  - "Bedre metoder til at instruere en agent i struktureret arbejde: mål, rammer, succeskriterier og kontekst"
   - "En stærkere forståelse af menneskets rolle: at designe det rigtige setup, vurdere output, teste og iterere"
   - Konkrete sikkerhedsvaner til agentiske workflows, herunder rettigheder, secrets, human approval og forsigtighed før produktion
 
