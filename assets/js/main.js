@@ -312,4 +312,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Trigger scroll event once to set initial state
     window.dispatchEvent(new Event('scroll'));
+
+    // Dropdown toggle (click support for mobile / touch)
+    document.querySelectorAll('.dropdown-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var dropdown = btn.closest('.dropdown');
+            var isOpen = dropdown.classList.contains('open');
+            // Close any other open dropdowns
+            document.querySelectorAll('.dropdown.open').forEach(function(d) {
+                d.classList.remove('open');
+                d.querySelector('.dropdown-btn').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                dropdown.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function() {
+        document.querySelectorAll('.dropdown.open').forEach(function(d) {
+            d.classList.remove('open');
+            d.querySelector('.dropdown-btn').setAttribute('aria-expanded', 'false');
+        });
+    });
 });

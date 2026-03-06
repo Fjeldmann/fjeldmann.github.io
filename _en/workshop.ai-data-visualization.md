@@ -1,37 +1,32 @@
 ---
 title: "From Data to Insight"
 type: "AI Workshop"
-description: "A practical, hands-on workshop for employees who want clear charts and decision-ready messages—without spending hours on design tweaks."
+description: "A practical, hands-on workshop for employees who want to communicate data-driven insights effectively."
 permalink: /en/workshop/ai-data-visualization/
 workshop_image: /assets/images/workshop.ai-data-visualization_green.png
 workshop_audience_image: /assets/images/workshop.audience_green.png
 workshop_requirements_image: /assets/images/workshop.requirements_green.png
-workshop_takeaways_image: /assets/images/workshop.outcomes_green.png
+workshop_takeaways_image: /assets/images/workshop.outcomes_2_green.png
 workshop_intro: >
-  This hands-on workshop shows how to use AI to turn data into clear, decision-supporting visualizations and concise messages. We work with visualization best practices and communication techniques. You’ll leave with a repeatable workflow that reduces time spent on design tweaks while increasing the impact of your insights. We provide sample data, but you can also bring your own.
+  This hands-on workshop shows how to use AI to turn data into clear, decision-supporting visualizations and concise messages. 
+  We work with best practices for data visualization and communication. You’ll leave with a workflow that reduces time spent on design tweaks while increasing the impact of your insights. Bring your own data or use the dataset we provide.
+workshop_duration: "3 hours (full-day workshop available upon request)"
+workshop_capacity: "Up to 15 participants"
+workshop_price: "15,000 DKK excl. VAT"
 workshop_audience:
   - Employees who work with data and want to communicate it effectively
   - Teams that want consistent visual standards and more decision-ready output
   - Finance, sales, operations, HR, project and staff functions, public administration etc.
-workshop_duration: "3-5 hours"
-workshop_capacity: "Up to 15 participants"
-workshop_price: "16.000-19.000 DKK excl. VAT"
 workshop_requirements:
-  - No coding required
+  - No coding required – suitable for non-technical employees
   - Bring a laptop
-  - "Data - We provide a dataset; you may bring your own"
+  - "Data - Bring your own data or use the dataset we provide."
 workshop_takeaways:
-  - Best-practice rules for readable, decision-ready visuals (chart choice, scaling, axes, color and annotation)
+  - Best practices for readable, decision-ready visuals (chart choice, scaling, axes, color and annotation)
   - A repeatable prompt and workflow structure for faster, more consistent outputs
-  - How to write the key message and recommendations so insights can drive decisions
+  - Methods to formulate key messages and recommendations so insights can drive decisions
   - A quality checklist before visuals go into slides, reports or dashboards
-  - Practical guidelines for responsible AI use with data (privacy, security and traceability)
-# workshop_agenda:
-#   - "Kickoff: What makes a visualization decision-ready? (15 min)"
-#   - "Best practices without becoming a designer (35 min) - Chart choice, hierarchy, color and clarity"
-#   - "Hands-on: From CSV/Excel to finished visualization with AI (60 min)"
-#   - "Communicating insights (30 min) - Message, context and next step"
-#   - "Bring-your-own-data: Work on your own cases + Q&A (30 min)"
+  - Practical guidelines for responsible AI use with data (GDPR, data security, and traceability)
 workshop_mail_recipient: contact@fjeldmann.dk
 workshop_mail_subject: "Booking request: Data Visualization with AI workshop"
 workshop_mail_body: |
@@ -50,9 +45,7 @@ workshop_contact_avatar: /assets/images/ahmad.png
 
 workshop_contact_2_name: "Aleksander Samuel"
 workshop_contact_2_bio: |
-  I work with graphic design, communication, project management, web and branding. Over the past ten years I have created visual identities, branding campaigns, games, magazine concepts and content, online stores, events and packaging. If that sounds like a lot, that’s because it is.
-
-  Many brands have a great product – the hard part is getting people to care. I always look for ways to improve the user experience, often using humor, aesthetics and surprise to capture attention.
+  I am a versatile graphic designer with a focus on culture, aesthetics, and disruption. There is so much noise out there. As a communicator, I create attention and stage the essential message so it resonates clearly with your audience.
 
 workshop_contact_2_avatar: /assets/images/aleksam.png
 ---

@@ -530,7 +530,7 @@ body::before {
     }
     
     .nav-lang {
-        order: -1;
+        order: unset;
         margin-left: 0;
     }
 
@@ -1358,5 +1358,102 @@ body::before {
     .workshop-quicknav-wrap.is-stuck .workshop-quicknav-booking {
         padding: 0.4rem 3rem; /* Keep full width button even when pinned */
         font-size: 0.95rem;
+    }
+}
+
+/* Dropdown menu styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: none;
+    color: var(--surface-default);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease;
+    font-family: inherit;
+}
+
+.dropdown-arrow {
+    font-size: 0.7em;
+    margin-left: 0.15em;
+}
+
+.navbar.scrolled .dropdown-btn,
+.inner-page .navbar .dropdown-btn {
+    color: var(--accent-secondary);
+    text-shadow: none;
+}
+
+.dropdown-btn:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar.scrolled .dropdown-btn:hover,
+.inner-page .navbar .dropdown-btn:hover {
+    color: var(--accent-secondary-200);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--surface-default);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-btn);
+    z-index: 1001;
+    min-width: 240px;
+    padding: 0.4rem 0;
+}
+
+.dropdown-content a {
+    color: var(--text-primary);
+    padding: 0.6rem 1rem;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--accent-secondary);
+    color: var(--surface-default);
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown.open .dropdown-content {
+    display: block;
+}
+
+/* Mobile dropdown adjustments */
+@media screen and (max-width: 768px) {
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: transparent;
+        min-width: auto;
+        padding: 0;
+    }
+
+    .dropdown-content a {
+        color: var(--light-gray);
+        padding: 0.6rem 1.5rem;
+    }
+
+    .dropdown-content a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--surface-default);
+    }
+
+    .dropdown-btn {
+        color: var(--light-gray) !important;
+        text-shadow: none;
     }
 }
