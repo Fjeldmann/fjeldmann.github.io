@@ -27,12 +27,6 @@ workshop_takeaways:
   - Metoder til at formulere hovedpointen og anbefalinger, så indsigter kan bruges i praksis
   - En tjekliste til kvalitetssikring før visualiseringer går i slides, rapporter eller dashboards
   - Praktiske retningslinjer for ansvarlig brug af AI med data (GDPR, datasikkerhed og sporbarhed)
-# workshop_agenda:
-#   - "Kickoff: Hvad gør en visualisering beslutningsklar? (15 min)"
-#   - "Best practices uden at blive grafisk designer (35 min) - Chartvalg, hierarki, farver og forklaringer"
-#   - "Hands-on: Fra CSV/Excel til færdig visualisering med AI (60 min)"
-#   - "Formidling med data (30 min) - Hovedpointe, kontekst og næste skridt"
-#   - "Bring-your-own-data: Arbejd med egne cases + Q&A (30 min)"
 workshop_mail_recipient: contact@fjeldmann.dk
 workshop_mail_subject: "Bookingforespørgsel: Datavisualisering med AI workshop"
 workshop_mail_body: |
