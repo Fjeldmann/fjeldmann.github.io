@@ -1,7 +1,7 @@
 ---
 title: "Coding Agents for Data Professionals"
 type: "AI Workshop"
-description: "A hands-on workshop for experienced data and analytics professionals who want to use modern coding agents for ETL, reporting and analysis workflows."
+description: "A hands-on workshop for data and analytics professionals who want to use modern coding agents for ETL, reporting and analysis workflows."
 permalink: /en/workshop/coding-agents-for-data-professionals/
 workshop_image: /assets/images/workshop.coding-agents-data-professionals_2.jpg
 workshop_audience_image: /assets/images/workshop.audience_green.png
@@ -14,7 +14,7 @@ workshop_intro: >
   You will learn how to set up a project so an agent can work in it, provide the right context, guide work through planning and review, and evaluate results before anything is implemented or shared further.
 
 workshop_duration: "5 hours (including breaks)"
-workshop_capacity: "Up to 12 participants"
+workshop_capacity: "Up to 15 participants"
 workshop_price: "18,000 DKK excl. VAT"
 
 workshop_audience:

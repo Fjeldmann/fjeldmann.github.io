@@ -8,6 +8,18 @@
         </div>
         
         <div class="nav-menu" id="nav-menu">
+            <div class="dropdown">
+                <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                    Workshops <span class="dropdown-arrow">&#9662;</span>
+                </button>
+                <div class="dropdown-content">
+                    {% assign lang = page.lang | default: 'da' %}
+                    {% assign workshops = site[lang] | where: 'type', 'AI Workshop' %}
+                    {% for workshop in workshops %}
+                    <a href="{{ workshop.url | relative_url }}">{{ workshop.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
         
         <div class="nav-controls">

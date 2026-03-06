@@ -12,7 +12,7 @@ workshop_intro: >
   Vi arbejder med best practices for datavisualisering og formidling. Du får et workflow, der reducerer tiden brugt på grafisk finpudsning og øger gennemslagskraften af dine indsigter. Medbring gerne dit eget data til workshoppen. Vi tilbyder også et datasæt til at øve med, hvis du foretrækker det.
 workshop_duration: "3 timer (mulighed for heldagsworkshop efter aftale)"
 workshop_capacity: "Op til 15 deltagere"
-workshop_price: "16.000 DKK ekskl. moms"
+workshop_price: "15.000 DKK ekskl. moms"
 workshop_audience:
   - Medarbejdere, der arbejder med data og ønsker at formidle det effektivt
   - Teams, der vil standardisere deres visualiseringer og levere mere beslutningsklart output

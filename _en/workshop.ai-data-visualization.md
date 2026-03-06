@@ -12,7 +12,7 @@ workshop_intro: >
   We work with best practices for data visualization and communication. You’ll leave with a workflow that reduces time spent on design tweaks while increasing the impact of your insights. Bring your own data or use the dataset we provide.
 workshop_duration: "3 hours (full-day workshop available upon request)"
 workshop_capacity: "Up to 15 participants"
-workshop_price: "16,000 DKK excl. VAT"
+workshop_price: "15,000 DKK excl. VAT"
 workshop_audience:
   - Employees who work with data and want to communicate it effectively
   - Teams that want consistent visual standards and more decision-ready output
