@@ -11,6 +11,15 @@
         </div>
         
         <div class="nav-controls">
+            <!-- Contact button moved to the right of the language toggle -->
+            <div class="nav-contact">
+                {% if page.lang == 'en' %}
+                <!-- Navigate to the in-page contact anchor instead of separate contact pages -->
+                <a href="#contact" class="contact-btn">Contact</a>
+                {% else %}
+                <a href="#contact" class="contact-btn">Kontakt</a>
+                {% endif %}
+            </div>
             <div class="nav-lang">
             {% if page.lang == 'en' %}
                 <a href="{{ '/' | relative_url }}" class="lang-link">da</a>
@@ -19,15 +28,6 @@
             {% endif %}
             </div>
 
-            <!-- Contact button moved to the right of the language toggle -->
-            <div class="nav-contact">
-            {% if page.lang == 'en' %}
-                <!-- Navigate to the in-page contact anchor instead of separate contact pages -->
-                <a href="#contact" class="contact-btn">Contact</a>
-            {% else %}
-                <a href="#contact" class="contact-btn">Kontakt</a>
-            {% endif %}
-            </div>
 
             </div>
         </div>

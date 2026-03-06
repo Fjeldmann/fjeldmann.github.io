@@ -530,7 +530,7 @@ body::before {
     }
     
     .nav-lang {
-        order: -1;
+        order: unset;
         margin-left: 0;
     }
 
