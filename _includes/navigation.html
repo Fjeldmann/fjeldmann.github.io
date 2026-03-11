@@ -20,6 +20,18 @@
                     {% endfor %}
                 </div>
             </div>
+            <div class="dropdown">
+                <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                    {% if page.lang == 'en' %}Products{% else %}Produkter{% endif %} <span class="dropdown-arrow">&#9662;</span>
+                </button>
+                <div class="dropdown-content">
+                    {% assign lang = page.lang | default: 'da' %}
+                    {% assign products = site[lang] | where: 'type', 'product' %}
+                    {% for product in products %}
+                    <a href="{{ product.url | relative_url }}">{{ product.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
         
         <div class="nav-controls">
