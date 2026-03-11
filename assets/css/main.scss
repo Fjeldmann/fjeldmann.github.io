@@ -62,12 +62,24 @@ html {
     scroll-margin-top: calc(var(--navbar-height));
 }
 
+.product-page .product-intro,
+.product-page .product-section,
+.product-page .container[id] {
+    scroll-margin-top: calc(var(--navbar-height));
+}
+
 @media screen and (min-width: 768px) {
     .workshop-page .workshop-intro,
     .workshop-page .workshop-section,
     .workshop-page .workshop-section h2,
     .workshop-page .container[id] {
         scroll-margin-top: calc(var(--navbar-height) + var(--workshop-quicknav-height, 0px) );
+    }
+
+    .product-page .product-intro,
+    .product-page .product-section,
+    .product-page .container[id] {
+        scroll-margin-top: calc(var(--navbar-height) + var(--product-quicknav-height, 0px));
     }
 }
 /* Reset and base styles */
@@ -1456,4 +1468,490 @@ body::before {
         color: var(--light-gray) !important;
         text-shadow: none;
     }
+}
+
+/* Product page */
+.product-shell {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    background: rgba(2, 89, 81, 0.06);
+    overflow: visible;
+}
+
+.product-page {
+    padding-top: 3rem;
+}
+
+.product-header {
+    background: var(--surface-default);
+    color: var(--text-primary);
+    padding: 2.5rem 0 1.5rem;
+    text-align: left;
+}
+
+.product-header::before {
+    content: none;
+}
+
+.product-header h1 {
+    color: var(--text-primary);
+    text-shadow: none;
+}
+
+.product-header p {
+    color: var(--text-secondary);
+    opacity: 1;
+    margin: 0;
+    max-width: 900px;
+}
+
+.product-image-wrap {
+    margin-bottom: 1rem;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    background: var(--surface-default);
+}
+
+.product-quicknav-wrap {
+    background: var(--surface-default);
+    border-top: 1px solid var(--surface-default);
+    border-bottom: 1px solid var(--mid-gray);
+}
+
+.product-quicknav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.9rem 0;
+    transition: padding 0.2s ease, gap 0.2s ease;
+}
+
+.product-quicknav a {
+    text-decoration: none;
+}
+
+.product-quicknav > a:not(.product-quicknav-booking) {
+    color: var(--accent-secondary);
+    background: var(--surface-default);
+    padding: 0.55rem 0.9rem;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.product-quicknav > a:not(.product-quicknav-booking):hover {
+    border-color: var(--mid-gray);
+}
+
+.product-quicknav > a:not(.product-quicknav-booking).is-active,
+.product-quicknav > a:not(.product-quicknav-booking)[aria-current='true'] {
+    border-color: var(--accent-secondary);
+}
+
+.product-quicknav-booking {
+    margin-left: auto;
+    padding: 0.55rem 3rem;
+}
+
+.product-page .product-intro {
+    margin: 0 0 2rem 0;
+    padding-left: 0;
+}
+
+.product-overview-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.product-page .product-section {
+    background: var(--white-snow);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.product-page .product-section h2 {
+    margin-bottom: 0.75rem;
+}
+
+.product-page .product-section h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.product-page .product-section p,
+.product-page .product-section ul,
+.product-page .product-section ol {
+    color: var(--text-secondary);
+}
+
+.product-page .product-section ul,
+.product-page .product-section ol {
+    margin-left: 1.2rem;
+}
+
+.product-page .product-section li + li {
+    margin-top: 0.5rem;
+}
+
+.product-highlights {
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.product-highlights li + li {
+    margin-top: 0.5rem;
+}
+
+.product-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.product-grid--groups,
+.product-grid--cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.product-card {
+    background: var(--white-snow);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 8px 24px rgba(2, 89, 81, 0.08);
+}
+
+.product-card-title {
+    color: var(--text-primary);
+}
+
+.product-card p:last-child,
+.product-card ul:last-child {
+    margin-bottom: 0;
+}
+
+.product-card--has-image {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card-image-wrap {
+    margin: -1.25rem -1.25rem 1rem;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.product-card-image {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: var(--surface-alt-2);
+}
+
+.product-intro-image-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.product-intro-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.product-problem-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media screen and (min-width: 961px) {
+    .product-problem-layout {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .product-problem-layout .product-grid--groups {
+        grid-template-columns: 1fr;
+    }
+}
+
+.product-problem-image-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.product-problem-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.product-problem-banner {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.product-problem-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.product-security-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+@media screen and (min-width: 961px) {
+    .product-security-layout {
+        grid-template-columns: auto 1fr;
+        align-items: start;
+    }
+}
+
+.product-security-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.product-security-badge {
+    height: 64px;
+    width: auto;
+    object-fit: contain;
+}
+
+.product-security-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.product-references-logos {
+    margin: 1.25rem 0;
+}
+
+.product-references-logos img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-section-copy {
+    margin-top: 1.25rem;
+}
+
+.product-solution-layout {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    align-items: start;
+}
+
+.product-diagram {
+    background: linear-gradient(180deg, rgba(2, 89, 81, 0.12), rgba(2, 89, 81, 0.04));
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.product-diagram-step {
+    background: var(--surface-default);
+    border: 1px solid rgba(2, 89, 81, 0.12);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    font-weight: 600;
+    color: var(--accent-secondary);
+    text-align: center;
+}
+
+.product-cta-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.product-cta-panel .btn-primary {
+    margin-top: 0.25rem;
+}
+
+.product-contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface-alt-2);
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+}
+
+.product-contact-card:last-child {
+    margin-bottom: 0;
+}
+
+.product-contact-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 64px;
+}
+
+.product-contact-avatar--placeholder {
+    background: var(--mid-gray);
+}
+
+.product-contact-info {
+    min-width: 0;
+}
+
+.product-contact-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.product-contact-bio {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+@media screen and (max-width: 960px) {
+    .product-solution-layout,
+    .product-grid--groups,
+    .product-grid--cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-shell {
+        margin: 1rem;
+        border-radius: 12px;
+    }
+
+    .product-quicknav-booking {
+        margin-left: 0;
+    }
+
+    .product-page .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .product-quicknav-wrap {
+        position: sticky;
+        top: var(--navbar-height);
+        z-index: 998;
+    }
+
+    .product-quicknav-wrap.is-stuck .product-quicknav {
+        padding: 0.5rem 0;
+        gap: 0.5rem;
+    }
+
+    .product-quicknav-wrap.is-stuck .product-quicknav > a:not(.product-quicknav-booking) {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    .product-quicknav-wrap.is-stuck .product-quicknav-booking {
+        padding: 0.4rem 3rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Generic page-shell styles (for product/content pages) */
+.page-shell {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    background: var(--surface-default);
+    overflow: visible;
+}
+
+.page-shell .page-header {
+    padding: 3rem 0 1.5rem;
+    text-align: center;
+}
+
+.page-shell .page-hero {
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+}
+
+.page-shell .page-hero-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.page-shell h1 {
+    font-size: 2.25rem;
+    margin-top: 0.75rem;
+    color: var(--text-primary);
+}
+
+.page-shell .page-description {
+    color: var(--text-secondary);
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+
+.page-quicknav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.page-quicknav a {
+    color: var(--surface-default);
+    text-decoration: none;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    transition: background 180ms ease, transform 150ms ease;
+}
+
+.page-quicknav a.is-active,
+.page-quicknav a:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+}
+
+.page-content .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+}
+
+@media screen and (max-width: 767px) {
+    .page-shell .page-hero-image { height: 220px; }
+    .page-shell h1 { font-size: 1.6rem; }
 }

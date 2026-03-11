@@ -1,0 +1,415 @@
+<div class="product-shell">
+    {% assign product_image = page.product_image | default: page.hero_image %}
+    {% assign product_subject = page.product_mail_subject | default: page.title %}
+    {% assign product_body = page.product_mail_body | default: '' %}
+    {% assign product_recipient = page.product_mail_recipient | default: 'contact@fjeldmann.dk' %}
+    {% assign product_mailto = 'mailto:' | append: product_recipient | append: '?subject=' | append: (product_subject | uri_escape) | append: '&body=' | append: (product_body | uri_escape) %}
+    {% assign product_cta_label = page.product_cta_label | default: 'Book demo' %}
+
+    <header class="page-header product-header">
+        <div class="container">
+            {% if product_image %}
+            <div class="product-image-wrap">
+                <img class="product-image" src="{{ product_image | relative_url }}" alt="{{ page.title }}">
+            </div>
+            {% endif %}
+
+            {% unless product_image %}
+            <h1>{{ page.title }}</h1>
+            {% endunless %}
+            {% if page.description %}
+            <p>{{ page.description }}</p>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="product-quicknav-wrap">
+        <div class="container">
+            <nav class="product-quicknav" aria-label="{% if page.lang == 'da' %}Produktmenu{% else %}Product menu{% endif %}">
+                <a href="#product-overview" data-product-quicknav-link>{% if page.lang == 'da' %}Overblik{% else %}Overview{% endif %}</a>
+                {% if page.product_problem_title or page.product_problem_groups %}
+                <a href="#product-problem" data-product-quicknav-link>{% if page.lang == 'da' %}Problemet{% else %}Problem{% endif %}</a>
+                {% endif %}
+                {% if page.product_solution_title or page.product_solution_points or page.product_platform_items or page.product_integrations_points %}
+                <a href="#product-solution" data-product-quicknav-link>{% if page.lang == 'da' %}Løsningen{% else %}Solution{% endif %}</a>
+                {% endif %}
+                {% if page.product_security_title or page.product_security_groups %}
+                <a href="#product-security" data-product-quicknav-link>{% if page.lang == 'da' %}Sikkerhed{% else %}Security{% endif %}</a>
+                {% endif %}
+                {% if page.product_pilot_title or page.product_pilot_steps %}
+                <a href="#product-pilot" data-product-quicknav-link>{% if page.lang == 'da' %}Pilot{% else %}Pilot{% endif %}</a>
+                {% endif %}
+                {% if page.product_references_title or page.product_references_points %}
+                <a href="#product-references" data-product-quicknav-link>{% if page.lang == 'da' %}Referencer{% else %}References{% endif %}</a>
+                {% endif %}
+                <a class="btn-primary product-quicknav-booking" href="{{ product_mailto }}">{{ product_cta_label }}</a>
+            </nav>
+        </div>
+    </div>
+
+    <section class="content-section product-page">
+        <div class="container product-intro" id="product-overview">
+            <div class="product-overview-grid">
+                <div class="product-section product-section--intro">
+                    {% if page.product_intro_heading %}
+                    <h2>{{ page.product_intro_heading }}</h2>
+                    {% endif %}
+
+                    {% if page.product_intro %}
+                    {{ page.product_intro | markdownify }}
+                    {% endif %}
+
+                    {% if page.product_highlights %}
+                    <ul class="product-highlights">
+                        {% for item in page.product_highlights %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {% if page.product_problem_title or page.product_problem_groups %}
+        <div class="container" id="product-problem">
+            <div class="product-section product-problem-layout">
+                <div class="product-problem-content">
+                    <h2>{{ page.product_problem_title }}</h2>
+                    {% if page.product_problem_intro %}
+                    {{ page.product_problem_intro | markdownify }}
+                    {% endif %}
+
+                    {% if page.product_problem_groups %}
+                    <div class="product-grid product-grid--groups">
+                        {% for group in page.product_problem_groups %}
+                        <div class="product-card">
+                            {% if group.title %}
+                            <h3 class="product-card-title">{{ group.title }}</h3>
+                            {% endif %}
+                            {% if group.items %}
+                            <ul>
+                                {% for item in group.items %}
+                                <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if page.product_problem_outro %}
+                    <div class="product-section-copy">{{ page.product_problem_outro | markdownify }}</div>
+                    {% endif %}
+                </div>
+
+                {% if page.product_intro_image %}
+                <div class="product-problem-image-wrap">
+                    <img class="product-problem-image" src="{{ page.product_intro_image | relative_url }}" alt="{{ page.product_problem_title }}" loading="lazy">
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if page.product_problem_image %}
+        <div class="container">
+            <div class="product-problem-banner">
+                <img src="{{ page.product_problem_image | relative_url }}" alt="" loading="lazy">
+            </div>
+        </div>
+        {% endif %}
+
+        {% if page.product_solution_title or page.product_solution_points or page.product_solution_diagram or page.product_platform_items or page.product_integrations_points %}
+        <div class="container" id="product-solution">
+            <div class="product-section">
+                <h2>{{ page.product_solution_title }}</h2>
+                {% if page.product_solution_intro %}
+                {{ page.product_solution_intro | markdownify }}
+                {% endif %}
+
+                <div class="product-solution-layout">
+                    {% if page.product_solution_diagram %}
+                    <div class="product-diagram" aria-label="{% if page.lang == 'da' %}Produktdiagram{% else %}Product diagram{% endif %}">
+                        {% for item in page.product_solution_diagram %}
+                        <div class="product-diagram-step">{{ item }}</div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if page.product_solution_points %}
+                    <div class="product-card">
+                        <ul>
+                            {% for item in page.product_solution_points %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+
+                {% if page.product_platform_items %}
+                {% if page.product_platform_title %}
+                <h3>{{ page.product_platform_title }}</h3>
+                {% endif %}
+                {% if page.product_platform_intro %}
+                {{ page.product_platform_intro | markdownify }}
+                {% endif %}
+                <div class="product-grid product-grid--cards">
+                    {% for item in page.product_platform_items %}
+                    <div class="product-card{% if item.image %} product-card--has-image{% endif %}">
+                        {% if item.image %}
+                        <div class="product-card-image-wrap">
+                            <img class="product-card-image" src="{{ item.image | relative_url }}" alt="{{ item.title }}" loading="lazy">
+                        </div>
+                        {% endif %}
+                        {% if item.title %}
+                        <h3 class="product-card-title">{{ item.title }}</h3>
+                        {% endif %}
+                        {% if item.text %}
+                        {{ item.text | markdownify }}
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if page.product_integrations_points %}
+                {% if page.product_integrations_title %}
+                <h3>{{ page.product_integrations_title }}</h3>
+                {% endif %}
+                {% if page.product_integrations_intro %}
+                {{ page.product_integrations_intro | markdownify }}
+                {% endif %}
+                <ul>
+                    {% for item in page.product_integrations_points %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+                {% if page.product_integrations_outro %}
+                <div class="product-section-copy">{{ page.product_integrations_outro | markdownify }}</div>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if page.product_security_title or page.product_security_groups %}
+        <div class="container" id="product-security">
+            <div class="product-section">
+                <h2>{{ page.product_security_title }}</h2>
+                {% if page.product_security_intro %}
+                {{ page.product_security_intro | markdownify }}
+                {% endif %}
+
+                <div class="product-security-layout">
+                    {% if page.product_security_badges %}
+                    <div class="product-security-badges">
+                        {% for badge in page.product_security_badges %}
+                        <img class="product-security-badge" src="{{ badge.image | relative_url }}" alt="{{ badge.alt }}" loading="lazy">
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if page.product_security_groups %}
+                    <div class="product-security-cards">
+                        {% for group in page.product_security_groups %}
+                        <div class="product-card">
+                            {% if group.title %}
+                            <h3 class="product-card-title">{{ group.title }}</h3>
+                            {% endif %}
+                            {% if group.items %}
+                            <ul>
+                                {% for item in group.items %}
+                                <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if page.product_pilot_title or page.product_pilot_steps %}
+        <div class="container" id="product-pilot">
+            <div class="product-section">
+                <h2>{{ page.product_pilot_title }}</h2>
+                {% if page.product_pilot_intro %}
+                {{ page.product_pilot_intro | markdownify }}
+                {% endif %}
+
+                {% if page.product_pilot_steps %}
+                <div class="product-grid product-grid--cards">
+                    {% for step in page.product_pilot_steps %}
+                    <div class="product-card">
+                        {% if step.title %}
+                        <h3 class="product-card-title">{{ step.title }}</h3>
+                        {% endif %}
+                        {% if step.text %}
+                        {{ step.text | markdownify }}
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if page.product_references_title or page.product_references_points or page.product_references_intro %}
+        <div class="container" id="product-references">
+            <div class="product-section">
+                <h2>{{ page.product_references_title }}</h2>
+                {% if page.product_references_intro %}
+                {{ page.product_references_intro | markdownify }}
+                {% endif %}
+
+                {% if page.product_references_logos %}
+                <div class="product-references-logos">
+                    <img src="{{ page.product_references_logos | relative_url }}" alt="{% if page.lang == 'da' %}Referencesamarbejdspartnere{% else %}Reference partners{% endif %}" loading="lazy">
+                </div>
+                {% endif %}
+
+                {% if page.product_references_points %}
+                <ul>
+                    {% for item in page.product_references_points %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="container product-section" id="product-cta">
+            <div class="product-cta-panel">
+                {% if page.product_cta_title %}
+                <h2>{{ page.product_cta_title }}</h2>
+                {% endif %}
+                {% if page.product_cta_text %}
+                {{ page.product_cta_text | markdownify }}
+                {% endif %}
+                {% if page.product_cta_points %}
+                <ul>
+                    {% for item in page.product_cta_points %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <a class="btn-primary" href="{{ product_mailto }}">{{ product_cta_label }}</a>
+            </div>
+        </div>
+
+
+    </section>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const desktopQuery = window.matchMedia('(min-width: 768px)');
+    const quickNav = document.querySelector('.product-quicknav');
+    const quickNavWrap = document.querySelector('.product-quicknav-wrap');
+    const sectionLinks = quickNav ? quickNav.querySelectorAll('[data-product-quicknav-link]') : [];
+
+    if (!quickNav || !quickNavWrap || sectionLinks.length === 0) return;
+
+    const sectionIds = Array.from(sectionLinks)
+        .map(function (link) {
+            const href = link.getAttribute('href') || '';
+            return href.replace('#', '');
+        })
+        .filter(Boolean);
+    const sections = sectionIds
+        .map(function (id) {
+            return document.getElementById(id);
+        })
+        .filter(Boolean);
+
+    function getNavbarHeight() {
+        const navbarHeightRaw = getComputedStyle(document.documentElement)
+            .getPropertyValue('--navbar-height')
+            .replace('px', '')
+            .trim();
+        return Number(navbarHeightRaw) || 0;
+    }
+
+    function updateQuickNavHeightVar() {
+        const navHeight = quickNavWrap.offsetHeight || 0;
+        document.documentElement.style.setProperty('--product-quicknav-height', navHeight + 'px');
+    }
+
+    function updateStickyState() {
+        if (!desktopQuery.matches) {
+            quickNavWrap.classList.remove('is-stuck');
+            return;
+        }
+
+        const shouldStick = quickNavWrap.getBoundingClientRect().top <= getNavbarHeight() + 1;
+        quickNavWrap.classList.toggle('is-stuck', shouldStick);
+    }
+
+    function setActiveLinkForSection(sectionId) {
+        sectionLinks.forEach(function (link) {
+            const isActive = link.getAttribute('href') === '#' + sectionId;
+            link.classList.toggle('is-active', isActive);
+            if (isActive) {
+                link.setAttribute('aria-current', 'true');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    function updateActiveSection() {
+        if (!desktopQuery.matches || sections.length === 0) {
+            if (sections.length > 0) setActiveLinkForSection(sections[0].id);
+            return;
+        }
+
+        const quickNavHeight = quickNavWrap.offsetHeight || 0;
+        const offset = getNavbarHeight() + quickNavHeight + 24;
+
+        let activeSection = sections[0];
+        for (let i = 0; i < sections.length; i++) {
+            const rect = sections[i].getBoundingClientRect();
+            if (rect.top <= offset) {
+                activeSection = sections[i];
+            }
+        }
+
+        setActiveLinkForSection(activeSection.id);
+    }
+
+    let ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(function () {
+                updateStickyState();
+                updateActiveSection();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    updateQuickNavHeightVar();
+    updateStickyState();
+    updateActiveSection();
+
+    window.addEventListener('resize', function () {
+        updateQuickNavHeightVar();
+        updateStickyState();
+        updateActiveSection();
+    });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    desktopQuery.addEventListener('change', function () {
+        updateQuickNavHeightVar();
+        updateStickyState();
+        updateActiveSection();
+    });
+});
+</script>
