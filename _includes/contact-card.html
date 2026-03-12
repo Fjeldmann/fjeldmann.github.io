@@ -1,0 +1,15 @@
+<div class="workshop-contact-card">
+    {% if include.avatar %}
+    <img class="workshop-contact-avatar" src="{{ include.avatar | relative_url }}" alt="{{ include.name }}">
+    {% else %}
+    <div class="workshop-contact-avatar workshop-contact-avatar--placeholder" aria-hidden="true"></div>
+    {% endif %}
+
+    <div class="workshop-contact-info">
+        <div class="workshop-contact-name">{{ include.name }}</div>
+
+        {% if include.bio %}
+        <div class="workshop-contact-bio">{{ include.bio }}</div>
+        {% endif %}
+    </div>
+</div>

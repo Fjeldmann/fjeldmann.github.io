@@ -16,15 +16,15 @@
         </div>
     </header>
 
-    <div class="workshop-quicknav-wrap">
+    <div class="workshop-quicknav-wrap" data-quicknav-wrap data-quicknav-height-var="--workshop-quicknav-height" data-quicknav-mobile-breakpoint="768">
         <div class="container">
-            <nav class="workshop-quicknav" aria-label="{% if page.lang == 'da' %}Workshop menu{% else %}Workshop menu{% endif %}">
-                <a href="#workshop-intro" data-workshop-quicknav-link>{% if page.lang == 'da' %}Intro{% else %}Intro{% endif %}</a>
-                <a href="#workshop-audience" data-workshop-quicknav-link>{% if page.lang == 'da' %}Målgruppe{% else %}Audience{% endif %}</a>
-                <a href="#workshop-requirements" data-workshop-quicknav-link>{% if page.lang == 'da' %}Krav{% else %}Requirements{% endif %}</a>
-                <a href="#workshop-takeaways" data-workshop-quicknav-link>{% if page.lang == 'da' %}Key Takeaways{% else %}Key Takeaways{% endif %}</a>
+            <nav class="workshop-quicknav" aria-label="Workshop menu" data-quicknav-nav>
+                <a href="#workshop-intro" data-quicknav-link>{% if page.lang == 'da' %}Intro{% else %}Intro{% endif %}</a>
+                <a href="#workshop-audience" data-quicknav-link>{% if page.lang == 'da' %}Målgruppe{% else %}Audience{% endif %}</a>
+                <a href="#workshop-requirements" data-quicknav-link>{% if page.lang == 'da' %}Krav{% else %}Requirements{% endif %}</a>
+                <a href="#workshop-takeaways" data-quicknav-link>{% if page.lang == 'da' %}Key Takeaways{% else %}Key Takeaways{% endif %}</a>
                 {% if page.workshop_agenda %}
-                <a href="#workshop-agenda" data-workshop-quicknav-link>{% if page.lang == 'da' %}Agenda{% else %}Agenda{% endif %}</a>
+                <a href="#workshop-agenda" data-quicknav-link>{% if page.lang == 'da' %}Agenda{% else %}Agenda{% endif %}</a>
                 {% endif %}
                 <a class="btn-primary workshop-quicknav-booking" href="{{ workshop_mailto }}">
                     {% if page.lang == 'da' %}Book her{% else %}Book here{% endif %}
@@ -142,166 +142,26 @@
         </div>
         {% endif %}
 
-        {% comment %} Minimal contact card for main contact person {% endcomment %}
-            {% if page.workshop_contact_name or page.workshop_contact_2_name %}
+        {% comment %} Contact cards – supports workshop_contacts array (preferred) or legacy numbered fields {% endcomment %}
+            {% if page.workshop_contacts or page.workshop_contact_name or page.workshop_contact_2_name %}
             <div class="container workshop-section workshop-contact-section" id="workshop-contact" style="background: var(--surface-default);">
                 <h2 class="workshop-contact-title">
                     {% if page.lang == 'da' %}Undervisere &amp; Foredragsholdere{% else %}Contact person{% endif %}
                 </h2>
 
-                {% if page.workshop_contact_name %}
-                <div class="workshop-contact-card">
-                    {% if page.workshop_contact_avatar %}
-                    <img class="workshop-contact-avatar" src="{{ page.workshop_contact_avatar | relative_url }}" alt="{{ page.workshop_contact_name }}">
-                    {% else %}
-                    <div class="workshop-contact-avatar workshop-contact-avatar--placeholder" aria-hidden="true"></div>
+                {% if page.workshop_contacts %}
+                    {% for contact in page.workshop_contacts %}
+                        {% include contact-card.html name=contact.name avatar=contact.avatar bio=contact.bio %}
+                    {% endfor %}
+                {% else %}
+                    {% if page.workshop_contact_name %}
+                        {% include contact-card.html name=page.workshop_contact_name avatar=page.workshop_contact_avatar bio=page.workshop_contact_bio %}
                     {% endif %}
-
-                    <div class="workshop-contact-info">
-                        {% if page.workshop_contact_name %}
-                        <div class="workshop-contact-name">{{ page.workshop_contact_name }}</div>
-                        {% endif %}
-
-                        {% if page.workshop_contact_bio %}
-                        <div class="workshop-contact-bio">{{ page.workshop_contact_bio }}</div>
-                        {% endif %}
-                    </div>
-                </div>
-                {% endif %}
-
-                {% if page.workshop_contact_2_name %}
-                <div class="workshop-contact-card">
-                    {% if page.workshop_contact_2_avatar %}
-                    <img class="workshop-contact-avatar" src="{{ page.workshop_contact_2_avatar | relative_url }}" alt="{{ page.workshop_contact_2_name }}">
-                    {% else %}
-                    <div class="workshop-contact-avatar workshop-contact-avatar--placeholder" aria-hidden="true"></div>
+                    {% if page.workshop_contact_2_name %}
+                        {% include contact-card.html name=page.workshop_contact_2_name avatar=page.workshop_contact_2_avatar bio=page.workshop_contact_2_bio %}
                     {% endif %}
-
-                    <div class="workshop-contact-info">
-                        {% if page.workshop_contact_2_name %}
-                        <div class="workshop-contact-name">{{ page.workshop_contact_2_name }}</div>
-                        {% endif %}
-
-                        {% if page.workshop_contact_2_bio %}
-                        <div class="workshop-contact-bio">{{ page.workshop_contact_2_bio }}</div>
-                        {% endif %}
-                    </div>
-                </div>
                 {% endif %}
             </div>
             {% endif %}
     </section>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const desktopQuery = window.matchMedia('(min-width: 768px)');
-    const quickNav = document.querySelector('.workshop-quicknav');
-    const quickNavWrap = document.querySelector('.workshop-quicknav-wrap');
-    const sectionLinks = quickNav ? quickNav.querySelectorAll('[data-workshop-quicknav-link]') : [];
-
-    if (!quickNav || !quickNavWrap || sectionLinks.length === 0) return;
-
-    // Build sections array once
-    const sectionIds = Array.from(sectionLinks)
-        .map(function (link) {
-            return link.getAttribute('href').replace('#', '');
-        })
-        .filter(Boolean);
-    const sections = sectionIds
-        .map(function (id) {
-            return document.getElementById(id);
-        })
-        .filter(Boolean);
-
-    function updateQuickNavHeightVar() {
-        const navHeight = quickNavWrap.offsetHeight || 0;
-        document.documentElement.style.setProperty('--workshop-quicknav-height', navHeight + 'px');
-    }
-
-    function updateStickyState() {
-        if (!desktopQuery.matches) {
-            quickNavWrap.classList.remove('is-stuck');
-            return;
-        }
-
-        const navbarHeightRaw = getComputedStyle(document.documentElement)
-            .getPropertyValue('--navbar-height')
-            .replace('px', '')
-            .trim();
-        const navbarHeight = Number(navbarHeightRaw) || 0;
-        const shouldStick = quickNavWrap.getBoundingClientRect().top <= navbarHeight + 1;
-        quickNavWrap.classList.toggle('is-stuck', shouldStick);
-    }
-
-    function setActiveLinkForSection(sectionId) {
-        sectionLinks.forEach(function (link) {
-            const isActive = link.getAttribute('href') === '#' + sectionId;
-            link.classList.toggle('is-active', isActive);
-            if (isActive) {
-                link.setAttribute('aria-current', 'true');
-            } else {
-                link.removeAttribute('aria-current');
-            }
-        });
-    }
-
-    // Simple scroll-based section tracking
-    function updateActiveSection() {
-        if (!desktopQuery.matches || sections.length === 0) {
-            // On mobile, highlight first
-            if (sections.length > 0) setActiveLinkForSection(sections[0].id);
-            return;
-        }
-
-        // Calculate offset: navbar + quicknav + small buffer
-        const navbarHeightRaw = getComputedStyle(document.documentElement)
-            .getPropertyValue('--navbar-height')
-            .replace('px', '')
-            .trim();
-        const navbarHeight = Number(navbarHeightRaw) || 0;
-        const quickNavHeight = quickNavWrap.offsetHeight || 0;
-        const offset = navbarHeight + quickNavHeight + 20; // 20px buffer
-
-        // Find the last section whose top has scrolled past the offset line
-        let activeSection = sections[0];
-        for (let i = 0; i < sections.length; i++) {
-            const rect = sections[i].getBoundingClientRect();
-            if (rect.top <= offset) {
-                activeSection = sections[i];
-            }
-        }
-
-        setActiveLinkForSection(activeSection.id);
-    }
-
-    // Throttle scroll handler for performance
-    let ticking = false;
-    function onScroll() {
-        if (!ticking) {
-            window.requestAnimationFrame(function () {
-                updateStickyState();
-                updateActiveSection();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-
-    updateQuickNavHeightVar();
-    updateStickyState();
-    updateActiveSection();
-
-    window.addEventListener('resize', function () {
-        updateQuickNavHeightVar();
-        updateStickyState();
-        updateActiveSection();
-    });
-    window.addEventListener('scroll', onScroll, { passive: true });
-    desktopQuery.addEventListener('change', function () {
-        updateQuickNavHeightVar();
-        updateStickyState();
-        updateActiveSection();
-    });
-});
-</script>

@@ -339,3 +339,69 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Quick navigation: shared initialiser for all quicknav variants.
+// Reads config from the [data-quicknav-wrap] element's data attributes:
+//   data-quicknav-height-var        – CSS variable to publish nav height (e.g. "--workshop-quicknav-height")
+//   data-quicknav-mobile-breakpoint – px width below which sticky/tracking is simplified (0 = always active)
+function initQuickNav(wrap) {
+    var nav = wrap.querySelector('[data-quicknav-nav]');
+    var links = nav ? Array.from(nav.querySelectorAll('[data-quicknav-link]')) : [];
+    if (!nav || links.length === 0) return;
+
+    var heightVar = wrap.getAttribute('data-quicknav-height-var') || null;
+    var bp = parseInt(wrap.getAttribute('data-quicknav-mobile-breakpoint'), 10) || 0;
+    var desktopQuery = bp > 0 ? window.matchMedia('(min-width: ' + bp + 'px)') : null;
+
+    var sectionIds = links.map(function (l) { return (l.getAttribute('href') || '').replace('#', ''); }).filter(Boolean);
+    var sections = sectionIds.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+
+    function getNavbarHeight() {
+        return Number(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height').replace('px', '').trim()) || 0;
+    }
+
+    function updateHeightVar() {
+        if (heightVar) document.documentElement.style.setProperty(heightVar, (wrap.offsetHeight || 0) + 'px');
+    }
+
+    function updateStickyState() {
+        if (desktopQuery && !desktopQuery.matches) { wrap.classList.remove('is-stuck'); return; }
+        wrap.classList.toggle('is-stuck', wrap.getBoundingClientRect().top <= getNavbarHeight() + 1);
+    }
+
+    function setActive(id) {
+        links.forEach(function (link) {
+            var active = link.getAttribute('href') === '#' + id;
+            link.classList.toggle('is-active', active);
+            if (active) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
+        });
+    }
+
+    function updateActiveSection() {
+        if (desktopQuery && !desktopQuery.matches) { if (sections.length) setActive(sections[0].id); return; }
+        var offset = getNavbarHeight() + (wrap.offsetHeight || 0) + 24;
+        var active = sections[0];
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i].getBoundingClientRect().top <= offset) active = sections[i];
+        }
+        if (active) setActive(active.id);
+    }
+
+    var ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(function () { updateStickyState(); updateActiveSection(); ticking = false; });
+            ticking = true;
+        }
+    }
+
+    function refresh() { updateHeightVar(); updateStickyState(); updateActiveSection(); }
+    refresh();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', refresh);
+    if (desktopQuery) desktopQuery.addEventListener('change', refresh);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-quicknav-wrap]').forEach(initQuickNav);
+});
