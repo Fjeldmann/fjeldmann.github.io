@@ -2,22 +2,58 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
-    
+
+    function closeAllDropdowns(exceptDropdown) {
+        document.querySelectorAll('.nav-menu .dropdown').forEach(function(d) {
+            if (d === exceptDropdown) return;
+            d.classList.remove('open');
+            const b = d.querySelector('.dropdown-btn');
+            if (b) b.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    // Dropdown click-to-open (all breakpoints), mutual exclusion
+    document.querySelectorAll('.nav-menu .dropdown-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const dropdown = btn.closest('.dropdown');
+            if (!dropdown) return;
+            const isOpen = dropdown.classList.contains('open');
+            // Close every other dropdown first
+            closeAllDropdowns(isOpen ? null : dropdown);
+            // Toggle this one
+            dropdown.classList.toggle('open', !isOpen);
+            btn.setAttribute('aria-expanded', String(!isOpen));
+        });
+    });
+
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
         });
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+
+        // Close mobile menu when clicking any link inside it
+        navMenu.querySelectorAll('a').forEach(function(el) {
+            el.addEventListener('click', function() {
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
             });
         });
     }
+
+    // Close dropdowns (and mobile menu) on outside click
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.navbar')) {
+            closeAllDropdowns(null);
+            if (navToggle && navMenu) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
 });
 
 // Slideshow functionality
@@ -312,32 +348,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Trigger scroll event once to set initial state
     window.dispatchEvent(new Event('scroll'));
-
-    // Dropdown toggle (click support for mobile / touch)
-    document.querySelectorAll('.dropdown-btn').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            var dropdown = btn.closest('.dropdown');
-            var isOpen = dropdown.classList.contains('open');
-            // Close any other open dropdowns
-            document.querySelectorAll('.dropdown.open').forEach(function(d) {
-                d.classList.remove('open');
-                d.querySelector('.dropdown-btn').setAttribute('aria-expanded', 'false');
-            });
-            if (!isOpen) {
-                dropdown.classList.add('open');
-                btn.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function() {
-        document.querySelectorAll('.dropdown.open').forEach(function(d) {
-            d.classList.remove('open');
-            d.querySelector('.dropdown-btn').setAttribute('aria-expanded', 'false');
-        });
-    });
 });
 
 // Quick navigation: shared initialiser for all quicknav variants.
