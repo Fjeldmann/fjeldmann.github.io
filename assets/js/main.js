@@ -388,8 +388,8 @@ function initQuickNav(wrap) {
     }
 
     function updateActiveSection() {
-        if (desktopQuery && !desktopQuery.matches) { if (sections.length) setActive(sections[0].id); return; }
-        var offset = getNavbarHeight() + (wrap.offsetHeight || 0) + 24;
+        var stickyOffset = desktopQuery && desktopQuery.matches ? (wrap.offsetHeight || 0) : 0;
+        var offset = getNavbarHeight() + stickyOffset + 24;
         var active = sections[0];
         for (var i = 0; i < sections.length; i++) {
             if (sections[i].getBoundingClientRect().top <= offset) active = sections[i];

@@ -1652,6 +1652,35 @@ body::before {
     padding: 0.55rem 3rem;
 }
 
+@media screen and (max-width: 999px) {
+    .product-quicknav {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .product-quicknav > a:not(.product-quicknav-booking) {
+        display: none;
+    }
+
+    .product-quicknav > a:not(.product-quicknav-booking).is-active,
+    .product-quicknav > a:not(.product-quicknav-booking)[aria-current='true'] {
+        display: inline-flex;
+        align-items: center;
+        min-width: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border: 0;
+        background: transparent;
+        color: var(--text-primary);
+    }
+
+    .product-quicknav-booking {
+        margin-left: 0;
+        flex: 0 0 auto;
+        padding: 0.55rem 1.5rem;
+    }
+}
+
 .product-page .product-intro {
     margin: 0 0 2rem 0;
     padding-left: 0;
