@@ -23,24 +23,24 @@
         </div>
     </header>
 
-    <div class="product-quicknav-wrap">
+    <div class="product-quicknav-wrap" data-quicknav-wrap data-quicknav-height-var="--product-quicknav-height" data-quicknav-mobile-breakpoint="768">
         <div class="container">
-            <nav class="product-quicknav" aria-label="{% if page.lang == 'da' %}Produktmenu{% else %}Product menu{% endif %}">
-                <a href="#product-overview" data-product-quicknav-link>{% if page.lang == 'da' %}Overblik{% else %}Overview{% endif %}</a>
+            <nav class="product-quicknav" aria-label="{% if page.lang == 'da' %}Produktmenu{% else %}Product menu{% endif %}" data-quicknav-nav>
+                <a href="#product-overview" data-quicknav-link>{% if page.lang == 'da' %}Overblik{% else %}Overview{% endif %}</a>
                 {% if page.product_problem_title or page.product_problem_groups %}
-                <a href="#product-problem" data-product-quicknav-link>{% if page.lang == 'da' %}Problemet{% else %}Problem{% endif %}</a>
+                <a href="#product-problem" data-quicknav-link>{% if page.lang == 'da' %}Problemet{% else %}Problem{% endif %}</a>
                 {% endif %}
                 {% if page.product_solution_title or page.product_solution_points or page.product_platform_items or page.product_integrations_points %}
-                <a href="#product-solution" data-product-quicknav-link>{% if page.lang == 'da' %}Løsningen{% else %}Solution{% endif %}</a>
+                <a href="#product-solution" data-quicknav-link>{% if page.lang == 'da' %}Løsningen{% else %}Solution{% endif %}</a>
                 {% endif %}
                 {% if page.product_security_title or page.product_security_groups %}
-                <a href="#product-security" data-product-quicknav-link>{% if page.lang == 'da' %}Sikkerhed{% else %}Security{% endif %}</a>
+                <a href="#product-security" data-quicknav-link>{% if page.lang == 'da' %}Sikkerhed{% else %}Security{% endif %}</a>
                 {% endif %}
                 {% if page.product_pilot_title or page.product_pilot_steps %}
-                <a href="#product-pilot" data-product-quicknav-link>{% if page.lang == 'da' %}Pilot{% else %}Pilot{% endif %}</a>
+                <a href="#product-pilot" data-quicknav-link>{% if page.lang == 'da' %}Pilot{% else %}Pilot{% endif %}</a>
                 {% endif %}
                 {% if page.product_references_title or page.product_references_points %}
-                <a href="#product-references" data-product-quicknav-link>{% if page.lang == 'da' %}Referencer{% else %}References{% endif %}</a>
+                <a href="#product-references" data-quicknav-link>{% if page.lang == 'da' %}Referencer{% else %}References{% endif %}</a>
                 {% endif %}
                 <a class="btn-primary product-quicknav-booking" href="{{ product_mailto }}">{{ product_cta_label }}</a>
             </nav>
@@ -307,109 +307,3 @@
 
     </section>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const desktopQuery = window.matchMedia('(min-width: 768px)');
-    const quickNav = document.querySelector('.product-quicknav');
-    const quickNavWrap = document.querySelector('.product-quicknav-wrap');
-    const sectionLinks = quickNav ? quickNav.querySelectorAll('[data-product-quicknav-link]') : [];
-
-    if (!quickNav || !quickNavWrap || sectionLinks.length === 0) return;
-
-    const sectionIds = Array.from(sectionLinks)
-        .map(function (link) {
-            const href = link.getAttribute('href') || '';
-            return href.replace('#', '');
-        })
-        .filter(Boolean);
-    const sections = sectionIds
-        .map(function (id) {
-            return document.getElementById(id);
-        })
-        .filter(Boolean);
-
-    function getNavbarHeight() {
-        const navbarHeightRaw = getComputedStyle(document.documentElement)
-            .getPropertyValue('--navbar-height')
-            .replace('px', '')
-            .trim();
-        return Number(navbarHeightRaw) || 0;
-    }
-
-    function updateQuickNavHeightVar() {
-        const navHeight = quickNavWrap.offsetHeight || 0;
-        document.documentElement.style.setProperty('--product-quicknav-height', navHeight + 'px');
-    }
-
-    function updateStickyState() {
-        if (!desktopQuery.matches) {
-            quickNavWrap.classList.remove('is-stuck');
-            return;
-        }
-
-        const shouldStick = quickNavWrap.getBoundingClientRect().top <= getNavbarHeight() + 1;
-        quickNavWrap.classList.toggle('is-stuck', shouldStick);
-    }
-
-    function setActiveLinkForSection(sectionId) {
-        sectionLinks.forEach(function (link) {
-            const isActive = link.getAttribute('href') === '#' + sectionId;
-            link.classList.toggle('is-active', isActive);
-            if (isActive) {
-                link.setAttribute('aria-current', 'true');
-            } else {
-                link.removeAttribute('aria-current');
-            }
-        });
-    }
-
-    function updateActiveSection() {
-        if (!desktopQuery.matches || sections.length === 0) {
-            if (sections.length > 0) setActiveLinkForSection(sections[0].id);
-            return;
-        }
-
-        const quickNavHeight = quickNavWrap.offsetHeight || 0;
-        const offset = getNavbarHeight() + quickNavHeight + 24;
-
-        let activeSection = sections[0];
-        for (let i = 0; i < sections.length; i++) {
-            const rect = sections[i].getBoundingClientRect();
-            if (rect.top <= offset) {
-                activeSection = sections[i];
-            }
-        }
-
-        setActiveLinkForSection(activeSection.id);
-    }
-
-    let ticking = false;
-    function onScroll() {
-        if (!ticking) {
-            window.requestAnimationFrame(function () {
-                updateStickyState();
-                updateActiveSection();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-
-    updateQuickNavHeightVar();
-    updateStickyState();
-    updateActiveSection();
-
-    window.addEventListener('resize', function () {
-        updateQuickNavHeightVar();
-        updateStickyState();
-        updateActiveSection();
-    });
-    window.addEventListener('scroll', onScroll, { passive: true });
-    desktopQuery.addEventListener('change', function () {
-        updateQuickNavHeightVar();
-        updateStickyState();
-        updateActiveSection();
-    });
-});
-</script>

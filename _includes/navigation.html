@@ -10,7 +10,10 @@
         <div class="nav-menu" id="nav-menu">
             <div class="dropdown">
                 <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
-                    Workshops <span class="dropdown-arrow">&#9662;</span>
+                    <span class="dropdown-label">Workshops</span>
+                    <span class="dropdown-arrow" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 4.5L7 9.5L12 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
                 </button>
                 <div class="dropdown-content">
                     {% assign lang = page.lang | default: 'da' %}
@@ -22,7 +25,10 @@
             </div>
             <div class="dropdown">
                 <button class="dropdown-btn" aria-expanded="false" aria-haspopup="true">
-                    {% if page.lang == 'en' %}Products{% else %}Produkter{% endif %} <span class="dropdown-arrow">&#9662;</span>
+                    <span class="dropdown-label">{% if page.lang == 'en' %}Products{% else %}Produkter{% endif %}</span>
+                    <span class="dropdown-arrow" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 4.5L7 9.5L12 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
                 </button>
                 <div class="dropdown-content">
                     {% assign lang = page.lang | default: 'da' %}
@@ -32,16 +38,23 @@
                     {% endfor %}
                 </div>
             </div>
+            <!-- Contact button — visible only inside the mobile sandwich menu -->
+            <div class="nav-contact nav-contact--mobile">
+                {% if page.lang == 'en' %}
+                <a href="#contact" class="contact-btn">Contact</a>
+                {% else %}
+                <a href="#contact" class="contact-btn">Kontakt os</a>
+                {% endif %}
+            </div>
         </div>
         
         <div class="nav-controls">
-            <!-- Contact button moved to the right of the language toggle -->
-            <div class="nav-contact">
+            <!-- Contact button — hidden on mobile (shown inside the sandwich menu instead) -->
+            <div class="nav-contact nav-contact--desktop">
                 {% if page.lang == 'en' %}
-                <!-- Navigate to the in-page contact anchor instead of separate contact pages -->
                 <a href="#contact" class="contact-btn">Contact</a>
                 {% else %}
-                <a href="#contact" class="contact-btn">Kontakt</a>
+                <a href="#contact" class="contact-btn">Kontakt os</a>
                 {% endif %}
             </div>
             <div class="nav-lang">
@@ -51,9 +64,12 @@
                 <a href="{{ '/en/' | relative_url }}" class="lang-link">en</a>
             {% endif %}
             </div>
-
-
-            </div>
+            <!-- Hamburger button — visible only on mobile -->
+            <button class="hamburger" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </div>
 </nav>

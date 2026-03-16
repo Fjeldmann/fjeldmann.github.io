@@ -2,22 +2,58 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
-    
+
+    function closeAllDropdowns(exceptDropdown) {
+        document.querySelectorAll('.nav-menu .dropdown').forEach(function(d) {
+            if (d === exceptDropdown) return;
+            d.classList.remove('open');
+            const b = d.querySelector('.dropdown-btn');
+            if (b) b.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    // Dropdown click-to-open (all breakpoints), mutual exclusion
+    document.querySelectorAll('.nav-menu .dropdown-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const dropdown = btn.closest('.dropdown');
+            if (!dropdown) return;
+            const isOpen = dropdown.classList.contains('open');
+            // Close every other dropdown first
+            closeAllDropdowns(isOpen ? null : dropdown);
+            // Toggle this one
+            dropdown.classList.toggle('open', !isOpen);
+            btn.setAttribute('aria-expanded', String(!isOpen));
+        });
+    });
+
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
         });
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+
+        // Close mobile menu when clicking any link inside it
+        navMenu.querySelectorAll('a').forEach(function(el) {
+            el.addEventListener('click', function() {
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
             });
         });
     }
+
+    // Close dropdowns (and mobile menu) on outside click
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.navbar')) {
+            closeAllDropdowns(null);
+            if (navToggle && navMenu) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
 });
 
 // Slideshow functionality
@@ -312,30 +348,70 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Trigger scroll event once to set initial state
     window.dispatchEvent(new Event('scroll'));
+});
 
-    // Dropdown toggle (click support for mobile / touch)
-    document.querySelectorAll('.dropdown-btn').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            var dropdown = btn.closest('.dropdown');
-            var isOpen = dropdown.classList.contains('open');
-            // Close any other open dropdowns
-            document.querySelectorAll('.dropdown.open').forEach(function(d) {
-                d.classList.remove('open');
-                d.querySelector('.dropdown-btn').setAttribute('aria-expanded', 'false');
-            });
-            if (!isOpen) {
-                dropdown.classList.add('open');
-                btn.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
+// Quick navigation: shared initialiser for all quicknav variants.
+// Reads config from the [data-quicknav-wrap] element's data attributes:
+//   data-quicknav-height-var        – CSS variable to publish nav height (e.g. "--workshop-quicknav-height")
+//   data-quicknav-mobile-breakpoint – px width below which sticky/tracking is simplified (0 = always active)
+function initQuickNav(wrap) {
+    var nav = wrap.querySelector('[data-quicknav-nav]');
+    var links = nav ? Array.from(nav.querySelectorAll('[data-quicknav-link]')) : [];
+    if (!nav || links.length === 0) return;
 
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function() {
-        document.querySelectorAll('.dropdown.open').forEach(function(d) {
-            d.classList.remove('open');
-            d.querySelector('.dropdown-btn').setAttribute('aria-expanded', 'false');
+    var heightVar = wrap.getAttribute('data-quicknav-height-var') || null;
+    var bp = parseInt(wrap.getAttribute('data-quicknav-mobile-breakpoint'), 10) || 0;
+    var desktopQuery = bp > 0 ? window.matchMedia('(min-width: ' + bp + 'px)') : null;
+
+    var sectionIds = links.map(function (l) { return (l.getAttribute('href') || '').replace('#', ''); }).filter(Boolean);
+    var sections = sectionIds.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+
+    function getNavbarHeight() {
+        return Number(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height').replace('px', '').trim()) || 0;
+    }
+
+    function updateHeightVar() {
+        if (heightVar) document.documentElement.style.setProperty(heightVar, (wrap.offsetHeight || 0) + 'px');
+    }
+
+    function updateStickyState() {
+        if (desktopQuery && !desktopQuery.matches) { wrap.classList.remove('is-stuck'); return; }
+        wrap.classList.toggle('is-stuck', wrap.getBoundingClientRect().top <= getNavbarHeight() + 1);
+    }
+
+    function setActive(id) {
+        links.forEach(function (link) {
+            var active = link.getAttribute('href') === '#' + id;
+            link.classList.toggle('is-active', active);
+            if (active) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
         });
-    });
+    }
+
+    function updateActiveSection() {
+        if (desktopQuery && !desktopQuery.matches) { if (sections.length) setActive(sections[0].id); return; }
+        var offset = getNavbarHeight() + (wrap.offsetHeight || 0) + 24;
+        var active = sections[0];
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i].getBoundingClientRect().top <= offset) active = sections[i];
+        }
+        if (active) setActive(active.id);
+    }
+
+    var ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(function () { updateStickyState(); updateActiveSection(); ticking = false; });
+            ticking = true;
+        }
+    }
+
+    function refresh() { updateHeightVar(); updateStickyState(); updateActiveSection(); }
+    refresh();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', refresh);
+    if (desktopQuery) desktopQuery.addEventListener('change', refresh);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-quicknav-wrap]').forEach(initQuickNav);
 });

@@ -15,11 +15,11 @@
     </header>
 
     {% if page.quicknav_links %}
-    <div class="page-quicknav-wrap">
+    <div class="page-quicknav-wrap" data-quicknav-wrap>
         <div class="container">
-            <nav class="page-quicknav" aria-label="Page navigation">
+            <nav class="page-quicknav" aria-label="Page navigation" data-quicknav-nav>
                 {% for link in page.quicknav_links %}
-                    <a href="#{{ link.href }}" data-page-quicknav-link>{{ link.label }}</a>
+                    <a href="#{{ link.href }}" data-quicknav-link>{{ link.label }}</a>
                 {% endfor %}
             </nav>
         </div>
@@ -32,41 +32,3 @@
         </div>
     </section>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const quickNavWrap = document.querySelector('.page-quicknav-wrap');
-    const quickNav = document.querySelector('.page-quicknav');
-    const sectionLinks = quickNav ? quickNav.querySelectorAll('[data-page-quicknav-link]') : [];
-    if (!quickNav || !quickNavWrap || sectionLinks.length === 0) return;
-
-    const sectionIds = Array.from(sectionLinks).map(l => l.getAttribute('href').replace('#', '')).filter(Boolean);
-    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-
-    function setActive(id) {
-        sectionLinks.forEach(link => {
-            const active = link.getAttribute('href') === '#' + id;
-            link.classList.toggle('is-active', active);
-            if (active) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
-        });
-    }
-
-    function update() {
-        const navbarHeightRaw = getComputedStyle(document.documentElement).getPropertyValue('--navbar-height').replace('px','').trim();
-        const navbarHeight = Number(navbarHeightRaw) || 0;
-        const quickNavHeight = quickNavWrap.offsetHeight || 0;
-        const offset = navbarHeight + quickNavHeight + 24;
-
-        let active = sections[0];
-        for (let s of sections) {
-            const rect = s.getBoundingClientRect();
-            if (rect.top <= offset) active = s;
-        }
-        if (active) setActive(active.id);
-    }
-
-    window.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
-    window.addEventListener('resize', () => requestAnimationFrame(update));
-    update();
-});
-</script>
