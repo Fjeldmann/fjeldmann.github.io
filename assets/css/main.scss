@@ -1652,6 +1652,35 @@ body::before {
     padding: 0.55rem 3rem;
 }
 
+@media screen and (max-width: 999px) {
+    .product-quicknav {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .product-quicknav > a:not(.product-quicknav-booking) {
+        display: none;
+    }
+
+    .product-quicknav > a:not(.product-quicknav-booking).is-active,
+    .product-quicknav > a:not(.product-quicknav-booking)[aria-current='true'] {
+        display: inline-flex;
+        align-items: center;
+        min-width: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border: 0;
+        background: transparent;
+        color: var(--text-primary);
+    }
+
+    .product-quicknav-booking {
+        margin-left: 0;
+        flex: 0 0 auto;
+        padding: 0.55rem 1.5rem;
+    }
+}
+
 .product-page .product-intro {
     margin: 0 0 2rem 0;
     padding-left: 0;
@@ -1678,6 +1707,13 @@ body::before {
 .product-page .product-section h3 {
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
+}
+
+.product-page .product-section h2,
+.product-page .product-section h3,
+.product-card-title {
+    overflow-wrap: anywhere;
+    hyphens: auto;
 }
 
 .product-page .product-section p,
@@ -1707,6 +1743,13 @@ body::before {
 .product-grid {
     display: grid;
     gap: 1rem;
+}
+
+.product-grid > *,
+.product-problem-layout > *,
+.product-solution-layout > *,
+.product-security-layout > * {
+    min-width: 0;
 }
 
 .product-grid--groups,
@@ -1941,8 +1984,13 @@ body::before {
 
 @media screen and (max-width: 768px) {
     .product-shell {
-        margin: 1rem;
+        margin: 0;
         border-radius: 12px;
+    }
+
+    .content-section.product-page {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .product-quicknav-booking {
@@ -1950,8 +1998,18 @@ body::before {
     }
 
     .product-page .container {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .product-page .product-section {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-page .product-section {
+        padding: 1.25rem;
     }
 }
 
