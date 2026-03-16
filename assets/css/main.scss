@@ -1680,6 +1680,13 @@ body::before {
     margin-bottom: 0.75rem;
 }
 
+.product-page .product-section h2,
+.product-page .product-section h3,
+.product-card-title {
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
+
 .product-page .product-section p,
 .product-page .product-section ul,
 .product-page .product-section ol {
@@ -1707,6 +1714,13 @@ body::before {
 .product-grid {
     display: grid;
     gap: 1rem;
+}
+
+.product-grid > *,
+.product-problem-layout > *,
+.product-solution-layout > *,
+.product-security-layout > * {
+    min-width: 0;
 }
 
 .product-grid--groups,
@@ -1941,8 +1955,13 @@ body::before {
 
 @media screen and (max-width: 768px) {
     .product-shell {
-        margin: 1rem;
+        margin: 0;
         border-radius: 12px;
+    }
+
+    .content-section.product-page {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .product-quicknav-booking {
@@ -1950,8 +1969,18 @@ body::before {
     }
 
     .product-page .container {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .product-page .product-section {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-page .product-section {
+        padding: 1.25rem;
     }
 }
 

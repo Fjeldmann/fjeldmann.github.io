@@ -285,22 +285,24 @@
         </div>
         {% endif %}
 
-        <div class="container product-section" id="product-cta">
-            <div class="product-cta-panel">
-                {% if page.product_cta_title %}
-                <h2>{{ page.product_cta_title }}</h2>
-                {% endif %}
-                {% if page.product_cta_text %}
-                {{ page.product_cta_text | markdownify }}
-                {% endif %}
-                {% if page.product_cta_points %}
-                <ul>
-                    {% for item in page.product_cta_points %}
-                    <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-                <a class="btn-primary" href="{{ product_mailto }}">{{ product_cta_label }}</a>
+        <div class="container" id="product-cta">
+            <div class="product-section">
+                <div class="product-cta-panel">
+                    {% if page.product_cta_title %}
+                    <h2>{{ page.product_cta_title }}</h2>
+                    {% endif %}
+                    {% if page.product_cta_text %}
+                    {{ page.product_cta_text | markdownify }}
+                    {% endif %}
+                    {% if page.product_cta_points %}
+                    <ul>
+                        {% for item in page.product_cta_points %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <a class="btn-primary" href="{{ product_mailto }}">{{ product_cta_label }}</a>
+                </div>
             </div>
         </div>
 
