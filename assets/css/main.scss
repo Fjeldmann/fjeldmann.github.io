@@ -206,9 +206,9 @@ body::before {
 .nav-strip__layer {
     position: absolute;
     inset: 0;
-    background-repeat: repeat-y;
-    background-size: 100% 1px;
-    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center top;
     opacity: 0;
     transition: opacity 3000ms ease-in-out; /* match slideshow fade */
 }
@@ -435,11 +435,10 @@ body::before {
 }
 .slideshow-container {
     position: absolute;
-    /* slide area starts below the navbar so the full photo appears under the bar */
-    top: var(--navbar-height);
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - var(--navbar-height));
+    height: 100%;
     z-index: 0; /* base for slides and overlay */
 }
 
@@ -1313,9 +1312,11 @@ body.layout-product .product-page .container[id] {
 }
 
 .workshop-quicknav-wrap {
-    background: var(--surface-default);
-    border-top: 1px solid var(--surface-default);
-    border-bottom: 1px solid var(--mid-gray);
+    background: rgba(251, 251, 250, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .workshop-quicknav {
@@ -1333,7 +1334,7 @@ body.layout-product .product-page .container[id] {
 
 .workshop-quicknav > a:not(.workshop-quicknav-booking) {
     color: var(--accent-secondary);
-    background: var(--surface-default);
+    background: transparent;
     padding: 0.55rem 0.9rem;
     border-radius: var(--radius-btn);
     font-weight: 600;
@@ -1795,9 +1796,11 @@ body.layout-product .product-page .container[id] {
 }
 
 .product-quicknav-wrap {
-    background: var(--surface-default);
-    border-top: 1px solid var(--surface-default);
-    border-bottom: 1px solid var(--mid-gray);
+    background: rgba(251, 251, 250, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .product-quicknav {
@@ -1815,7 +1818,7 @@ body.layout-product .product-page .container[id] {
 
 .product-quicknav > a:not(.product-quicknav-booking) {
     color: var(--accent-secondary);
-    background: var(--surface-default);
+    background: transparent;
     padding: 0.55rem 0.9rem;
     border-radius: var(--radius-btn);
     font-weight: 600;

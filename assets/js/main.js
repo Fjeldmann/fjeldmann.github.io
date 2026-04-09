@@ -148,50 +148,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /**
- * Create a 1px-tall repeating strip from the top row of the provided image
- * and store it in a CSS variable so the navbar overlay can repeat it vertically.
+ * Set the nav-strip layer to show the full hero image, aligned to the current
+ * scroll position so the strip mirrors what is actually behind the navbar.
  */
 function setHeroStripFromImage(img, targetLayer = null, skipTransition = false) {
-    if (!img || !img.naturalWidth) return;
+    if (!img || !img.src) return;
 
-    try {
-        // choose a render width; use the image's natural width or viewport width
-        const renderWidth = Math.max(img.naturalWidth || 0, window.innerWidth || 0);
-        const canvas = document.createElement('canvas');
-        canvas.width = renderWidth;
-        canvas.height = 1;
-        const ctx = canvas.getContext('2d');
-
-        // draw only the top 1px row of the source image
-        // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
-        ctx.drawImage(img, 0, 0, img.naturalWidth, 1, 0, 0, canvas.width, 1);
-
-        const dataUrl = canvas.toDataURL('image/png');
-
-        // if nav-strip exists, write to the requested layer or update CSS var as fallback
-        const container = document.getElementById('nav-strip');
-        if (container && typeof targetLayer === 'number') {
-            const layers = container.querySelectorAll('.nav-strip__layer');
-            const layer = layers[targetLayer % layers.length];
-            if (skipTransition) layer.style.transition = 'none';
-            layer.style.backgroundImage = `linear-gradient(var(--accent-secondary-900-10), var(--accent-secondary-900-10)), url("${dataUrl}")`;
-            layer.style.backgroundRepeat = 'repeat-y';
-            layer.style.backgroundSize = '100% 1px';
-            layer.style.backgroundPosition = 'top center';
-            if (skipTransition) setTimeout(() => { layer.style.transition = ''; }, 20);
-        } else {
-            // set CSS --hero-strip variable used by CSS ::before on body (fallback path)
-            document.documentElement.style.setProperty('--hero-strip', `url("${dataUrl}")`);
-        }
-
-        // also keep a full hero image as a fallback variable
-        document.documentElement.style.setProperty('--hero-image', `url("${img.src}")`);
-    } catch (err) {
-        // if canvas is blocked by CORS or other errors, fallback
-        console.warn('setHeroStripFromImage failed:', err);
-        document.documentElement.style.setProperty('--hero-strip', 'none');
+    const container = document.getElementById('nav-strip');
+    if (container && typeof targetLayer === 'number') {
+        const layers = container.querySelectorAll('.nav-strip__layer');
+        const layer = layers[targetLayer % layers.length];
+        if (skipTransition) layer.style.transition = 'none';
+        layer.style.backgroundImage = `linear-gradient(var(--accent-secondary-900-10), var(--accent-secondary-900-10)), url("${img.src}")`;
+        layer.style.backgroundRepeat = 'no-repeat';
+        layer.style.backgroundSize = '100% auto';
+        updateNavStripScroll();
+        if (skipTransition) setTimeout(() => { layer.style.transition = ''; }, 20);
+    } else {
+        // fallback path: CSS variable used by body::before
+        document.documentElement.style.setProperty('--hero-strip', `url("${img.src}")`);
     }
+
+    document.documentElement.style.setProperty('--hero-image', `url("${img.src}")`);
 }
+
+// Track nav-strip position on scroll (passive for performance)
+window.addEventListener('scroll', updateNavStripScroll, { passive: true });
 
 // regenerate the strip on resize (throttle for performance)
 let _resizeTimer = null;
@@ -200,6 +182,7 @@ window.addEventListener('resize', function() {
     _resizeTimer = setTimeout(() => {
         // keep the CSS variable up-to-date for responsive layouts
         updateNavbarHeight();
+        updateNavStripScroll();
 
         const active = document.querySelector('.slide.active img');
         if (active && active.complete) {
@@ -247,39 +230,39 @@ function crossfadeHeroStrip(img, durationMs) {
     a.style.transition = `opacity ${durationMs}ms ease-in-out`;
     b.style.transition = `opacity ${durationMs}ms ease-in-out`;
 
-    try {
-        const canvas = document.createElement('canvas');
-        const renderWidth = Math.max(img.naturalWidth || 0, window.innerWidth || 0);
-        canvas.width = renderWidth;
-        canvas.height = 1;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0, img.naturalWidth, 1, 0, 0, canvas.width, 1);
-        const dataUrl = canvas.toDataURL('image/png');
+    next.style.backgroundImage = `linear-gradient(var(--accent-secondary-900-10), var(--accent-secondary-900-10)), url("${img.src}")`;
+    next.style.backgroundRepeat = 'no-repeat';
+    next.style.backgroundSize = '100% auto';
+    updateNavStripScroll();
 
-        next.style.backgroundImage = `linear-gradient(var(--accent-secondary-900-10), var(--accent-secondary-900-10)), url("${dataUrl}")`;
-        next.style.backgroundRepeat = 'repeat-y';
-        next.style.backgroundSize = '100% 1px';
-        next.style.backgroundPosition = 'top center';
+    // force reflow then toggle opacity
+    // eslint-disable-next-line no-unused-expressions
+    next.offsetHeight;
+    next.style.opacity = '1';
+    current.style.opacity = '0';
 
-        // force reflow then toggle opacity
-        // eslint-disable-next-line no-unused-expressions
-        next.offsetHeight;
-        next.style.opacity = '1';
-        current.style.opacity = '0';
+    setTimeout(() => { current.style.backgroundImage = ''; }, durationMs + 50);
+}
 
-        setTimeout(() => {
-            current.style.backgroundImage = '';
-        }, durationMs + 50);
-    } catch (err) {
-        // fallback: full image
-        next.style.backgroundImage = `linear-gradient(var(--accent-secondary-900-10), var(--accent-secondary-900-10)), url("${img.src}")`;
-        next.style.backgroundRepeat = 'no-repeat';
-        next.style.backgroundSize = 'cover';
-        next.style.backgroundPosition = 'top center';
-        next.style.opacity = '1';
-        current.style.opacity = '0';
-        setTimeout(() => { current.style.backgroundImage = ''; }, durationMs + 50);
-    }
+/**
+ * Shift the nav-strip background so it always shows the portion of the hero
+ * image that is actually behind the navbar at the current scroll position.
+ *
+ * The slideshow images start at `--navbar-height` from the page top, so the
+ * row of the image visible at the navbar's top edge is (scrollY - navbarHeight).
+ * Setting background-position-y to (navbarHeight - scrollY) achieves this.
+ */
+function updateNavStripScroll() {
+    const container = document.getElementById('nav-strip');
+    if (!container) return;
+    const navbarHeight = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')
+    ) || 80;
+    const posY = -window.scrollY;
+    container.querySelectorAll('.nav-strip__layer').forEach(layer => {
+        layer.style.backgroundPositionX = 'center';
+        layer.style.backgroundPositionY = posY + 'px';
+    });
 }
 
 /**
@@ -344,7 +327,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle scroll events
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
+        // On hero pages, switch when the navbar clears the hero section bottom
+        const threshold = heroSection
+            ? Math.max(0, heroSection.offsetTop + heroSection.offsetHeight - navbar.offsetHeight)
+            : 50;
+        if (window.scrollY > threshold) {
             navbar.classList.add('scrolled');
             navbar.style.background = 'rgba(255, 255, 255, 0.95)';
             navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
