@@ -1,5 +1,6 @@
 ---
 layout: home
+body_class: layout-home
 title: Home
 description: "Let's make today easier, better. A people first software company"
 lang: en

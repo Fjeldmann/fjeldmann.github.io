@@ -1,5 +1,6 @@
 ---
 layout: home
+body_class: layout-home
 title: Hjem
 description: "Lad os gøre hverdagen nemmere, bedre. Software med mennesker i centrum"
 lang: da

@@ -299,19 +299,31 @@ function updateNavbarHeight() {
 // Smooth scrolling for anchor links
 document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('a[href^="#"]');
-    
+
     links.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-            
+
             if (targetElement) {
+                // Disable scroll-snap during programmatic scrolling to prevent
+                // the snap algorithm from correcting to the wrong section
+                const root = document.documentElement;
+                root.style.scrollSnapType = 'none';
+
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+
+                // Re-enable snap only when the user next scrolls manually —
+                // restoring it immediately after the animation causes a snap
+                // correction that sends the page back one section
+                const restoreSnap = () => { root.style.scrollSnapType = ''; };
+                root.addEventListener('wheel', restoreSnap, { once: true, passive: true });
+                root.addEventListener('touchstart', restoreSnap, { once: true, passive: true });
             }
         });
     });

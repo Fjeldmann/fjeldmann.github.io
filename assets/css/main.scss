@@ -149,7 +149,7 @@ body::before {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid transparent;
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -224,6 +224,11 @@ body::before {
     top: 50%;
     transform: translateY(-50%); /* center the overlay vertically */
     opacity: 0;
+}
+
+.navbar.scrolled,
+.inner-page .navbar {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
 .navbar.scrolled .white-logo,
@@ -409,7 +414,7 @@ body::before {
 /* Hero Section */
 .hero-section {
     position: relative;
-    /* increase hero to make room so slides sit fully below the nav */
+    /* 60vh visible + navbar offset = together with home-content-wrap fills exactly 100vh */
     height: calc(60vh + var(--navbar-height));
     display: flex;
     align-items: center;
@@ -448,6 +453,31 @@ body::before {
     pointer-events: none;
 }
 
+/* fade hero top edge from navbar into the photo, and bottom edge into off-white */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(var(--navbar-height) + 3%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.08) var(--navbar-height), transparent 100%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3%;
+    background: linear-gradient(to bottom, transparent, var(--surface-default));
+    z-index: 3;
+    pointer-events: none;
+}
+
 .slide {
     position: absolute;
     top: 0;
@@ -468,7 +498,7 @@ body::before {
     height: 100%;
     object-fit: cover;
     object-position: top;
-    filter: brightness(0.7);
+    filter: brightness(0.7) contrast(1.08);
 }
 
 .hero-content {
@@ -500,6 +530,7 @@ body::before {
 /* Eyebrow label above the main hero headline */
 .hero-content .hero-eyebrow {
     display: block;
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -864,6 +895,26 @@ body::before {
     color: var(--white-soft);
 }
 
+/* fade off-white into contact section top, and contact section into footer at bottom */
+.site-contact::before,
+.site-contact::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3%;
+    z-index: 1;
+    pointer-events: none;
+}
+.site-contact::before {
+    top: 0;
+    background: linear-gradient(to bottom, var(--surface-default), transparent);
+}
+.site-contact::after {
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, var(--footer-bg));
+}
+
 .site-contact__bg {
     position: absolute;
     inset: 0;
@@ -1142,9 +1193,10 @@ body::before {
 }
 
 .home-services__label {
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-secondary);
     margin-bottom: 1rem;
@@ -1175,6 +1227,36 @@ body::before {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+}
+
+/* Home page scroll snapping */
+body.layout-home {
+    scroll-snap-type: y proximity;
+}
+
+body.layout-home main {
+    scroll-snap-align: start;
+}
+
+body.layout-home .site-contact {
+    scroll-snap-align: start;
+}
+
+body.layout-home .footer {
+    scroll-snap-align: start;
+}
+
+/* Product page scroll snapping */
+html:has(body.layout-product) {
+    scroll-snap-type: y proximity;
+}
+
+body.layout-product .product-header {
+    scroll-snap-align: start;
+}
+
+body.layout-product .product-page .container[id] {
+    scroll-snap-align: start;
 }
 
 /* Animation utilities */

@@ -1,6 +1,7 @@
 ---
 title: "KONTEKST™"
 type: product
+body_class: layout-product
 permalink: /products/kontekst/
 lang: da
 description: "KONTEKST™ gør mødebaseret tolkning mere tilgængelig og pålidelig gennem kontekstbevidst AI og sikker drift i EU."
