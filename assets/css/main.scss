@@ -1288,7 +1288,16 @@ body::before {
     display: block;
     border-radius: 12px;
     background: var(--surface-default);
+}
+
+.workshop-header .workshop-image--blend {
     mix-blend-mode: multiply;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%),
+                        linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%),
+                linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+    mask-composite: intersect;
 }
 
 .workshop-page .workshop-intro {

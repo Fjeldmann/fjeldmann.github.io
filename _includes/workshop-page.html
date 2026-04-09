@@ -7,7 +7,7 @@
         <div class="container">
             {% if page.workshop_image %}
             <div class="workshop-image-wrap">
-                <img class="workshop-image" src="{{ page.workshop_image | relative_url }}" alt="{{ page.title }}">
+                <img class="workshop-image{% if page.workshop_image_blend %} workshop-image--blend{% endif %}" src="{{ page.workshop_image | relative_url }}" alt="{{ page.title }}">
             </div>
             {% endif %}
             <h1><span style="color: rgb(105, 105, 105); font-weight: 300;"> {{ page.type | default: 'Workshop' }} |</span> {{ page.title }}</h1>

@@ -4,6 +4,7 @@ type: "AI Workshop"
 description: "A practical, hands-on workshop for employees who want to communicate data-driven insights effectively."
 permalink: /en/workshop/ai-data-visualization/
 workshop_image: /assets/images/workshop.ai-data-visualization_green.png
+workshop_image_blend: true
 workshop_audience_image: /assets/images/workshop.audience_green.png
 workshop_requirements_image: /assets/images/workshop.requirements_green.png
 workshop_takeaways_image: /assets/images/workshop.outcomes_2_green.png
