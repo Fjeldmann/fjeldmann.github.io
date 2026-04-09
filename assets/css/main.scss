@@ -1108,11 +1108,12 @@ body::before {
 .home-content-wrap {
     background: var(--surface-default);
     width: 100%;
+    min-height: calc(40vh - var(--navbar-height));
 }
 
 /* Homepage intro section */
 .home-intro {
-    padding: 4rem 2rem 2.5rem;
+    padding: 3rem 2rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
     background: var(--surface-default);
@@ -1133,7 +1134,7 @@ body::before {
 .home-services {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2.5rem 2rem 4.5rem;
+    padding: 1rem 2rem 4.5rem;
     background: var(--surface-default);
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1287,6 +1288,7 @@ body::before {
     display: block;
     border-radius: 12px;
     background: var(--surface-default);
+    mix-blend-mode: multiply;
 }
 
 .workshop-page .workshop-intro {
@@ -1442,6 +1444,7 @@ body::before {
     max-height: 100%;
     border-radius: 8px;
     display: block;
+    mix-blend-mode: multiply;
 }
 
 /* Ensure the card keeps its reduced width (70%) while media sits outside */
