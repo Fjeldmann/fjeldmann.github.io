@@ -17,7 +17,7 @@
     /* Derived / semantic tokens */
     --text-primary: var(--black-ink);
     --text-secondary: var(--dark-gray);
-    --surface-default: var(--white-snow);
+    --surface-default: #FBFBFA; /* warm bone — taste-skill premium off-white */
     --surface-alt: var(--light-gray);
     --border-default: var(--mid-gray);
     --accent-primary: var(--amber);
@@ -37,9 +37,12 @@
     
     --surface-alt-2: #e9ecef;
     
+    /* Soft white for text on dark/coloured backgrounds */
+    --white-soft: rgba(255, 255, 255, 0.97);
+
     /* Footer tokens */
     --footer-bg: var(--accent-secondary-700);
-    --footer-text: var(--surface-default);
+    --footer-text: var(--white-soft);
     /* navbar mirrored hero helper */
     --navbar-height: 80px; /* tweak if your navbar height changes */
     --hero-strip: none; /* set by JS when a hero slide is active */
@@ -94,8 +97,15 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     overflow-x: hidden;
-    background: var(--surface-alt);
+    background: var(--surface-default);
 }
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+h1 { line-height: 1.1; }
 
 /* Mirrored hero behind the transparent navbar
     This uses a CSS variable (--hero-strip) set by JS to show a 1px-high repeating strip
@@ -164,7 +174,7 @@ body::before {
 
 .nav-logo a {
     text-decoration: none;
-    color: var(--surface-default);
+    color: var(--white-soft);
     font-weight: 700;
     position: relative;
     display: flex; /* center logo images inside anchor */
@@ -234,7 +244,7 @@ body::before {
 }
 
 .nav-link {
-    color: var(--surface-default);
+    color: var(--white-soft);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -292,10 +302,13 @@ body::before {
 }
 
 .lang-link, .contact-btn {
-    color: var(--surface-default);
+    color: var(--white-soft);
     text-decoration: none;
-    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
     padding: 0.5rem 1rem;
     border-radius: var(--radius-btn);
     transition: all 0.3s ease;
@@ -318,12 +331,13 @@ body::before {
 
 
 .contact-btn {
-    background: var(--accent-secondary); /* use blue-fir for contact button */
+    background: var(--accent-secondary);
+    font-weight: 600;
 }
 
 .contact-btn:hover {
-    transform: translateY(-2px);
-    background: var(--accent-secondary-700); /* darker blue-fir on hover */
+    transform: translateY(-1px);
+    background: var(--accent-secondary-700);
 }
 
 .navbar.scrolled .lang-link:hover,
@@ -411,7 +425,7 @@ body::before {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center; /* center children horizontally */
+    align-items: flex-start;
     justify-content: center;
 }
 .slideshow-container {
@@ -458,35 +472,49 @@ body::before {
 }
 
 .hero-content {
-    text-align: center;
-    color: var(--surface-default);
-        z-index: 2;
-    max-width: 800px;
-    margin: 0 auto; /* keep block centered inside .hero-inner */
-    padding: 0 2rem;
+    text-align: left;
+    color: var(--white-soft);
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 0 0 4rem; /* left-align: no auto margin on left */
+    padding: 0 2rem 0 0;
 }
 
-.hero-content h1,.hero-content h2 {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);    
+@media screen and (max-width: 768px) {
+    .hero-content {
+        margin: 0;
+        padding: 0 1.5rem;
+        text-align: left;
+    }
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.hero-content h2 {
-    margin-bottom: 1.5rem;
-    margin-top: 0.5rem;
+/* Eyebrow label above the main hero headline */
+.hero-content .hero-eyebrow {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 1;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
 }
 
 .hero-content p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 400;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    opacity: 0.95;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    opacity: 0.9;
+    max-width: 52ch;
 }
 
 
@@ -511,7 +539,7 @@ body::before {
 .footer {
     background: var(--footer-bg);
     color: var(--footer-text);
-    padding: 3rem 2rem 1rem;
+    padding: 3.5rem 2rem 1.5rem;
 }
 
 .footer-container {
@@ -528,7 +556,7 @@ body::before {
 
 /* Footer email link color override */
 .footer-section a[href^="mailto:"] {
-    color: var(--surface-default);
+    color: var(--white-soft);
     text-decoration: underline;
     opacity: 0.8;
     transition: color 0.2s;
@@ -541,7 +569,7 @@ body::before {
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: var(--surface-default);
+    color: var(--white-soft);
 }
 
 .footer-section p {
@@ -622,21 +650,13 @@ body::before {
         margin-left: 0;
     }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
     .hero-content p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
 }
 
 @media screen and (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
     .hero-content p {
         font-size: 1rem;
     }
@@ -645,9 +665,8 @@ body::before {
 
 /* Page Header Styles */
 .page-header {
-    /* replaced purple/indigo gradient with brand gradient (amber -> warm sand) */
-    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--warm-sand) 100%);
-    color: var(--surface-default);
+    background: linear-gradient(135deg, var(--accent-secondary-700) 0%, var(--accent-secondary) 100%);
+    color: var(--white-soft);
     /* tightened vertical spacing */
     padding: 2.5rem 0 1.5rem;
     text-align: center;
@@ -696,33 +715,15 @@ body::before {
 .service {
     background: var(--surface-default);
     padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid var(--accent-primary);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.service::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .service:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.service:hover::before {
-    transform: scaleX(1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(2, 89, 81, 0.1);
 }
 
 .service h3 {
@@ -739,16 +740,16 @@ body::before {
 }
 
 .service-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background: rgba(2, 89, 81, 0.08);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    color: var(--surface-default);
-    font-size: 1.5rem;
+    color: var(--accent-secondary);
+    font-size: 1.25rem;
 }
 
 /* Contact Specific Styles */
@@ -829,7 +830,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(2, 89, 81, 0.04) 0%, rgba(2, 89, 81, 0.0) 100%);
     z-index: 0;
 }
 
@@ -854,13 +855,13 @@ body::before {
 .contact-cta {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(102, 126, 234, 0.2);
+    border-top: 1px solid rgba(2, 89, 81, 0.15);
 }
 
 /* Contact us section (site-wide) */
 .site-contact {
     position: relative;
-    color: var(--surface-default);
+    color: var(--white-soft);
 }
 
 .site-contact__bg {
@@ -968,20 +969,22 @@ body::before {
     justify-content: flex-start;
 }
 
-/* make the send button use the brand "accent-secondary" */
+/* Contact form send button — amber primary per brand bible */
 .contact-form .btn-primary {
-    /* use brand accent and small-caps for the send button */
-    background: var(--accent-secondary-200);
-    padding: 0.75rem 1.25rem;
-    color: var(--surface-default);
-    border-radius: var(--radius-btn);
-    font-variant-caps: all-small-caps;
-    letter-spacing: 0.02em;
-    font-size: 0.95rem;
+    background: var(--accent-primary);
+    padding: 0.75rem 1.5rem;
+    color: var(--white-soft);
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-variant-caps: normal;
 }
 
 .contact-form .btn-primary:hover {
-    background: var(--accent-secondary-100);
+    background: var(--accent-primary-700);
 }
 
 @media screen and (max-width: 900px) {
@@ -1001,20 +1004,28 @@ body::before {
 
 .btn-primary {
     display: inline-block;
-    background: var(--accent-secondary);
-    color: var(--surface-default);
-    padding: 1rem 2rem;
-    border-radius: var(--radius-btn);
+    background: var(--accent-primary);
+    color: var(--white-soft);
+    padding: 0.75rem 1.75rem;
+    border-radius: 6px;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: background 0.2s ease, transform 0.15s ease;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
+    background: var(--accent-primary-700);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
 }
 
 /* Container utility */
@@ -1041,9 +1052,12 @@ body::before {
 /* Stronger override for workshop sections inside workshop pages.
    This uses a more specific selector to override the generic
    `.workshop-page .workshop-section { padding: 2rem; }` rule. */
-.workshop-page .workshop-section.container,
-.workshop-page .workshop-contact-section.container {
+.workshop-page .workshop-section.container {
     padding: 2rem 0; /* keep vertical padding, remove horizontal */
+}
+
+.workshop-page .workshop-contact-section.container {
+    padding: 2rem; /* contact cards need horizontal breathing room */
 }
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
@@ -1087,6 +1101,78 @@ body::before {
     
     .contact-message {
         padding: 1.5rem;
+    }
+}
+
+/* Homepage content wrapper — full-width white below the hero */
+.home-content-wrap {
+    background: var(--surface-default);
+    width: 100%;
+}
+
+/* Homepage intro section */
+.home-intro {
+    padding: 4rem 2rem 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--surface-default);
+}
+
+.home-intro__text {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 680px; 
+    line-height: 1.75;
+}
+
+.home-intro__text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.home-services {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4.5rem;
+    background: var(--surface-default);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.home-services__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.home-services__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.home-services__tag {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    border: 1px solid var(--mid-gray);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    background: var(--surface-default);
+}
+
+@media screen and (max-width: 600px) {
+    .home-services {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
 
@@ -1183,7 +1269,12 @@ body::before {
 
 .workshop-quicknav-booking {
     margin-left: auto;
-    padding: 0.55rem 3rem; /* Double the horizontal padding for wider button */
+    padding: 0.55rem 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .workshop-header .workshop-image-wrap {
@@ -1221,12 +1312,12 @@ body::before {
     margin-top: 1rem; /* small space between intro and info list */
 }
 
-.workshop-page .workshop-section {
+.workshop-page .workshop-section:not(.workshop-contact-section) {
     background: var(--surface-alt-2);
     border-radius: 12px;
     padding: 2rem;
     margin-bottom: 1.5rem;
-    
+
     /* Align all sections to left edge to match quicknav */
     width: 100%;
     box-sizing: border-box;
@@ -1453,7 +1544,7 @@ body::before {
 
 .dropdown-btn {
     background: none;
-    color: var(--surface-default);
+    color: var(--white-soft);
     padding: 0.5rem 1rem;
     font-size: 1rem;
     font-weight: 500;
@@ -1523,8 +1614,8 @@ body::before {
 }
 
 .dropdown-content a:hover {
-    background-color: var(--accent-secondary);
-    color: var(--surface-default);
+    background-color: rgba(2, 89, 81, 0.07);
+    color: var(--accent-secondary-700);
 }
 
 /* Dropdown opens only via .open class (click-driven, no hover) */
@@ -1549,7 +1640,7 @@ body::before {
 
     .dropdown-content a:hover {
         background-color: rgba(255, 255, 255, 0.1);
-        color: var(--surface-default);
+        color: var(--white-soft);
     }
 
     .dropdown {
@@ -1566,7 +1657,7 @@ body::before {
 .product-shell {
     max-width: 1200px;
     margin: 2rem auto 0;
-    background: rgba(2, 89, 81, 0.06);
+    background: var(--surface-default);
     overflow: visible;
 }
 
@@ -1650,6 +1741,11 @@ body::before {
 .product-quicknav-booking {
     margin-left: auto;
     padding: 0.55rem 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 @media screen and (max-width: 999px) {
@@ -1704,9 +1800,14 @@ body::before {
     margin-bottom: 0.75rem;
 }
 
-.product-page .product-section h3 {
+.product-page .product-section h3:not(.product-card-title) {
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
+}
+
+.product-card .product-card-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 .product-page .product-section h2,
@@ -2082,7 +2183,7 @@ body::before {
 }
 
 .page-quicknav a {
-    color: var(--surface-default);
+    color: var(--white-soft);
     text-decoration: none;
     padding: 0.35rem 0.6rem;
     border-radius: 6px;
