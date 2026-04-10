@@ -1228,8 +1228,8 @@ body::before {
     }
 }
 
-/* Home page scroll snapping */
-body.layout-home {
+/* Home page scroll snapping — set on html so it applies to the viewport scroll container */
+html:has(body.layout-home) {
     scroll-snap-type: y proximity;
 }
 
@@ -1245,16 +1245,14 @@ body.layout-home .footer {
     scroll-snap-align: start;
 }
 
-/* Product page scroll snapping */
+/* Product page scroll snapping — only snap the header so content sections
+   (which are taller than one viewport) don't cause the snap-back-down bug
+   when scrolling up. */
 html:has(body.layout-product) {
     scroll-snap-type: y proximity;
 }
 
 body.layout-product .product-header {
-    scroll-snap-align: start;
-}
-
-body.layout-product .product-page .container[id] {
     scroll-snap-align: start;
 }
 
