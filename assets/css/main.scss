@@ -336,13 +336,13 @@ body::before {
 
 
 .contact-btn {
-    background: var(--accent-secondary);
+    background: var(--amber);
     font-weight: 600;
 }
 
 .contact-btn:hover {
     transform: translateY(-1px);
-    background: var(--accent-secondary-700);
+    background: var(--accent-primary-700);
 }
 
 .navbar.scrolled .lang-link:hover,
