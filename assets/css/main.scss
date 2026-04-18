@@ -465,17 +465,6 @@ body::before {
     pointer-events: none;
 }
 
-.hero-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3%;
-    background: linear-gradient(to bottom, transparent, var(--surface-default));
-    z-index: 3;
-    pointer-events: none;
-}
 
 .slide {
     position: absolute;
@@ -894,25 +883,6 @@ body::before {
     color: var(--white-soft);
 }
 
-/* fade off-white into contact section top, and contact section into footer at bottom */
-.site-contact::before,
-.site-contact::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 3%;
-    z-index: 1;
-    pointer-events: none;
-}
-.site-contact::before {
-    top: 0;
-    background: linear-gradient(to bottom, var(--surface-default), transparent);
-}
-.site-contact::after {
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent, var(--footer-bg));
-}
 
 .site-contact__bg {
     position: absolute;
