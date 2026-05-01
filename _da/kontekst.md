@@ -23,9 +23,13 @@ product_intro: >
   KONTEKST™ understøtter sikker tolkning i realtid på tværs af enheder til møder med flere deltagere.
 product_intro_image: /assets/products.kontekst/product-shots/chat-chat-meetingroom.png
 product_highlights:
-  - "Kontekstbevidst AI-tolkning til møder og dialog"
+  - "Kontekstbevidst AI-tolkning til møder og samtale"
   - "Sikker drift i EU til offentlige organisationer"
   - "Virker på tværs af enheder; mobil, tablet og computer"
+product_collab_label: "Udviklet i samarbejde med"
+product_collab_logo: /assets/images/droids_logo_mørk.svg
+product_collab_alt: "Droids Agency"
+product_collab_url: https://droidsagency.com
 product_problem_title: "Traditionel tolkning er udfordrende"
 product_problem_groups:
   - title: "Kvalitet og tilgængelighed"

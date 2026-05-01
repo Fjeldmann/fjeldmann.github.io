@@ -327,10 +327,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle scroll events
     window.addEventListener('scroll', function() {
-        // On hero pages, switch when the navbar clears the hero section bottom
-        const threshold = heroSection
-            ? Math.max(0, heroSection.offsetTop + heroSection.offsetHeight - navbar.offsetHeight)
-            : 50;
+        // Switch to white as soon as the user starts scrolling
+        const threshold = 10;
         if (window.scrollY > threshold) {
             navbar.classList.add('scrolled');
             navbar.style.background = 'rgba(255, 255, 255, 0.95)';

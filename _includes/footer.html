@@ -1,28 +1,22 @@
 <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>{{ site.title }}</h3>
-                {% if page.lang == "da" %}
-                <p>Skarp software med bløde værdier.</p>
-                {% else %}
-                <p>{{ site.description }}</p>
-                {% endif %}
-            </div>
-            
-            <div class="footer-section">
-                <h4>{% if page.lang == "da" %}Kontakt os{% else %}Contact{% endif %}</h4>
-                <p>Email: <a href="mailto:Fjeldmann Solutions<contact@fjeldmann.dk>">contact@fjeldmann.dk</a></p>
-                <a href="https://www.linkedin.com/company/fjeldmann-solutions" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5em;">
-                    <img src="{{ site.baseurl }}/assets/images/icons8-linkedin-50.png" alt="LinkedIn" style="width:24px; height:24px; opacity:0.7; vertical-align:middle;" />
-                </a>
-            </div>
+    <div class="footer-inner">
+        <div class="footer-contact footer-contact-left">
+            <span class="footer-cvr">CVR 44 81 24 37</span>
+            <a href="https://www.linkedin.com/company/fjeldmann-solutions" target="_blank" rel="noopener" class="footer-linkedin" aria-label="LinkedIn">
+                <img src="{{ site.baseurl }}/assets/images/icons8-linkedin-50.png" alt="" />
+            </a>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
-            <!-- add small and transparent version indicator -->
-            <p style="opacity: 0.4; font-size: 0.8em; letter-spacing: 0.15em; margin-top: 0.5em;">v2.0.0</p>
+        {% if page.lang == "da" %}
+        <span class="footer-copyright">&copy; {{ 'now' | date: "%Y" }} Fjeldmann Solutions &middot; Alle rettigheder forbeholdes.</span>
+        {% else %}
+        <span class="footer-copyright">&copy; {{ 'now' | date: "%Y" }} Fjeldmann Solutions &middot; All rights reserved.</span>
+        {% endif %}
+        <div class="footer-contact footer-contact-right">
+            {% if page.lang == "en" %}
+            <a class="footer-link" href="{{ '/en/privacy/' | relative_url }}">Privacy Policy</a>
+            {% else %}
+            <a class="footer-link" href="{{ '/privatliv/' | relative_url }}">Privatlivspolitik</a>
+            {% endif %}
         </div>
     </div>
 </footer>

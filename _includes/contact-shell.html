@@ -1,6 +1,6 @@
 <!-- Shared contact section shell.
      Included by contact-form.html (mode="full") and contact-form-simple.html (mode="simple"). -->
-<section id="contact" class="site-contact" aria-labelledby="contact-heading">
+<section id="contact" class="site-contact site-contact--{{ include.mode }}" aria-labelledby="contact-heading">
   {% assign contact_hero_bg = '/assets/hero/pexels-karola-g-6642889.jpg' | relative_url %}
   <div class="site-contact__bg" aria-hidden="true">
     <div class="bg-inner" style="background-image: url('{{ contact_hero_bg }}');">
@@ -9,73 +9,88 @@
   </div>
 
   <div class="container contact-inner">
-    <div class="contact-copy">
+    <div class="contact-info">
       {% if page.lang == 'en' %}
-        <h1 id="contact-heading">Contact Us</h1>
-        {% if include.mode == 'full' %}
-          <h2 class="subheader">Shall we develop a solution for you?</h2>
-          <p class="lead">We are always interested to hear about your challenges, and we have a wide range of tools that can help unlock potential hidden in your data. Contact us for a no-obligation chat.</p>
-        {% else %}
-          <h2 class="subheader">Want to talk about a project?</h2>
-          <p class="lead">We are always interested to hear about your challenges, and we have a wide range of tools that can create value for you. Contact us for a no-obligation chat.</p>
-        {% endif %}
+        <h2 id="contact-heading" class="contact-info__heading">Write to us</h2>
+        <p class="contact-info__lead">We reply within one business day.</p>
       {% else %}
-        <h1 id="contact-heading">Kontakt os</h1>
-        {% if include.mode == 'full' %}
-          <h2 class="subheader">Skal vi udvikle en løsning for jer?</h2>
-          <p class="lead">Vi er altid interesseret i at høre om jeres udfordringer, og vi har en lang række værktøjer der kan hjælpe med at udnytte potentialet gemt i din data. Kontakt os for en uforpligtende snak.</p>
-        {% else %}
-          <h2 class="subheader">Vil du tale om et projekt?</h2>
-          <p class="lead">Vi er altid interesserede i at høre om dine udfordringer, og vi har en bred vifte af værktøjer, der kan skabe værdi for jer. Kontakt os for en uforpligtende samtale.</p>
-        {% endif %}
+        <h2 id="contact-heading" class="contact-info__heading">Skriv til os</h2>
+        <p class="contact-info__lead">Vi vender tilbage inden for &eacute;n arbejdsdag.</p>
       {% endif %}
+
+        <a class="contact-info__link" href="mailto:Fjeldmann Solutions<contact@fjeldmann.dk>">
+          contact@fjeldmann.dk
+        </a>
     </div>
 
     {% if include.mode == 'full' %}
-    <form class="contact-form" method="POST" action="/contact/submit" novalidate>
-      <div class="form-row">
-        <label for="contact-email">Email</label>
-        <input id="contact-email" name="email" type="email" required />
-      </div>
-
-      <div class="form-row">
-        {% if page.lang == 'en' %}
-          <label for="contact-name">Name</label>
-          <input id="contact-name" name="name" type="text" required />
-        {% else %}
-          <label for="contact-name">Navn</label>
-          <input id="contact-name" name="name" type="text" required />
-        {% endif %}
-      </div>
-
-      <div class="form-row">
-        {% if page.lang == 'en' %}
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" rows="5" required></textarea>
-        {% else %}
-          <label for="contact-message">Besked</label>
-          <textarea id="contact-message" name="message" rows="5" required></textarea>
-        {% endif %}
-      </div>
-
-      <div class="form-actions">
-        {% if page.lang == 'en' %}
-          <button type="submit" class="btn-primary">Send Message</button>
-        {% else %}
-          <button type="submit" class="btn-primary">Send Besked</button>
-        {% endif %}
-      </div>
-    </form>
+    {% if page.lang == 'en' %}
+      {% assign contact_next = site.url | append: '/en/thank-you/' %}
+      {% assign contact_subject = 'New message from fjeldmann.dk' %}
     {% else %}
-    <div class="contact-form" aria-hidden="false">
-      <div class="form-actions">
+      {% assign contact_next = site.url | append: '/tak/' %}
+      {% assign contact_subject = 'Ny besked fra fjeldmann.dk' %}
+    {% endif %}
+    <form class="contact-form" method="POST" action="https://formsubmit.co/contact@fjeldmann.dk" novalidate>
+      <input type="hidden" name="_subject" value="{{ contact_subject }}">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_next" value="{{ contact_next }}">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"
+             style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+
+      {% if page.lang == 'en' %}
+        <span class="eyebrow eyebrow--muted" style="visibility: hidden;">SEND A MESSAGE</span>
+      {% else %}
+        <span class="eyebrow eyebrow--muted" style="visibility: hidden;">SEND EN BESKED</span>
+      {% endif %}
+
+      <div class="form-grid">
+        <div class="form-row">
+          {% if page.lang == 'en' %}
+            <label for="contact-name">NAME</label>
+          {% else %}
+            <label for="contact-name">NAVN</label>
+          {% endif %}
+          <input id="contact-name" name="name" type="text" required />
+        </div>
+
+        <div class="form-row">
+          <label for="contact-email">E-MAIL</label>
+          <input id="contact-email" name="email" type="email" required />
+        </div>
+      </div>
+
+      <div class="form-row">
         {% if page.lang == 'en' %}
-          <a class="btn-primary" href="mailto:Fjeldmann Solutions<contact@fjeldmann.dk>">Send us an email</a>
+          <label for="contact-message">MESSAGE</label>
+          <textarea id="contact-message" name="message" rows="3" required></textarea>
         {% else %}
-          <a class="btn-primary" href="mailto:Fjeldmann Solutions<contact@fjeldmann.dk>">Send os en e-mail</a>
+          <label for="contact-message">BESKED</label>
+          <textarea id="contact-message" name="message" rows="3" required></textarea>
         {% endif %}
       </div>
-    </div>
+
+      <div class="form-actions">
+        {% if page.lang == 'en' %}
+          <button type="submit" class="btn-primary">SEND MESSAGE &rarr;</button>
+        {% else %}
+          <button type="submit" class="btn-primary">SEND BESKED &rarr;</button>
+        {% endif %}
+      </div>
+
+      {% if page.lang == 'en' %}
+        <p class="contact-form__notice">
+          Your message is delivered through FormSubmit, which forwards it to our inbox.
+          <a href="{{ '/en/privacy/' | relative_url }}">How we handle your data &rarr;</a>
+        </p>
+      {% else %}
+        <p class="contact-form__notice">
+          Din besked leveres via FormSubmit, som videresender den til vores indbakke.
+          <a href="{{ '/privatliv/' | relative_url }}">S&aring;dan h&aring;ndterer vi dine oplysninger &rarr;</a>
+        </p>
+      {% endif %}
+    </form>
     {% endif %}
   </div>
 </section>

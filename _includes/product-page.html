@@ -50,21 +50,36 @@
     <section class="content-section product-page">
         <div class="container product-intro" id="product-overview">
             <div class="product-overview-grid">
-                <div class="product-section product-section--intro">
-                    {% if page.product_intro_heading %}
-                    <h2>{{ page.product_intro_heading }}</h2>
-                    {% endif %}
+                <div class="product-section product-section--intro{% if page.product_collab_logo %} product-section--intro-with-collab{% endif %}">
+                    <div class="product-intro-main">
+                        {% if page.product_intro_heading %}
+                        <h2>{{ page.product_intro_heading }}</h2>
+                        {% endif %}
 
-                    {% if page.product_intro %}
-                    {{ page.product_intro | markdownify }}
-                    {% endif %}
+                        {% if page.product_intro %}
+                        {{ page.product_intro | markdownify }}
+                        {% endif %}
 
-                    {% if page.product_highlights %}
-                    <ul class="product-highlights">
-                        {% for item in page.product_highlights %}
-                        <li>{{ item }}</li>
-                        {% endfor %}
-                    </ul>
+                        {% if page.product_highlights %}
+                        <ul class="product-highlights">
+                            {% for item in page.product_highlights %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                    {% if page.product_collab_logo %}
+                    <aside class="product-collab">
+                        <span class="product-collab-label">{{ page.product_collab_label | default: 'I samarbejde med' }}</span>
+                        {% if page.product_collab_url %}
+                        <a class="product-collab-link" href="{{ page.product_collab_url }}" target="_blank" rel="noopener">
+                            <img class="product-collab-logo" src="{{ page.product_collab_logo | relative_url }}" alt="{{ page.product_collab_alt | default: '' }}" loading="lazy">
+                        </a>
+                        {% else %}
+                        <img class="product-collab-logo" src="{{ page.product_collab_logo | relative_url }}" alt="{{ page.product_collab_alt | default: '' }}" loading="lazy">
+                        {% endif %}
+                    </aside>
                     {% endif %}
                 </div>
             </div>
