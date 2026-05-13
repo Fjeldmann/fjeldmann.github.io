@@ -16,7 +16,7 @@ body_class: layout-legal
     <h2>Data controller</h2>
     <p>
       Fjeldmann Solutions ApS<br>
-      Registration no. (CVR) 44 81 24 37<br>
+      Registration no. (CVR) 46046331<br>
       <a href="mailto:contact@fjeldmann.dk">contact@fjeldmann.dk</a>
     </p>
 
