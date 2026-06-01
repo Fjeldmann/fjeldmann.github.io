@@ -121,5 +121,5 @@ cta:
   email: "contact@fjeldmann.dk"
   website_href: "https://fjeldmann.dk"
   website_label: "fjeldmann.dk"
-  linkedin_href: "https://www.linkedin.com/company/fjeldmann"
+  linkedin_href: "https://www.linkedin.com/showcase/kontekst-translate"
 ---
