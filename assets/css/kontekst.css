@@ -121,6 +121,9 @@
     @media (max-width: 1400px) {
       .hero__wordcloud { top: -80px; }
     }
+    @media (max-height: 820px) {
+      .hero__wordcloud { top: -5gre0px; }
+    }
     .hero__wordcloud img {
       width: 100%;
       height: auto;
