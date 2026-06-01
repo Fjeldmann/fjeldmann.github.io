@@ -23,29 +23,34 @@
     // Translation cycling
     // -----------------------------------------------------------------------
     const cycles = [
-      { from: 'Dansk', to: 'Arabisk',  src: 'Jeg har smerter i maven og feber siden i går',         tgt: 'لدي ألم في بطني وحمى منذ الأمس' },
-      { from: 'Dansk', to: 'Tyrkisk',  src: 'Hvornår er min næste aftale hos lægen?',                tgt: 'Bir sonraki doktor randevum ne zaman?' },
-      { from: 'Dansk', to: 'Russisk',  src: 'Vi skal udfylde ansøgningen om boligstøtte',           tgt: 'Нам нужно заполнить заявление на жилищное пособие' },
-      { from: 'Dansk', to: 'Polsk',    src: 'Du har ret til en gratis tolk ved dette møde',          tgt: 'Masz prawo do bezpłatnego tłumacza na tym spotkaniu' },
+      { from: 'Dansk', to: 'Arabisk',  src: 'Jeg har smerter i maven og feber siden i går',         tgt: 'لدي ألم في بطني وحمى منذ الأمس',                        context: 'Sundhed' },
+      { from: 'Dansk', to: 'Tyrkisk',  src: 'Hvornår er min næste aftale hos lægen?',                tgt: 'Bir sonraki doktor randevum ne zaman?',                   context: 'Sundhed' },
+      { from: 'Dansk', to: 'Russisk',  src: 'Vi skal udfylde ansøgningen om boligstøtte',           tgt: 'Нам нужно заполнить заявление на жилищное пособие',        context: 'Borgerservice' },
+      { from: 'Dansk', to: 'Polsk',    src: 'Du har ret til en gratis tolk ved dette møde',          tgt: 'Masz prawo do bezpłatnego tłumacza na tym spotkaniu',      context: 'Socialrådgivning' },
     ];
 
     let cycleIdx = 0;
 
     function applyTranslation(prefix, t) {
-      const ids = [prefix + '-lang-from', prefix + '-lang-to', prefix + '-src', prefix + '-tgt'];
-      const [fromEl, toEl, srcEl, tgtEl] = ids.map(id => document.getElementById(id));
+      const ids = [prefix + '-lang-from', prefix + '-lang-to', prefix + '-src', prefix + '-tgt', prefix + '-ctx'];
+      const [fromEl, toEl, srcEl, tgtEl, ctxEl] = ids.map(id => document.getElementById(id));
       if (!fromEl) return;
 
       [fromEl, toEl, srcEl, tgtEl].forEach(el => {
         el.style.transition = 'opacity 280ms cubic-bezier(0.16, 1, 0.3, 1)';
         el.style.opacity = '0';
       });
+      if (ctxEl) {
+        ctxEl.style.transition = 'color 280ms cubic-bezier(0.16, 1, 0.3, 1)';
+        ctxEl.style.color = 'transparent';
+      }
 
       setTimeout(() => {
         fromEl.textContent = t.from;
         toEl.textContent   = t.to;
         srcEl.innerHTML    = t.src + '<span class="t-ui__cursor"></span>';
         tgtEl.textContent  = t.tgt;
+        if (ctxEl) { ctxEl.textContent = t.context; ctxEl.style.color = ''; }
         [fromEl, toEl, srcEl, tgtEl].forEach(el => { el.style.opacity = '1'; });
       }, 300);
     }
