@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'da' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon_io/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
+  <link rel="manifest" href="/assets/images/favicon_io/site.webmanifest">
+  {%- seo -%}
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/kontekst.css">
+</head>
+<body>
+
+  {% include navigation.html %}
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-labelledby="hero-heading" style="border-style: none">
+    <div class="hero__wordcloud" aria-hidden="true">
+      <img src="/assets/products.kontekst/product-shots/wordcloud-header.png" alt="">
+    </div>
+    <div class="hero__inner">
+
+      <div class="hero__content">
+        <p class="hero__sub fade-up fade-up--d2">{{ page.hero.subtitle }}</p>
+        <div class="hero__collab fade-up fade-up--d3" style="border-style: none; border-width: 1px 0px 0px; border-color: rgba(34, 34, 34, 0.14)">
+          <span class="hero__collab-label">{{ page.hero.developed_by }}</span>
+          <div class="hero__collab-logos">
+            <a href="https://fjeldmann.dk" target="_blank" rel="noopener" aria-label="Fjeldmann">
+              <img src="/assets/logo/colorpinenametruestackedfalse.png" alt="Fjeldmann">
+            </a>
+            <span class="hero__collab-sep" aria-hidden="true"></span>
+            <a href="https://droidsagency.com" target="_blank" rel="noopener" aria-label="Droids Agency">
+              <img src="/assets/images/droids_logo.svg" alt="Droids Agency" style="height:28px">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Device cluster in hero -->
+      <div class="hero__devices fade-up fade-up--d2" aria-hidden="true">
+
+        <!-- Phone (Translate) -->
+        <div class="device-mockup device-mockup--phone" style="align-self:flex-end; z-index:2;">
+          <div class="device-mockup__screen">
+            <div class="t-ui">
+
+              <!-- TopBar: left / center title / right (AppSwitcher + Person) -->
+              <div class="t-ui__topbar">
+                <div class="t-ui__topbar-left"></div>
+                <span class="t-ui__wordmark">KONTEKST</span>
+                <div class="t-ui__topbar-right">
+                  <span class="material-symbols-outlined t-ui__icon">apps</span>
+                  <span class="material-symbols-outlined t-ui__icon">account_circle</span>
+                </div>
+              </div>
+
+              <!-- Context indicator: horizontal line + context pill -->
+              <div class="t-ui__context-indicator">
+                <span class="t-ui__context-pill">Socialrådgivning</span>
+              </div>
+
+              <div class="t-ui__main">
+                <div class="t-ui__pane t-ui__pane--source">
+                  <p class="t-ui__text" id="h-src">Jeg har smerter i maven og feber siden i går<span class="t-ui__cursor"></span></p>
+                </div>
+                <div class="t-ui__pane">
+                  <p class="t-ui__text t-ui__text--target" id="h-tgt">لدي ألم في بطني وحمى منذ الأمس</p>
+                </div>
+              </div>
+
+              <!-- Language selector: pill / swap / pill -->
+              <div class="t-ui__langs">
+                <button class="t-ui__lang-pill" id="h-lang-from">Dansk</button>
+                <div class="t-ui__swap">
+                  <span class="material-symbols-outlined" style="font-size:9px">swap_horiz</span>
+                </div>
+                <button class="t-ui__lang-pill" id="h-lang-to">Arabisk</button>
+              </div>
+
+              <!-- Bottom controls: [empty] [mic] [empty] -->
+              <div class="t-ui__bottom">
+                <button class="t-ui__mic" id="h-mic" aria-label="Optag tale" data-testid="hero-mic">
+                  <span class="material-symbols-outlined">mic</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <img class="device-mockup__frame" src="/assets/products.kontekst/frames/Apple%20iPhone%2012%20Pro%20Max%20Silver.png" alt="" draggable="false">
+        </div>
+
+        <!-- Laptop (Chat) -->
+        <div class="device-mockup device-mockup--laptop" style="align-self:flex-start; margin-top: 32px;">
+          <div class="device-mockup__screen">
+              <div class="c-ui">
+
+                <!-- TopBar: brand left / icons right -->
+                <div class="c-ui__topbar">
+                  <div class="c-ui__brand">
+                    <div class="c-ui__logo"></div>
+                    <span class="c-ui__title">KONTEKST<span class="c-ui__title-mark">Chat</span></span>
+                  </div>
+                  <div class="c-ui__topbar-right">
+                    <span class="material-symbols-outlined c-ui__topbar-icon">apps</span>
+                    <span class="material-symbols-outlined c-ui__topbar-icon">account_circle</span>
+                  </div>
+                </div>
+
+                <div class="c-ui__body">
+                  <div class="c-ui__sidebar">
+                    <div class="c-ui__join-code">
+                      <p class="c-ui__join-code-label">Deltagerkode</p>
+                      <p class="c-ui__join-code-value">AB12</p>
+                      <div class="c-ui__qr">
+                        <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" fill="white"/><rect x="0" y="0" width="14" height="14" fill="#111"/><rect x="2" y="2" width="10" height="10" fill="white"/><rect x="4" y="4" width="6" height="6" fill="#111"/><rect x="26" y="0" width="14" height="14" fill="#111"/><rect x="28" y="2" width="10" height="10" fill="white"/><rect x="30" y="4" width="6" height="6" fill="#111"/><rect x="0" y="26" width="14" height="14" fill="#111"/><rect x="2" y="28" width="10" height="10" fill="white"/><rect x="4" y="30" width="6" height="6" fill="#111"/><rect x="16" y="0" width="2" height="2" fill="#111"/><rect x="20" y="2" width="2" height="2" fill="#111"/><rect x="24" y="0" width="2" height="2" fill="#111"/><rect x="22" y="4" width="2" height="2" fill="#111"/><rect x="16" y="6" width="2" height="2" fill="#111"/><rect x="24" y="8" width="2" height="2" fill="#111"/><rect x="18" y="10" width="2" height="2" fill="#111"/><rect x="16" y="12" width="2" height="2" fill="#111"/><rect x="22" y="12" width="2" height="2" fill="#111"/><rect x="0" y="16" width="2" height="2" fill="#111"/><rect x="4" y="14" width="2" height="2" fill="#111"/><rect x="8" y="16" width="2" height="2" fill="#111"/><rect x="12" y="14" width="2" height="2" fill="#111"/><rect x="16" y="16" width="2" height="2" fill="#111"/><rect x="20" y="14" width="2" height="2" fill="#111"/><rect x="24" y="16" width="2" height="2" fill="#111"/><rect x="28" y="14" width="2" height="2" fill="#111"/><rect x="32" y="16" width="2" height="2" fill="#111"/><rect x="36" y="14" width="2" height="2" fill="#111"/><rect x="2" y="18" width="2" height="2" fill="#111"/><rect x="6" y="20" width="2" height="2" fill="#111"/><rect x="10" y="18" width="2" height="2" fill="#111"/><rect x="14" y="20" width="2" height="2" fill="#111"/><rect x="18" y="18" width="2" height="2" fill="#111"/><rect x="22" y="20" width="2" height="2" fill="#111"/><rect x="26" y="18" width="2" height="2" fill="#111"/><rect x="30" y="20" width="2" height="2" fill="#111"/><rect x="34" y="18" width="2" height="2" fill="#111"/><rect x="38" y="20" width="2" height="2" fill="#111"/><rect x="0" y="22" width="2" height="2" fill="#111"/><rect x="4" y="24" width="2" height="2" fill="#111"/><rect x="8" y="22" width="2" height="2" fill="#111"/><rect x="12" y="24" width="2" height="2" fill="#111"/><rect x="16" y="22" width="2" height="2" fill="#111"/><rect x="20" y="24" width="2" height="2" fill="#111"/><rect x="24" y="22" width="2" height="2" fill="#111"/><rect x="28" y="24" width="2" height="2" fill="#111"/><rect x="32" y="22" width="2" height="2" fill="#111"/><rect x="36" y="24" width="2" height="2" fill="#111"/><rect x="16" y="26" width="2" height="2" fill="#111"/><rect x="20" y="28" width="2" height="2" fill="#111"/><rect x="24" y="26" width="2" height="2" fill="#111"/><rect x="28" y="28" width="2" height="2" fill="#111"/><rect x="32" y="26" width="2" height="2" fill="#111"/><rect x="36" y="28" width="2" height="2" fill="#111"/><rect x="14" y="30" width="2" height="2" fill="#111"/><rect x="18" y="32" width="2" height="2" fill="#111"/><rect x="22" y="30" width="2" height="2" fill="#111"/><rect x="26" y="32" width="2" height="2" fill="#111"/><rect x="30" y="30" width="2" height="2" fill="#111"/><rect x="34" y="32" width="2" height="2" fill="#111"/><rect x="38" y="30" width="2" height="2" fill="#111"/><rect x="16" y="34" width="2" height="2" fill="#111"/><rect x="20" y="36" width="2" height="2" fill="#111"/><rect x="24" y="34" width="2" height="2" fill="#111"/><rect x="28" y="36" width="2" height="2" fill="#111"/><rect x="32" y="34" width="2" height="2" fill="#111"/><rect x="36" y="36" width="2" height="2" fill="#111"/><rect x="14" y="38" width="2" height="2" fill="#111"/><rect x="22" y="38" width="2" height="2" fill="#111"/><rect x="38" y="38" width="2" height="2" fill="#111"/></svg>
+                      </div>
+                      <button class="c-ui__copy-btn">
+                        <span class="material-symbols-outlined">content_copy</span>
+                        Kopiér link
+                      </button>
+                    </div>
+                    <div class="c-ui__tts">
+                      <div class="c-ui__tts-row">
+                        <div class="c-ui__toggle"></div>
+                        <span class="c-ui__tts-label">Afspil automatisk</span>
+                      </div>
+                      <div class="c-ui__tts-row">
+                        <div class="c-ui__toggle c-ui__toggle--on"></div>
+                        <span class="c-ui__tts-label">Send automatisk</span>
+                      </div>
+                    </div>
+                    <div class="c-ui__guest-list">
+                      <div class="c-ui__guest-card c-ui__guest-card--creator">
+                        <div class="c-ui__guest-dot"></div>
+                        <span class="c-ui__guest-name">Du (vært)</span>
+                        <span class="c-ui__lang-chip">Dansk</span>
+                      </div>
+                      <div class="c-ui__guest-card">
+                        <div class="c-ui__guest-dot"></div>
+                        <span class="c-ui__guest-name">Mariam</span>
+                        <span class="c-ui__lang-chip">Arabisk</span>
+                      </div>
+                    </div>
+                    <button class="c-ui__guide-btn">Start vejledning</button>
+                    <button class="c-ui__end-btn">Afslut samtale</button>
+                  </div>
+                  <div class="c-ui__main">
+                    <div class="c-ui__messages" id="hero-msgs"></div>
+                    <div class="c-ui__input-row">
+                      <button class="c-ui__mic-btn" id="hero-chat-mic" aria-label="Optag">
+                        <span class="material-symbols-outlined">mic</span>
+                      </button>
+                      <div class="c-ui__input" id="hero-input-text"><span id="hero-input-label">Skriv her...</span>
+                        <div class="c-ui__wave" id="hero-wave">
+                          <div class="c-ui__wave-bar"></div>
+                          <div class="c-ui__wave-bar"></div>
+                          <div class="c-ui__wave-bar"></div>
+                          <div class="c-ui__wave-bar"></div>
+                          <div class="c-ui__wave-bar"></div>
+                        </div>
+                      </div>
+                      <div class="c-ui__send" id="hero-send" aria-hidden="true">
+                        <span class="material-symbols-outlined">send</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <img class="device-mockup__frame" src="/assets/products.kontekst/frames/Apple%20Macbook%20Pro%2016%20Space%20Grey.png" alt="" draggable="false">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Fixed top-right button cluster -->
+  <div class="top-buttons">
+    <a href="/translate/" class="login-pill" id="login-pill">Log ind</a>
+  </div>
+
+  <!-- ===== Sticky quick-nav ===== -->
+  <nav class="quicknav" aria-label="Produktmenu">
+    <div class="quicknav__inner">
+      {% for item in page.quicknav %}
+      <a href="{{ item.href }}" class="quicknav__link{% if forloop.first %} is-active{% endif %}">{{ item.label }}</a>
+      {% endfor %}
+    </div>
+  </nav>
+
+  <!-- ===== Overblik ===== -->
+  <section class="section" id="overblik" aria-labelledby="overblik-h">
+    <div class="section__inner">
+      <div class="overview">
+        <div class="overview__copy fade-up">
+          <span class="eyebrow">{{ page.overblik.eyebrow }}</span>
+          <h2 class="section__title" id="overblik-h">{{ page.overblik.title }}</h2>
+          <p>{{ page.overblik.body }}</p>
+          <ul class="highlights">
+            {% for item in page.overblik.highlights %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          <div class="overview__trust fade-up fade-up--d1">
+            <img src="/assets/products.kontekst/eu.png" alt="EU hosting">
+            <img src="/assets/products.kontekst/isae-3000.png" alt="ISAE 3000 Third Party Assurance Report">
+          </div>
+        </div>
+        <div class="overview__image fade-up fade-up--d2">
+          <img src="/assets/products.kontekst/product-shots/chat-chat-meetingroom.png" alt="Kontekst møderum" style="width:70%; height:auto; border-radius:12px; object-fit:cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Problem ===== -->
+  <section class="section section--alt" id="problem" aria-labelledby="problem-h">
+    <div class="section__inner">
+      <div class="fade-up">
+        <span class="eyebrow">{{ page.problem.eyebrow }}</span>
+        <h2 class="section__title" id="problem-h">{{ page.problem.title }}</h2>
+        <p class="section__lead">{{ page.problem.lead }}</p>
+      </div>
+
+      <div class="problem-layout">
+        <div class="problem-cards">
+          {% for card in page.problem.cards %}
+          <div class="info-card fade-up fade-up--d{{ forloop.index }}" style="padding:22px 24px;">
+            <h3>{{ card.title }}</h3>
+            <ul>
+              {% for item in card.items %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Løsning + diagram ===== -->
+  <section class="section" id="loesning" aria-labelledby="loesning-h">
+    <div class="section__inner">
+      <div class="fade-up">
+        <span class="eyebrow">{{ page.loesning.eyebrow }}</span>
+        <h2 class="section__title" id="loesning-h">{{ page.loesning.title }}</h2>
+        <p class="section__lead">
+          {{ page.loesning.lead_before }}<em style="font-style:normal; color:var(--blue-fir); font-weight:600;">{{ page.loesning.lead_highlight }}</em>{{ page.loesning.lead_after }}
+        </p>
+      </div>
+
+      <div class="solution">
+        <div class="diagram fade-up fade-up--d1" aria-label="Produktdiagram">
+          {% for step in page.loesning.diagram %}
+          <div class="diagram__step{% if step.accent %} diagram__step--accent{% endif %}">
+            <span class="diagram__num">{{ forloop.index }}</span>
+            <span>{{ step.label }}</span>
+          </div>
+          {% unless forloop.last %}<div class="diagram__arrow"></div>{% endunless %}
+          {% endfor %}
+        </div>
+
+        <ul class="solution__points fade-up fade-up--d2">
+          {% for point in page.loesning.points %}
+          <li>
+            <b>{{ point.title }}</b>
+            <span>{{ point.body }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Platform — three live product cards ===== -->
+  <section class="section section--alt" id="platform" aria-labelledby="platform-h">
+    <div class="section__inner">
+      <div class="fade-up">
+        <span class="eyebrow">{{ page.platform.eyebrow }}</span>
+        <h2 class="section__title" id="platform-h">{{ page.platform.title }}</h2>
+        <p class="section__lead">{{ page.platform.lead }}</p>
+      </div>
+
+      <div class="platform-grid">
+
+        <!-- Translate -->
+        <article class="platform-card fade-up fade-up--d1">
+          <div class="platform-card__device" aria-hidden="true">
+            <div class="device-mockup device-mockup--phone">
+              <div class="device-mockup__screen">
+                <div class="t-ui">
+                  <div class="t-ui__topbar">
+                    <div class="t-ui__topbar-left"></div>
+                    <span class="t-ui__wordmark">KONTEKST</span>
+                    <div class="t-ui__topbar-right">
+                      <span class="material-symbols-outlined t-ui__icon">apps</span>
+                      <span class="material-symbols-outlined t-ui__icon">account_circle</span>
+                    </div>
+                  </div>
+                  <div class="t-ui__context-indicator">
+                    <span class="t-ui__context-pill">Sundhed</span>
+                  </div>
+                  <div class="t-ui__main">
+                    <div class="t-ui__pane t-ui__pane--source">
+                      <p class="t-ui__text" id="p-src">Udfyld venligst formularen, så vi kan behandle din ansøgning</p>
+                    </div>
+                    <div class="t-ui__pane">
+                      <p class="t-ui__text t-ui__text--target" id="p-tgt">Fadlan buuxi foomka, si aan u xadhiidno codsigaaga</p>
+                    </div>
+                  </div>
+                  <div class="t-ui__langs">
+                    <button class="t-ui__lang-pill" id="p-lang-from">Dansk</button>
+                    <div class="t-ui__swap">
+                      <span class="material-symbols-outlined" style="font-size:9px">swap_horiz</span>
+                    </div>
+                    <button class="t-ui__lang-pill" id="p-lang-to">Russisk</button>
+                  </div>
+                  <div class="t-ui__bottom">
+                    <button class="t-ui__mic" id="p-mic" aria-label="Optag tale">
+                      <span class="material-symbols-outlined">mic</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <img class="device-mockup__frame" src="/assets/products.kontekst/frames/Apple%20iPhone%2012%20Pro%20Max%20Silver.png" alt="" draggable="false">
+            </div>
+          </div>
+          <div class="platform-card__meta">
+            <p class="platform-card__label">{{ page.platform.products[0].label }}</p>
+            <h3 class="platform-card__title">{{ page.platform.products[0].title }}</h3>
+            <p class="platform-card__desc">{{ page.platform.products[0].desc }}</p>
+          </div>
+        </article>
+
+        <!-- Chat -->
+        <article class="platform-card fade-up fade-up--d2">
+          <div class="platform-card__device" aria-hidden="true">
+            <div class="device-mockup device-mockup--laptop">
+              <div class="device-mockup__screen">
+                  <div class="c-ui">
+                    <div class="c-ui__topbar">
+                      <div class="c-ui__brand">
+                        <div class="c-ui__logo"></div>
+                        <span class="c-ui__title">KONTEKST<span class="c-ui__title-mark">Chat</span></span>
+                      </div>
+                      <div class="c-ui__topbar-right">
+                        <span class="material-symbols-outlined c-ui__topbar-icon">apps</span>
+                        <span class="material-symbols-outlined c-ui__topbar-icon">account_circle</span>
+                      </div>
+                    </div>
+                    <div class="c-ui__body">
+                      <div class="c-ui__sidebar">
+                        <div class="c-ui__join-code">
+                          <p class="c-ui__join-code-label">Deltagerkode</p>
+                          <p class="c-ui__join-code-value">CD56</p>
+                          <div class="c-ui__qr">
+                            <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" fill="white"/><rect x="0" y="0" width="14" height="14" fill="#111"/><rect x="2" y="2" width="10" height="10" fill="white"/><rect x="4" y="4" width="6" height="6" fill="#111"/><rect x="26" y="0" width="14" height="14" fill="#111"/><rect x="28" y="2" width="10" height="10" fill="white"/><rect x="30" y="4" width="6" height="6" fill="#111"/><rect x="0" y="26" width="14" height="14" fill="#111"/><rect x="2" y="28" width="10" height="10" fill="white"/><rect x="4" y="30" width="6" height="6" fill="#111"/><rect x="16" y="0" width="2" height="2" fill="#111"/><rect x="20" y="2" width="2" height="2" fill="#111"/><rect x="24" y="0" width="2" height="2" fill="#111"/><rect x="22" y="4" width="2" height="2" fill="#111"/><rect x="16" y="6" width="2" height="2" fill="#111"/><rect x="24" y="8" width="2" height="2" fill="#111"/><rect x="18" y="10" width="2" height="2" fill="#111"/><rect x="16" y="12" width="2" height="2" fill="#111"/><rect x="22" y="12" width="2" height="2" fill="#111"/><rect x="0" y="16" width="2" height="2" fill="#111"/><rect x="4" y="14" width="2" height="2" fill="#111"/><rect x="8" y="16" width="2" height="2" fill="#111"/><rect x="12" y="14" width="2" height="2" fill="#111"/><rect x="16" y="16" width="2" height="2" fill="#111"/><rect x="20" y="14" width="2" height="2" fill="#111"/><rect x="24" y="16" width="2" height="2" fill="#111"/><rect x="28" y="14" width="2" height="2" fill="#111"/><rect x="32" y="16" width="2" height="2" fill="#111"/><rect x="36" y="14" width="2" height="2" fill="#111"/><rect x="2" y="18" width="2" height="2" fill="#111"/><rect x="6" y="20" width="2" height="2" fill="#111"/><rect x="10" y="18" width="2" height="2" fill="#111"/><rect x="14" y="20" width="2" height="2" fill="#111"/><rect x="18" y="18" width="2" height="2" fill="#111"/><rect x="22" y="20" width="2" height="2" fill="#111"/><rect x="26" y="18" width="2" height="2" fill="#111"/><rect x="30" y="20" width="2" height="2" fill="#111"/><rect x="34" y="18" width="2" height="2" fill="#111"/><rect x="38" y="20" width="2" height="2" fill="#111"/><rect x="0" y="22" width="2" height="2" fill="#111"/><rect x="4" y="24" width="2" height="2" fill="#111"/><rect x="8" y="22" width="2" height="2" fill="#111"/><rect x="12" y="24" width="2" height="2" fill="#111"/><rect x="16" y="22" width="2" height="2" fill="#111"/><rect x="20" y="24" width="2" height="2" fill="#111"/><rect x="24" y="22" width="2" height="2" fill="#111"/><rect x="28" y="24" width="2" height="2" fill="#111"/><rect x="32" y="22" width="2" height="2" fill="#111"/><rect x="36" y="24" width="2" height="2" fill="#111"/><rect x="16" y="26" width="2" height="2" fill="#111"/><rect x="20" y="28" width="2" height="2" fill="#111"/><rect x="24" y="26" width="2" height="2" fill="#111"/><rect x="28" y="28" width="2" height="2" fill="#111"/><rect x="32" y="26" width="2" height="2" fill="#111"/><rect x="36" y="28" width="2" height="2" fill="#111"/><rect x="14" y="30" width="2" height="2" fill="#111"/><rect x="18" y="32" width="2" height="2" fill="#111"/><rect x="22" y="30" width="2" height="2" fill="#111"/><rect x="26" y="32" width="2" height="2" fill="#111"/><rect x="30" y="30" width="2" height="2" fill="#111"/><rect x="34" y="32" width="2" height="2" fill="#111"/><rect x="38" y="30" width="2" height="2" fill="#111"/><rect x="16" y="34" width="2" height="2" fill="#111"/><rect x="20" y="36" width="2" height="2" fill="#111"/><rect x="24" y="34" width="2" height="2" fill="#111"/><rect x="28" y="36" width="2" height="2" fill="#111"/><rect x="32" y="34" width="2" height="2" fill="#111"/><rect x="36" y="36" width="2" height="2" fill="#111"/><rect x="14" y="38" width="2" height="2" fill="#111"/><rect x="22" y="38" width="2" height="2" fill="#111"/><rect x="38" y="38" width="2" height="2" fill="#111"/></svg>
+                          </div>
+                          <button class="c-ui__copy-btn">
+                            <span class="material-symbols-outlined">content_copy</span>
+                            Kopiér link
+                          </button>
+                        </div>
+                        <div class="c-ui__tts">
+                          <div class="c-ui__tts-row">
+                            <div class="c-ui__toggle"></div>
+                            <span class="c-ui__tts-label">Afspil automatisk</span>
+                          </div>
+                          <div class="c-ui__tts-row">
+                            <div class="c-ui__toggle c-ui__toggle--on"></div>
+                            <span class="c-ui__tts-label">Send automatisk</span>
+                          </div>
+                        </div>
+                        <div class="c-ui__guest-list">
+                          <div class="c-ui__guest-card c-ui__guest-card--creator">
+                            <div class="c-ui__guest-dot"></div>
+                            <span class="c-ui__guest-name">Du (vært)</span>
+                            <span class="c-ui__lang-chip">Dansk</span>
+                          </div>
+                          <div class="c-ui__guest-card">
+                            <div class="c-ui__guest-dot"></div>
+                            <span class="c-ui__guest-name">Mariam</span>
+                            <span class="c-ui__lang-chip">Arabisk</span>
+                          </div>
+                        </div>
+                        <button class="c-ui__guide-btn">Start vejledning</button>
+                        <button class="c-ui__end-btn">Afslut samtale</button>
+                      </div>
+                      <div class="c-ui__main">
+                        <div class="c-ui__messages" id="card-msgs"></div>
+                        <div class="c-ui__input-row">
+                          <button class="c-ui__mic-btn" id="card-chat-mic" aria-label="Optag">
+                            <span class="material-symbols-outlined">mic</span>
+                          </button>
+                          <div class="c-ui__input" id="card-input-text"><span id="card-input-label">Skriv her...</span>
+                            <div class="c-ui__wave" id="card-wave">
+                              <div class="c-ui__wave-bar"></div>
+                              <div class="c-ui__wave-bar"></div>
+                              <div class="c-ui__wave-bar"></div>
+                              <div class="c-ui__wave-bar"></div>
+                              <div class="c-ui__wave-bar"></div>
+                            </div>
+                          </div>
+                          <div class="c-ui__send" id="card-send">
+                            <span class="material-symbols-outlined">send</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <img class="device-mockup__frame" src="/assets/products.kontekst/frames/Apple%20Macbook%20Pro%2016%20Space%20Grey.png" alt="" draggable="false">
+            </div>
+          </div>
+          <div class="platform-card__meta">
+            <p class="platform-card__label">{{ page.platform.products[1].label }}</p>
+            <h3 class="platform-card__title">{{ page.platform.products[1].title }}</h3>
+            <p class="platform-card__desc">{{ page.platform.products[1].desc }}</p>
+          </div>
+        </article>
+
+        <!-- Admin (static mock) -->
+        <article class="platform-card fade-up fade-up--d3">
+          <div class="platform-card__device" aria-hidden="true">
+            <div class="device-mockup device-mockup--laptop">
+              <div class="device-mockup__screen">
+                  <div class="a-ui">
+                    <div class="a-ui__topbar">
+                      <div class="a-ui__brand">
+                        <div class="a-ui__logo"></div>
+                        <span class="a-ui__title">KONTEKST<span class="a-ui__title-mark">Admin</span></span>
+                      </div>
+                      <div class="a-ui__topbar-right">
+                        <span class="material-symbols-outlined a-ui__topbar-icon">apps</span>
+                        <span class="material-symbols-outlined a-ui__topbar-icon">account_circle</span>
+                      </div>
+                    </div>
+                    <div class="a-ui__body">
+                      <div class="a-ui__sidebar">
+                        <div class="a-ui__nav a-ui__nav--active"><span class="material-symbols-outlined">group</span>Brugere</div>
+                        <div class="a-ui__nav"><span class="material-symbols-outlined">article</span>Licenser</div>
+                        <div class="a-ui__nav"><span class="material-symbols-outlined">settings</span>Konfiguration</div>
+                      </div>
+                      <div class="a-ui__main">
+                        <div class="a-ui__head">
+                          <div class="a-ui__head-text">
+                            <span class="a-ui__crumb">Brugere</span>
+                            <span class="a-ui__h">Brugere (4)</span>
+                          </div>
+                          <span class="a-ui__btn"><span class="material-symbols-outlined">add</span>Tilføj bruger</span>
+                        </div>
+                        <div class="a-ui__search">
+                          <span class="material-symbols-outlined">search</span>
+                          <span class="a-ui__search-placeholder">Søg efter mail eller rolle...</span>
+                        </div>
+                        <div class="a-ui__table">
+                          <div class="a-ui__row a-ui__row--head">
+                            <div>Email</div>
+                            <div>Rolle</div>
+                            <div>Kontekster</div>
+                            <div></div>
+                          </div>
+                          <div class="a-ui__row">
+                            <div class="a-ui__cell">oliver@fjeldmann.dk</div>
+                            <div class="a-ui__cell a-ui__cell--muted">Admin</div>
+                            <div class="a-ui__cell a-ui__cell--muted">Daginstitutioner, Skoleområde</div>
+                            <div class="a-ui__more">⋯</div>
+                          </div>
+                          <div class="a-ui__row">
+                            <div class="a-ui__cell">ahmad@fjeldmann.dk</div>
+                            <div class="a-ui__cell a-ui__cell--muted">Bruger</div>
+                            <div class="a-ui__cell a-ui__cell--muted">Skoleområde, General samtale</div>
+                            <div class="a-ui__more">⋯</div>
+                          </div>
+                          <div class="a-ui__row">
+                            <div class="a-ui__cell">oliver@google.com</div>
+                            <div class="a-ui__cell a-ui__cell--muted">Bruger</div>
+                            <div class="a-ui__cell a-ui__cell--muted">General samtale</div>
+                            <div class="a-ui__more">⋯</div>
+                          </div>
+                          <div class="a-ui__row">
+                            <div class="a-ui__cell">michael@google.com</div>
+                            <div class="a-ui__cell a-ui__cell--muted">Bruger</div>
+                            <div class="a-ui__cell a-ui__cell--muted">Daginstitutioner</div>
+                            <div class="a-ui__more">⋯</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <img class="device-mockup__frame" src="/assets/products.kontekst/frames/Apple%20Macbook%20Pro%2016%20Space%20Grey.png" alt="" draggable="false">
+            </div>
+          </div>
+          <div class="platform-card__meta">
+            <p class="platform-card__label">{{ page.platform.products[2].label }}</p>
+            <h3 class="platform-card__title">{{ page.platform.products[2].title }}</h3>
+            <p class="platform-card__desc">{{ page.platform.products[2].desc }}</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Sikkerhed ===== -->
+  <section class="section" id="sikkerhed" aria-labelledby="sikkerhed-h">
+    <div class="section__inner">
+      <div class="fade-up">
+        <span class="eyebrow">{{ page.sikkerhed.eyebrow }}</span>
+        <h2 class="section__title" id="sikkerhed-h">{{ page.sikkerhed.title }}</h2>
+        <p class="section__lead">{{ page.sikkerhed.lead }}</p>
+      </div>
+
+      <div class="security-cards">
+        {% for card in page.sikkerhed.cards %}
+        <div class="info-card fade-up fade-up--d{{ forloop.index | plus: 1 }}">
+          <h3>{{ card.title }}</h3>
+          <ul>
+            {% for item in card.items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Referencer ===== -->
+  <section class="section section--alt" id="referencer" aria-labelledby="referencer-h">
+    <div class="section__inner">
+      <div class="references">
+        <div class="fade-up" style="text-align:center;">
+          <span class="eyebrow">{{ page.referencer.eyebrow }}</span>
+          <h2 class="section__title" id="referencer-h" style="margin: 0 auto 18px; text-align:center;">{{ page.referencer.title }}</h2>
+          <p class="section__lead" style="margin: 0 auto; text-align:center;">{{ page.referencer.lead }}</p>
+        </div>
+        <div class="reference-logos fade-up fade-up--d2">
+          <span class="reference-logo reference-logo--img">
+            <img src="/assets/products.kontekst/references/Samlet logo_Original farver.svg" alt="Vejle Kommune">
+          </span>
+          <span class="reference-logo reference-logo--img">
+            <img src="/assets/products.kontekst/references/sonderborgkommune_logo_udsigt_i_verdensklasse.png" alt="Sønderborg Kommune">
+          </span>
+          <span class="reference-logo reference-logo--img">
+            <img src="/assets/products.kontekst/references/hillerod-logo-bredformat-farve-digital-RGB.svg" alt="Hillerød Kommune">
+          </span>
+          <span class="reference-logo reference-logo--img">
+            <img src="/assets/products.kontekst/references/Meningspunktet logo-1.webp" alt="Meningspunktet" style="filter: url(#remove-white)">
+          </span>
+          <span class="reference-logo reference-logo--img">
+            <img src="/assets/images/gladsaxe_logo.svg" alt="Gladsaxe Kommune">
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section" id="contact" aria-labelledby="kontakt-h">
+    <div class="section__inner">
+      <div class="cta-panel fade-up">
+        <div>
+          <h2 id="kontakt-h">{{ page.cta.title }}</h2>
+          <p>{{ page.cta.body }}</p>
+          <ul>
+            {% for item in page.cta.items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          <div class="cta-panel__actions">
+            <a class="btn-primary btn-primary--lg" href="{{ page.cta.book_demo_href }}">
+              {{ page.cta.book_demo_label }}
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <aside class="cta-aside">
+          <p class="cta-aside__label">{{ page.cta.contact_label }}</p>
+          <div class="cta-aside__contact">
+            <a href="mailto:{{ page.cta.email }}">
+              <span class="material-symbols-outlined">mail</span>
+              {{ page.cta.email }}
+            </a>
+            <a href="{{ page.cta.website_href }}" target="_blank" rel="noopener">
+              <span class="material-symbols-outlined">language</span>
+              {{ page.cta.website_label }}
+            </a>
+            <a href="{{ page.cta.linkedin_href }}" target="_blank" rel="noopener">
+              <span class="material-symbols-outlined">link</span>
+              LinkedIn
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {% include footer.html %}
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/kontekst.js"></script>
+
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+      <filter id="remove-white" color-interpolation-filters="sRGB" x="-5%" y="-5%" width="110%" height="110%">
+        <!-- Convert RGB to alpha: dark pixels → opaque, white pixels → transparent -->
+        <feColorMatrix type="matrix" result="mask"
+          values="0 0 0 0 0
+                  0 0 0 0 0
+                  0 0 0 0 0
+                 -1 -1 -1 0 3"/>
+        <!-- Sharpen the threshold so near-whites are fully transparent -->
+        <feComponentTransfer in="mask" result="sharp">
+          <feFuncA type="linear" slope="12" intercept="-8"/>
+        </feComponentTransfer>
+        <!-- Apply the mask to the original colours -->
+        <feComposite in="SourceGraphic" in2="sharp" operator="in"/>
+      </filter>
+    </defs>
+  </svg>
+
+</body>
+</html>

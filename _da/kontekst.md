@@ -1,99 +1,125 @@
 ---
+layout: kontekst
 title: "KONTEKST™"
 type: product
-body_class: layout-product
 permalink: /products/kontekst/
 lang: da
 description: "KONTEKST™ gør mødebaseret tolkning mere tilgængelig og pålidelig gennem kontekstbevidst AI og sikker drift i EU."
-product_mail_recipient: contact@fjeldmann.dk
-product_mail_subject: "Bookingforespørgsel: Demo af KONTEKST™"
-product_mail_body: |
-  Hej Fjeldmann,
 
-  Vi vil gerne booke en demo af KONTEKST™.
+hero:
+  subtitle: "Professionelt tolkeværktøj til den offentlige sektor. KONTEKST™ gør mødebaseret tolkning mere tilgængelig og pålidelig gennem kontekstbevidst AI og sikker drift i EU"
+  developed_by: "Udviklet af"
 
-  Organisation:
-  Antal deltagere:
-  Ønsket tidspunkt:
-  Kontaktperson:
-product_image: /assets/products.kontekst/product-shots/wordcloud-header.png
-product_cta_label: "Book demo"
-product_intro_heading: "AI-understøttet tolkebistand"
-product_intro: >
-  KONTEKST™ understøtter sikker tolkning i realtid på tværs af enheder til møder med flere deltagere.
-product_intro_image: /assets/products.kontekst/product-shots/chat-chat-meetingroom.png
-product_highlights:
-  - "Kontekstbevidst AI-tolkning til møder og samtale"
-  - "Sikker drift i EU til offentlige organisationer"
-  - "Virker på tværs af enheder; mobil, tablet og computer"
-product_collab_label: "Udviklet i samarbejde med"
-product_collab_logo: /assets/images/droids_logo_mørk.svg
-product_collab_alt: "Droids Agency"
-product_collab_url: https://droidsagency.com
-product_problem_title: "Traditionel tolkning er udfordrende"
-product_problem_groups:
-  - title: "Kvalitet og tilgængelighed"
-    items:
-      - "Svært at sikre tolke til sjældne sprog"
-      - "Aflysninger og forsinkelser"
-  - title: "Oversættelsesværktøjer er usikre"
-    items:
-      - "Overholder ikke lovpligtige sikkerhedskrav"
-      - "Mangler domæneforståelse"
-      - "Ikke designet til professionel brug"
-product_problem_outro: >
-  Dette betyder, at virksomheder og myndigheder  ofte mangler en løsning, der fungerer i praksis under møder,
-  forstår faglig kontekst og kan bruges sikkert i en professionelle sammenhæng.
-product_problem_image: /assets/products.kontekst/product-shots/translate-3-iphone12pro.png
-product_solution_title: "AI-tolkning med KONTEKST™"
-product_solution_intro: "KONTEKST™ bygger på et **kontekstlag ovenpå sprogmodeller**."
-product_solution_diagram:
-  - "Sprogmodel"
-  - "KONTEKST™ lag"
-  - "Bruger"
-product_solution_points:
-  - "Fagligt forankrede oversættelser"
-  - "Mere relevante svar i mødesituationen"
-  - "Mindre fejlbehæftede oversættelser"
-product_platform_title: "En platform til AI-tolkning"
-product_platform_items:
-  - title: "KONTEKST™ Translate"
-    text: "Kontekstbevidst oversættelse i daglig brug."
-    image: /assets/products.kontekst/product-shots/translate-1-iphone12pro.png
-  - title: "KONTEKST™ Chat"
-    text: "AI-tolkning under møder på tværs af enheder."
-    image: /assets/products.kontekst/product-shots/chat-hostchat-macbookpro.png
-  - title: "KONTEKST™ Admin"
-    text: "Administration af brugere og sikkerhed."
-    image: /assets/products.kontekst/product-shots/chat-admin-macbookpro.png
-product_security_title: "Designet til den offentlige sektor"
-product_security_intro: "Sikkerhed og compliance er centrale elementer i løsningen."
-product_security_badges:
-  - image: /assets/products.kontekst/eu.png
-    alt: "EU hosting"
-  - image: /assets/products.kontekst/Logo-ISAE-3000-1843606459.png
-    alt: "ISAE 3000"
-product_security_groups:
-  - title: "EU hosting"
-    items:
-      - "drift i Microsoft Azure EU-tenant"
-  - title: "Databeskyttelse"
-    items:
-      - "dataminimering"
-      - "formålsbegrænsning"
-  - title: "Compliance"
-    items:
-      - "GDPR"
-      - "relevante cloud certificeringer"
-product_references_title: "Erfaring fra kommunal praksis"
-product_references_intro: "Platformen bygger på erfaring fra løsninger anvendt i samarbejde med danske kommuner."
-product_references_logos: /assets/products.kontekst/image.png
-product_references_points:
-product_cta_title: "Vil I høre mere om KONTEKST™?"
-product_cta_text: "Vi viser gerne løsningen i praksis og taler om pilot, sikkerhed og integrationer."
-product_cta_points:
-  - "Book en demo"
-  - "Start et pilotprojekt"
-  - "Kontakt os"
+quicknav:
+  - label: "Overblik"
+    href: "#overblik"
+  - label: "Problemet"
+    href: "#problem"
+  - label: "Løsningen"
+    href: "#loesning"
+  - label: "Platform"
+    href: "#platform"
+  - label: "Sikkerhed"
+    href: "#sikkerhed"
+  - label: "Referencer"
+    href: "#referencer"
+
+overblik:
+  eyebrow: "AI-tolkning til den offentlige sektor"
+  title: "Sikker realtidstolkning til borgersamtaler og møder"
+  body: "KONTEKST™ tolker samtaler i realtid på tværs af mobil, tablet og computer. Bygget til den danske offentlige sektor med kontekstbevidst AI og drift i EU."
+  highlights:
+    - "Kontekstbevidst AI tilpasset jeres fagområder"
+    - "Sikker drift i EU"
+    - "Fungerer på mobil, tablet og computer uden installation"
+
+problem:
+  eyebrow: "Problemet"
+  title: "Traditionel tolkning er udfordrende"
+  lead: "Kommuner og virksomheder har brug for tolkning hver dag, men de eksisterende løsninger lever sjældent op til kravene i praksis."
+  cards:
+    - title: "Kvalitet og tilgængelighed"
+      items:
+        - "Svært at skaffe tolke til sjældne sprog"
+        - "Aflysninger og forsinkelser"
+        - "Manglende kontinuitet fra møde til møde"
+    - title: "Oversættelsesværktøjer er usikre"
+      items:
+        - "Overholder ikke lovpligtige sikkerhedskrav"
+        - "Forstår ikke fagsprog og kontekst"
+        - "Ikke bygget til professionel brug"
+
+loesning:
+  eyebrow: "Løsningen"
+  title: "AI-tolkning med KONTEKST™"
+  lead_before: "KONTEKST™ lægger et "
+  lead_highlight: "kontekstlag"
+  lead_after: " ovenpå sprogmodellen. Det gør oversættelserne fagligt forankrede, mere relevante og mindre fejlbehæftede."
+  diagram:
+    - label: "Sprogmodel"
+    - label: "KONTEKST™ lag"
+      accent: true
+    - label: "Bruger"
+  points:
+    - title: "Fagligt forankrede oversættelser"
+      body: "Domænekontekst — fx ydelser, lovgivning og terminologi — indgår i hver oversættelse."
+    - title: "Sammenhæng gennem hele mødet"
+      body: "Konteksten opdateres løbende, så samtalen ikke starter forfra ved hver sætning."
+    - title: "Færre fejl"
+      body: "Mindre risiko for misforståelser i sager, hvor præcision er afgørende."
+
+platform:
+  eyebrow: "Platformen"
+  title: "Flere værktøjer, ét kontekstlag"
+  lead: "KONTEKST™ består af flere apps, der deler samme kontekstmodel. Alle vises live nedenfor, præcis som de fungerer hos jer."
+  products:
+    - label: "KONTEKST™ Translate"
+      title: "Kontekstbevidst oversættelse til daglig brug"
+      desc: "Designet til dagligdagssituationer, hvor der er brug for hurtig og præcis kommunikation."
+    - label: "KONTEKST™ Chat"
+      title: "Møder med realtidsoversættelse"
+      desc: "Borgere deltager fra deres egen enhed. Al tale transskriberes, oversættes og læses op automatisk."
+    - label: "KONTEKST™ Admin"
+      title: "Central administration og konfiguration"
+      desc: "Hold styr på brugere, licenser, datapolitikker mm."
+
+sikkerhed:
+  eyebrow: "Sikkerhed"
+  title: "Bygget til den offentlige sektor"
+  lead: "Sikkerhed og compliance er centrale elementer i løsningen."
+  cards:
+    - title: "EU hosting"
+      items:
+        - "Drift i Microsoft Azure EU-tenant"
+        - "Data forlader aldrig EU"
+    - title: "Databeskyttelse"
+      items:
+        - "Dataminimering"
+        - "Formålsbegrænsning"
+        - "Ingen træning på jeres data"
+    - title: "Compliance"
+      items:
+        - "GDPR-compliant"
+        - "Relevante cloud-certificeringer"
+        - "Audit-logs og adgangskontrol"
+
+referencer:
+  eyebrow: "Referencer"
+  title: "Erfaring fra kommunal praksis"
+  lead: "Platformen bygger på erfaring fra konkrete samarbejder med danske kommuner."
+
+cta:
+  title: "Vil I høre mere om KONTEKST™?"
+  body: "Vi viser gerne løsningen i praksis og fortæller om pilotforløb, sikkerhed og integrationer."
+  items:
+    - "Demo tilpasset jeres organisation"
+    - "Pilotforløb uden binding"
+    - "Klart overblik over værdi og implementering"
+  book_demo_label: "Book demo"
+  book_demo_href: "mailto:contact@fjeldmann.dk?subject=Bookingforesp%C3%B8rgsel%3A%20Demo%20af%20KONTEKST%E2%84%A2&body=Hej%20Fjeldmann%2C%0A%0AVi%20vil%20gerne%20booke%20en%20demo%20af%20KONTEKST%E2%84%A2.%0A%0AOrganisation%3A%0AAntal%20deltagere%3A%0A%C3%98nsket%20tidspunkt%3A%0AKontaktperson%3A"
+  contact_label: "Kontakt os"
+  email: "contact@fjeldmann.dk"
+  website_href: "https://fjeldmann.dk"
+  website_label: "fjeldmann.dk"
+  linkedin_href: "https://www.linkedin.com/company/fjeldmann"
 ---
-{% include product-page.html %}

@@ -411,6 +411,10 @@ body::before {
     display: none;
 }
 
+.nav-lang--mobile {
+    display: none;
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
@@ -657,22 +661,33 @@ body::before {
         padding: 0.6rem 1rem;
     }
 
-    /* Show hamburger, hide desktop contact */
+    /* Show hamburger + compact contact button, hide lang toggle in top bar */
     .hamburger {
         display: flex;
     }
 
     .nav-contact--desktop {
+        display: block;
+    }
+
+    .nav-contact--desktop .contact-btn {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.6rem;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+    }
+
+    .nav-lang {
         display: none;
     }
 
-    .nav-contact--mobile {
+    .nav-lang--mobile {
         display: block;
-        padding: 1rem 0;
+        padding: 0.5rem 0 1rem;
     }
 
-    .nav-contact--mobile .contact-btn {
-        display: inline-block;
+    .nav-contact--mobile {
+        display: none;
     }
     
     .nav-menu {

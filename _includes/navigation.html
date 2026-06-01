@@ -46,6 +46,14 @@
                 <a href="#contact" class="contact-btn">Kontakt os</a>
                 {% endif %}
             </div>
+            <!-- Language toggle — visible only inside the mobile sandwich menu -->
+            <div class="nav-lang nav-lang--mobile">
+                {% if page.lang == 'en' %}
+                <a href="{{ '/' | relative_url }}" class="lang-link">dansk</a>
+                {% else %}
+                <a href="{{ '/en/' | relative_url }}" class="lang-link">engelsk</a>
+                {% endif %}
+            </div>
         </div>
         
         <div class="nav-controls">
@@ -59,9 +67,9 @@
             </div>
             <div class="nav-lang">
             {% if page.lang == 'en' %}
-                <a href="{{ '/' | relative_url }}" class="lang-link">da</a>
+                <a href="{{ '/' | relative_url }}" class="lang-link">dansk</a>
             {% else %}
-                <a href="{{ '/en/' | relative_url }}" class="lang-link">en</a>
+                <a href="{{ '/en/' | relative_url }}" class="lang-link">engelsk</a>
             {% endif %}
             </div>
             <!-- Hamburger button — visible only on mobile -->
