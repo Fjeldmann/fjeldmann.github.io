@@ -644,14 +644,14 @@ body::before {
 @media screen and (max-width: 768px) {
     .footer-inner {
         grid-template-columns: 1fr;
-        justify-items: start;
+        justify-items: center;
         gap: 0.75rem;
     }
 
     .footer-copyright,
     .footer-contact {
-        justify-self: start;
-        text-align: left;
+        justify-self: center;
+        text-align: center;
     }
 }
 

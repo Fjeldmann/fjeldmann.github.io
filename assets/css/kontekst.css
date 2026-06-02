@@ -2271,7 +2271,8 @@
     =================================================================== */
     /* ===== Tablet (≤1024px) ===== */
     @media (max-width: 1024px) {
-      .hero__inner { grid-template-columns: 1fr; padding: 48px 24px 32px; gap: 40px; }
+      .hero { align-items: flex-start; }
+      .hero__inner { grid-template-columns: 1fr; padding: 220px 24px 32px; gap: 40px; }
       .hero__content { max-width: 620px; margin: 0 auto; text-align: left; order: 2; }
       .hero__sub { max-width: none; }
       .hero__wordcloud { opacity: 1; }
