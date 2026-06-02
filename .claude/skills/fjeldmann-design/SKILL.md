@@ -1,6 +1,6 @@
 ---
 name: fjeldmann-design
-description: Apply Fjeldmann brand design standards when building or editing UI components, pages, layouts, or any visual element on the fjeldmann.github.io site. Use this skill when the user asks to build, style, update, or review frontend code for this project.
+description: Apply Fjeldmann brand design standards. Only invoke when the user explicitly types /fjeldmann-design — never auto-trigger.
 ---
 
 # Fjeldmann Design System — Senior UI/UX Engineering Framework
