@@ -12,6 +12,7 @@ body_class: layout-legal
 <section class="legal-section">
   <div class="legal-inner">
     <h1 class="legal-heading">S&aring;dan h&aring;ndterer vi dine oplysninger</h1>
+    <p class="legal-updated">Sidst opdateret: 13. maj 2026</p>
 
     <h2>Den dataansvarlige</h2>
     <p>

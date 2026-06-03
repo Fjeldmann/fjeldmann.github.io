@@ -12,6 +12,7 @@ body_class: layout-legal
 <section class="legal-section">
   <div class="legal-inner">
     <h1 class="legal-heading">How we handle your data</h1>
+    <p class="legal-updated">Last updated: 13 May 2026</p>
 
     <h2>Data controller</h2>
     <p>
