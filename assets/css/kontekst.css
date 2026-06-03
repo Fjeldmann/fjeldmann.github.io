@@ -1498,14 +1498,16 @@
     .platform-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
+      --card-gap: 24px;
+      gap: var(--card-gap);
     }
     .platform-card__device > .device-mockup { min-width: 0; }
     .platform-card {
+      container-type: inline-size;
       background: var(--white-snow);
       border: 1px solid rgba(0,0,0,0.07);
       border-radius: var(--radius-lg);
-      padding: 32px 28px;
+      padding: var(--card-gap) 28px 28px;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -1517,7 +1519,7 @@
       box-shadow: 0 8px 28px rgba(2,89,81,0.10);
     }
     .platform-card__device {
-      height: 340px;
+      height: min(340px, 97cqi);
       flex-shrink: 0;
       display: flex;
       justify-content: center;
@@ -1527,11 +1529,11 @@
       user-select: none;
     }
     .platform-card__device > .device-mockup--phone {
-      zoom: 0.82;
+      zoom: min(0.82, calc(97cqi / 415px));
       flex-shrink: 0;
     }
     .platform-card__device > .device-mockup--laptop {
-      zoom: 0.58;
+      zoom: min(0.58, calc(97cqi / 583px));
       flex-shrink: 0;
     }
     .platform-card__meta {
@@ -2283,8 +2285,8 @@
       .overview__image { display: none; }
       .overview__aside { max-width: 520px; margin: 0 auto; }
       .solution { grid-template-columns: 1fr; gap: 32px; }
-      .platform-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 20px; }
-      .platform-card { padding: 28px 24px; }
+      .platform-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; --card-gap: 20px; gap: var(--card-gap); }
+      .platform-card { padding: var(--card-gap) 24px 24px; }
       .security { grid-template-columns: 1fr; gap: 32px; }
       .cta-panel { grid-template-columns: 1fr; padding: 48px 36px; gap: 32px; }
     }
@@ -2395,11 +2397,11 @@
       .solution__points li span { font-size: 0.875rem; }
 
       /* ----- Platform cards ----- */
-      .platform-grid { gap: 16px; max-width: 460px; }
-      .platform-card { padding: 24px 20px 28px; border-radius: 14px; gap: 16px; min-width: 0; }
+      .platform-grid { --card-gap: 16px; gap: var(--card-gap); max-width: 460px; }
+      .platform-card { padding: var(--card-gap) 20px 28px; border-radius: 14px; gap: 16px; min-width: 0; }
       .platform-card__device { height: 260px; }
       .platform-card__device > .device-mockup--phone {
-        zoom: 0.78;
+        zoom: 0.62;
         transform: none;
       }
       .platform-card__device > .device-mockup--laptop {
@@ -2478,10 +2480,10 @@
       .diagram__step { padding: 11px 12px; font-size: 0.6875rem; gap: 10px; }
 
       /* Platform cards — keep device readable but trim further */
-      .platform-card { padding: 22px 18px 24px; gap: 28px; }
+      .platform-card { padding: var(--card-gap) 18px 24px; gap: 28px; }
       .platform-card__device { height: 240px; }
       .platform-card__device > .device-mockup--phone {
-        zoom: 0.72;
+        zoom: 0.57;
         transform: none;
       }
       .platform-card__device > .device-mockup--laptop {
